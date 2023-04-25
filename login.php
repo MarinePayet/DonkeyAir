@@ -6,7 +6,7 @@ require_once 'footer.php';
 ?>
 
 <main class="form-signin m-auto w-80">
-    <form class=" form-pax form-box " >
+    <form class=" form-pax form-box " action="verification.php" method="POST" >
         <img class="mb-4" src="DONKEY AIR.svg" alt="" width="100" height="100">
         <h4 class=" mb-3 fw-normal"> Connectez-vous</h4>
 
@@ -22,7 +22,7 @@ require_once 'footer.php';
 
         <div>
 
-            <button class="btn btn-lg btn-custom" type="submit">Connexion</button>
+            <button class="btn btn-lg btn-custom" id="submit" value ="LOGIN" type="submit">Connexion</button>
         </div>
     </form>
 </main>
