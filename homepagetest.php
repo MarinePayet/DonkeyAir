@@ -20,4 +20,4 @@ require_once 'footer.php';
     </select>
 
     <button type="button" class="btn">SEARCH FLIGHTS</button>
-</sections>
+</sections> 
