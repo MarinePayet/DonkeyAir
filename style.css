@@ -1,0 +1,97 @@
+.navbar {
+  border: 1px solid rgba(0, 0, 0, 1);
+  background-color: rgb(10, 10, 10);
+  
+}
+.container{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.titre {
+  position: absolute;
+  left: 116px;
+  right: 1191px;
+  top: 25px;
+  
+
+  font-family: "Jaldi";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  
+  display: flex;
+  align-items: center;
+
+  color: #ffffff;
+}
+.btnHeader{   
+    /* My BOOKINGS */
+
+
+    position: absolute;
+    width: 179px;
+    height: 40px;
+    right: 10px;
+    top: 24px;  
+    background: #FFA28F;
+    border-radius: 10px;
+}
+
+.btn{
+    /* SEARCH FLIGHTS */
+    position: absolute;
+    width: 186px;
+    height: 95px;
+    right: 25%;
+    top: 400px;
+    
+    background: #FFA28F;
+    border-radius: 10px;  
+}
+.btn:hover{
+    background-color: #db4da971;
+}
+.form-select1{
+    /* departure */
+    position: absolute;
+width: 335px;
+height: 115px;
+left: calc(50% - 335px/2 - 323.5px);
+top: calc(50% - 115px/2 - 96.5px);
+
+background: #FFFFFF;
+border-radius: 10px;
+}
+.form-select2{
+    /* return */
+    position: absolute;
+width: 335px;
+height: 115px;
+left: calc(50% - 335px/2 - 323.5px);
+top: calc(50% - 115px/2 + 37.5px);
+
+background: #FFFFFF;
+border-radius: 10px;
+}
+.form-select3{
+    /* PASSENGERS */
+    position: absolute;
+    width: 335px;
+    height: 115px;
+    left: calc(50% - 335px/2 + 76.5px);
+    top: calc(50% - 115px/2 - 91.5px);
+    
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+.form-select4{
+    /* DATES */
+    position: absolute;
+width: 335px;
+height: 115px;
+left: calc(50% - 335px/2 + 76.5px);
+top: calc(50% - 115px/2 + 37.5px);
+
+background: #FFFFFF;
+border-radius: 10px;
+}
