@@ -10,22 +10,22 @@ require_once 'verification.php';
 
 
 
-<div id="content">
-    <!-- tester si l'utilisateur est connecté -->
-    <!-- <?php
-            
-        // session_start();
-        $_SESSION['email'] = $_POST['email'];
+    <div id="content">
+        <!-- tester si l'utilisateur est connecté -->
+        <!-- <?php
 
-            // var_dump($_SESSION['email']);
+                // session_start();
+                $_SESSION['email'] = $_POST['email'];
 
-            // if($_SESSION['email'] !== ""){
+                // var_dump($_SESSION['email']);
+
+                // if($_SESSION['email'] !== ""){
                 $user = $_SESSION['email'];
 
                 // foreach (Database::getPdo()->query('SELECT * FROM users WHERE email= "' . $user . '"', PDO::FETCH_ASSOC) as $user){
                 //     echo "Bonjour " . $user['name'] . ", vous êtes connecté";
-            //     }; 
-            // }
+                //     }; 
+                // }
 
 
                 ?> -->
@@ -36,7 +36,7 @@ require_once 'verification.php';
         <div class="row align-items-start">
 
             <div class="col">
-               
+
                 <h1 class="titre">DonkeyAir</h1>
 
                 <p class="slogan">la compagnie qui vous fait prendre de la hauteur.......à dos d’ane✈</p>
@@ -47,14 +47,22 @@ require_once 'verification.php';
     </div>
     <br>
 
+
+
     <div class="container-lg">
 
 
         <form action="search.php" method="GET">
             <label for="depart">Départ:</label>
-            <input type="text" id="depart" name="depart" required><br>
+            <select id="depart" name="depart">
+                <option value=""></option>
+
+            </select>
             <label for="destination">Destination:</label>
-            <input type="text" id="destination" name="destination" required><br>
+            <select id="depart" name="depart">
+                <option value=""></option>
+
+            </select>
             <label for="date">Date de départ:</label>
             <input type="date" id="date" name="date" required><br>
             <label for="date">Date de retour:</label>
@@ -71,4 +79,4 @@ require_once 'verification.php';
             <input type="submit" value="Envoyer">
 
         </form>
-     </div>
+    </div>
