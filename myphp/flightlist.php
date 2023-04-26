@@ -13,9 +13,9 @@ require_once 'footer.php';
 <div class="container-xl">
 	<br>
 	<div class="table-responsive">
-		<table class="table  ">
+		<table class=" table table-striped table-hover ">
 
-			<p class="text-uppercase fw-bold fs-3">Vol Aller</p>
+			<p class="text-uppercase fw-bold fs-4">Vol Aller</p>
 			<tr class="table">
 				<th>Date</th>
 				<th>Heure</th>
@@ -32,7 +32,7 @@ require_once 'footer.php';
 				<td>AB123</td>
 				<td>450€</td>
 				<td>
-					<input class="btn btn-primary" type="submit" value="Submit">
+					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
 			</tr>
 			<tr>
@@ -41,7 +41,7 @@ require_once 'footer.php';
 				<td>CD456</td>
 				<td>€</td>
 				<td>
-					<input class="btn btn-primary" type="submit" value="Submit">
+					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
 			</tr>
 			<tr>
@@ -50,15 +50,18 @@ require_once 'footer.php';
 				<td>EF789</td>
 				<td>€</td>
 				<td>
-					<input class="btn btn-primary" type="submit" value="Submit">
+					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
 			</tr>
+
+
+
 
 		</table>
 	</div><br>
 	<div class="table-responsive">
-		<table class="table">
-			<p class="text-uppercase fw-bold fs-3">Vol retour</p>
+		<table class="table table-striped table-hover">
+			<p class="text-uppercase fw-bold fs-4">Vol retour</p>
 			<tr class="table">
 				<th>Date</th>
 				<th>Heure</th>
@@ -67,13 +70,13 @@ require_once 'footer.php';
 				<th></th>
 				<th></th>
 			</tr>
-            <tr>
+			<tr>
 				<td>26 avril 2023</td>
 				<td>10:00</td>
 				<td>AB123</td>
 				<td>450€</td>
 				<td>
-					<input class="btn btn-primary" type="submit" value="Submit">
+					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
 
 			</tr>
@@ -83,7 +86,7 @@ require_once 'footer.php';
 				<td>CD456</td>
 				<td>€</td>
 				<td>
-					<input class="btn btn-primary" type="submit" value="Submit">
+					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
 			</tr>
 			<tr>
@@ -92,21 +95,17 @@ require_once 'footer.php';
 				<td>EF789</td>
 				<td>€</td>
 				<td>
-					<input class="btn btn-primary" type="submit" value="Submit">
+					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
 			</tr>
 
 		</table>
 
 	</div>
-	<?php
 
-	require_once 'header.php';
-	require_once 'footer.php';
-
-	?>
+	
 	<div class="optionbox">
-		<h2>Mes Options de voyage</h2>
+	<p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
 		<form>
 			<label for="vip-access">VIP Acces:</label>
 			<p>Accès au salon - Accès prioritaire aux controles</p>
@@ -165,6 +164,6 @@ require_once 'footer.php';
 	</div>
 </div>
 <div class="sticky-bar">
-	<div class="total">Total à payer : <span id="total">800€</span></div>
+	<div class="total">Total à payer :     <span id="total">800€</span></div>
 	<button id="valider">Valider</button>
 </div>
