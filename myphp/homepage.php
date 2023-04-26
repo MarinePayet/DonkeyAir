@@ -2,25 +2,31 @@
 
 require_once 'header.php';
 require_once 'footer.php';
-require_once 'db.php';
-require_once 'config.php'; ?>
+require_once 'Database.php';
+require_once 'verification.php';
+?>
 
 <body style="background-image: url('pexels-nicole-avagliano-2236713.jpg');background-repeat: no-repeat;background-size: cover;">
 
 
 
+<div id="content">
+    <!-- tester si l'utilisateur est connecté -->
+    <!-- <?php
+            
+        // session_start();
+        $_SESSION['email'] = $_POST['email'];
 
-    <div id="content">
-        <!-- tester si l'utilisateur est connecté -->
-        <!-- <?php
-                // session_start();
-                // if($_SESSION['email'] !== ""){
-                //     $user = $_SESSION['email'];
+            // var_dump($_SESSION['email']);
 
-                //     foreach ($pdo->query('SELECT * FROM users WHERE email= "' . $user . '"', PDO::FETCH_ASSOC) as $user){
-                //         echo "Bonjour " . $user['name'] . ", vous êtes connecté";
-                //     }; 
-                // }
+            // if($_SESSION['email'] !== ""){
+                $user = $_SESSION['email'];
+
+                // foreach (Database::getPdo()->query('SELECT * FROM users WHERE email= "' . $user . '"', PDO::FETCH_ASSOC) as $user){
+                //     echo "Bonjour " . $user['name'] . ", vous êtes connecté";
+            //     }; 
+            // }
+
 
                 ?> -->
 
