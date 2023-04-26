@@ -26,7 +26,8 @@
                 <p class="fw-bold"></p>
             </div>
             <div class="align-self-center">
-                <div class="p-2"><a class="btn btn-primary btn-lg" href="login.php" role="button">Login</a></div>
+                <div class="p-2"><a class="btn btn-danger
+                 btn-lg" href="login.php" role="button">Login</a></div>
             </div>
 
         </div>
