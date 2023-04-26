@@ -38,7 +38,7 @@ require_once 'verification.php';
             <div class="col">
 
                 <h1 class="titre">DonkeyAir</h1>
-                <h2 class="slogan">la compagnie qui vous fait prendre de la hauteur.......à dos d’ane✈</h2>
+                <p class="slogan">la compagnie qui vous fait prendre de la hauteur.......à dos d’ane✈</p>
             </div>
 
         </div>

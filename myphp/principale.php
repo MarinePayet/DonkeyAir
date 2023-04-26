@@ -16,7 +16,7 @@ if($_SESSION['email'] !== ""){
         echo "Bonjour " . $user['name'] . ", vous êtes connecté";
     }; 
 }
- 
+
 ?>
 
 </div>

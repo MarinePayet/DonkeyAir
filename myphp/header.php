@@ -1,4 +1,3 @@
- 
 <!doctype html>
 <html lang="en">
 
@@ -23,11 +22,11 @@
                 </a></div>
             <div class="align-self-center">DonkeyAir</div>
             <div class="p-2 flex-grow-1">
-                <p class="fw-bold"></p>
+            <p class="fw-bold"></p>
             </div>
             <div class="align-self-center">
                 <div class="p-2"><a class="btn btn-danger
-                 btn-lg" href="login.php" role="button">Login</a></div>
+                btn-lg" href="login.php" role="button">Login</a></div>
             </div>
             <div class="align-self-center">
                 <div class="p-2"><a class="btn btn-primary btn-lg" href="logout.php" role="button">Log out</a></div>
