@@ -4,7 +4,7 @@ require_once 'header.php';
 require_once 'footer.php';
 require_once 'Database.php';
 
-session_start();
+// session_start();
 
 if(isset($_POST['email']) && isset($_POST['password'])) {
 
@@ -28,16 +28,21 @@ try {
         
 
         if($count != 0){
-            foreach ($db->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC) as $user){
-                echo "Bonjour " . $user['name'] . ", vous êtes connecté ! </br></br>";
-            }; 
-    
+            // foreach ($db->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC) as $user){
+            //     echo "Bonjour " . $user['name'] . ", vous êtes connecté ! </br></br>";
+
+            // }; 
+            $statement = $db->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC);
+                var_dump($result = $statement->fetch());
+                
+            };
+            var_dump($_SESSION['name'] = $result['name']);
+            
             ?><a class="btn btn-primary btn-lg" href="homepage.php">Commencer la recherche</a></div><?php
+            
         } else {
             echo "introuvable";
         }
-    }
-
 
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
