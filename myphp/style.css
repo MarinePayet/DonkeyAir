@@ -100,3 +100,28 @@ form {
   width: 500px;
   padding: 30px;
 }
+
+.div-recap{
+
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  
+}
+
+.div-recap-dedans{
+  background-color: white;
+  width: 500px;
+  border-radius: 17px;
+  padding: 10px;
+}
+
+.div-info{
+  border-bottom-style: solid;
+  border-top-style: solid;
+  padding: 10px;
+}
+.div-info-vol{
+  border-bottom-style: solid;
+  padding-top: 10px;
+}
