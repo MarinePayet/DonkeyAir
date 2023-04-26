@@ -9,23 +9,30 @@ session_start();
 if(isset($_POST['email']) && isset($_POST['password'])) {
 
     $usermail = trim($_POST['email']);
+
     $password = trim($_POST['password']);
+
 
 try {
     if($usermail !== "" && $password !== ""){ 
 
-        $db = new PDO('mysql:host=localhost; dbname=donkeyair', 'root', '');
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db = Database::getPdo();
+
         
         $query = "SELECT count(*) FROM users where email = '". $usermail."' and password = '".$password."' ";
-        
+
         $statement = $db->prepare($query);
+
         $reponse = $statement->execute();
         $count = $statement->fetchColumn();
         
 
         if($count != 0){
-            echo "ok existe dans la base";
+            foreach ($db->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC) as $user){
+                echo "Bonjour " . $user['name'] . ", vous êtes connecté ! </br></br>";
+            }; 
+    
+            ?><a class="btn btn-primary btn-lg" href="homepage.php">Commencer la recherche</a></div><?php
         } else {
             echo "introuvable";
         }
@@ -37,3 +44,4 @@ try {
 }
     
 }
+
