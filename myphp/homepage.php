@@ -9,6 +9,7 @@ require_once 'verification.php';
 <body style="background-image: url('pexels-nicole-avagliano-2236713.jpg');background-repeat: no-repeat;background-size: cover;">
 
 
+
 <div id="content">
     <!-- tester si l'utilisateur est connecté -->
     <!-- <?php
@@ -26,58 +27,46 @@ require_once 'verification.php';
             //     }; 
             // }
 
-            ?> -->
 
-</div>
-
-<div class="container text-center">
-    <div class="row align-items-start">
-
-        <div class="col">
-
-            <h1 class="titre"> DonkeyAir,la compagnie qui vous fait prendre de la hauteur.......à dos d’ane✈</h1>
-        </div>
+                ?> -->
 
     </div>
-</div>
-<br>
 
-<div class="container-lg">
+    <div class="container text-center">
+        <div class="row align-items-start">
 
+            <div class="col">
 
-    <form action="search.php" method="GET">
-        <label for="depart">Départ:</label>
-        <input type="text" id="depart" name="depart" required><br>
-        <label for="destination">Destination:</label>
-        <input type="text" id="destination" name="destination" required><br>
-        <label for="date">Date de départ:</label>
-        <input type="date" id="date" name="date" required><br>
-        <label for="date">Date de retour:</label>
-        <input type="date" id="date" name="date" required><br>
-        <label for="passagers">Passagers:</label>
-        <select id="passagers" name="passagers">
-            <option value="1a-0c">1 adulte, 0 enfant</option>
-            <option value="1a-1c">1 adulte, 1 enfant</option>
-            <option value="1a-2c">1 adulte, 2 enfants</option>
-            <option value="2a-0c">2 adultes, 0 enfant</option>
-            <option value="2a-1c">2 adultes, 2 enfant</option>
-            <option value="2a-2c">2 adultes, 3 enfants</option>
-        </select>
-        <input type="submit" value="Envoyer">
+                <h1 class="titre">DonkeyAir</h1>
+                <h2 class="slogan">la compagnie qui vous fait prendre de la hauteur.......à dos d’ane✈</h2>
+            </div>
 
-    </form>
+        </div>
+    </div>
+    <br>
 
-</div>
+    <div class="container-lg">
 
 
+        <form action="search.php" method="GET">
+            <label for="depart">Départ:</label>
+            <input type="text" id="depart" name="depart" required><br>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required><br>
+            <label for="date">Date de départ:</label>
+            <input type="date" id="date" name="date" required><br>
+            <label for="date">Date de retour:</label>
+            <input type="date" id="date" name="date" required><br>
+            <label for="passagers">Passagers:</label>
+            <select id="passagers" name="passagers">
+                <option value="1a-0c">1 adulte, 0 enfant</option>
+                <option value="1a-1c">1 adulte, 1 enfant</option>
+                <option value="1a-2c">1 adulte, 2 enfants</option>
+                <option value="2a-0c">2 adultes, 0 enfant</option>
+                <option value="2a-1c">2 adultes, 2 enfant</option>
+                <option value="2a-2c">2 adultes, 3 enfants</option>
+            </select>
+            <input type="submit" value="Envoyer">
 
-
-
-
-
-
-
-
-
-
-</div>
+        </form>
+     </div>
