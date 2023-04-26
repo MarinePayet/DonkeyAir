@@ -16,21 +16,34 @@
     <nav class="p-1 mb-2 bg-dark text-white">
 
         <div class="d-flex">
-            <div class="p-2"><a class="navbar-brand" href="homepage.php">
-                    <img src="DONKEY AIR.svg" alt="Logo" width="80" height="80">
-
-                </a></div>
+            <div class="p-2">
+                <a class="navbar-brand" href="homepage.php"><img src="DONKEY AIR.svg" alt="Logo" width="80" height="80"></a></div>
             <div class="align-self-center">DonkeyAir</div>
             <div class="p-2 flex-grow-1">
             <p class="fw-bold"></p>
             </div>
-            <div class="align-self-center">
-                <div class="p-2"><a class="btn btn-danger
-                btn-lg" href="login.php" role="button">Login</a></div>
+
+
+            <?php 
+session_start();
+    if(isset($__SESSION['name'])){
+        ?><div class="align-self-center">
+                <div class="p-2"><a class="btn btn-danger btn-lg" href="login.php" role="button">Login</a></div>
+            </div> <?php
+    } else {
+        var_dump($_SESSION['name']);
+
+        ?>
+        <div class="align-self-center">
+            <div class="p-2">
+                <a class="btn btn-primary btn-lg" href="logout.php" role="button">Log out</a>
+
             </div>
-            <div class="align-self-center">
-                <div class="p-2"><a class="btn btn-primary btn-lg" href="logout.php" role="button">Log out</a></div>
-            </div>
+        </div>
+    <?php } ?>
+
+
+            
 
         </div>
     </nav>
