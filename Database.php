@@ -22,7 +22,7 @@ class DataBase
     
     private function getPDO(){
         if($this->pdo === null){
-            $pdo = new PDO('mysql:host=localhost; dbname=PokemonCrud', 'root', '');
+            $pdo = new PDO('mysql:host=localhost; dbname=donkeyair', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
         }
@@ -30,7 +30,7 @@ class DataBase
         
         //TRY / CATCH Copié; voIR SI CA FONCTIONNE
         try {
-            $pdo = new PDO('mysql:host=localhost; dbname=PokemonCrud', 'root', '');
+            $pdo = new PDO('mysql:host=localhost; dbname=donkeyair', 'root', '');
         }
         catch (PDOException $pe){
             if(ENV === 'test'){

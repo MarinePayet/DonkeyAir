@@ -14,6 +14,7 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
 try {
     if($usermail !== "" && $password !== ""){ 
 
+
         $db = new PDO('mysql:host=localhost; dbname=donkeyair', 'root', '');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
@@ -26,6 +27,7 @@ try {
 
         if($count != 0){
             echo "ok existe dans la base";
+            header('Location: homepage.php');
         } else {
             echo "introuvable";
         }
