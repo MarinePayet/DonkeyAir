@@ -28,6 +28,9 @@
             <div class="align-self-center">
                 <div class="p-2"><a class="btn btn-primary btn-lg" href="login.php" role="button">Login</a></div>
             </div>
+            <div class="align-self-center">
+                <div class="p-2"><a class="btn btn-primary btn-lg" href="logout.php" role="button">Log out</a></div>
+            </div>
 
         </div>
     </nav>
