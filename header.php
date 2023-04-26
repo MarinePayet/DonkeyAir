@@ -1,7 +1,7 @@
  
 <!doctype html>
 <html lang="en">
-
+​
 <head>
 <script src="../assets/js/color-modes.js"></script>
     <meta charset="utf-8">
@@ -13,27 +13,27 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <title>DonkeyAir</title>
-
 </head>
-
-
+​
+​
 <body>
-
+​
     <nav class="p-1 mb-2 bg-dark text-white">
-
+​
         <div class="d-flex">
             <div class="p-2"><a class="navbar-brand" href="homepage.php">
                     <img src="DONKEY AIR.svg" alt="Logo" width="80" height="80">
-
+​
                 </a></div>
             <div class="align-self-center">DonkeyAir</div>
             <div class="p-2 flex-grow-1">
                 <p class="fw-bold"></p>
             </div>
             <div class="align-self-center">
-                <div class="p-2"><a class="btn btn-primary btn-lg" href="login.php" role="button">Login</a></div>
+                <div class="p-4"><a class="btn btn-primary btn-lg" href="login.php" role="button">Login</a></div>
             </div>
-
+​
         </div>
     </nav>
