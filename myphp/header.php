@@ -1,4 +1,3 @@
- 
 <!doctype html>
 <html lang="en">
 
@@ -21,8 +20,9 @@
                 <a class="navbar-brand" href="homepage.php"><img src="DONKEY AIR.svg" alt="Logo" width="80" height="80"></a></div>
             <div class="align-self-center">DonkeyAir</div>
             <div class="p-2 flex-grow-1">
-                <p class="fw-bold"></p>
+            <p class="fw-bold"></p>
             </div>
+
 
             <?php 
 session_start();
@@ -37,6 +37,7 @@ session_start();
         <div class="align-self-center">
             <div class="p-2">
                 <a class="btn btn-primary btn-lg" href="logout.php" role="button">Log out</a>
+
             </div>
         </div>
     <?php } ?>
