@@ -9,6 +9,7 @@ require_once 'Database.php';
 if(isset($_POST['email']) && isset($_POST['password'])) {
     $usermail = trim($_POST['email']);
     $password = trim($_POST['password']);
+    
 
 
 try {
@@ -20,6 +21,8 @@ try {
         $query = "SELECT count(*) FROM users where email = '". $usermail."' and password = '".$password."' ";
 
         $statement = $db->prepare($query);
+        // $statement->bindValue(':usermail', $usermail, PDO::PARAM_STR);
+        // $statement->bindValue(':password', $password, PDO::PARAM_STR);
 
         $reponse = $statement->execute();
         $count = $statement->fetchColumn();
