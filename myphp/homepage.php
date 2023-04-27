@@ -56,7 +56,7 @@ require_once 'Airport.php';
     <div class="container-lg">
 
 
-        <form action="homepage.php" method="POST">
+        <form action="flightlist.php" method="POST">
             <label for="depart">Départ:</label>
             <select id="depart" name="departs">
                 <?php Airport::listAirport() ?>;
@@ -72,30 +72,15 @@ require_once 'Airport.php';
             <input type="date" id="date" name="date_retour" required><br>
             <label for="passagers">Passagers:</label>
             <select id="passagers" name="passagers">
-                <option value="1a-0c" name="1">1 adulte, 0 enfant</option>
-                <option value="1a-1c" name="2">1 adulte, 1 enfant</option>
-                <option value="1a-2c" name="3">1 adulte, 2 enfants</option>
-                <option value="2a-0c" name="2">2 adultes, 0 enfant</option>
-                <option value="2a-1c" name="4">2 adultes, 2 enfant</option>
-                <option value="2a-2c" name="5">2 adultes, 3 enfants</option>
+                <option value="1" name="1">1 adulte, 0 enfant</option>
+                <option value="2" name="2">1 adulte, 1 enfant</option>
+                <option value="3" name="3">1 adulte, 2 enfants</option>
+                <option value="2" name="2">2 adultes, 0 enfant</option>
+                <option value="4" name="4">2 adultes, 2 enfant</option>
+                <option value="5" name="5">2 adultes, 3 enfants</option>
             </select>
             <input type="submit" value="Envoyer">
 
         </form>
     </div>
 
-    <?php
-    if (isset($_POST['departs'])); {
-        $depart = $_POST['departs'];
-        $destination = $_POST['destination'];
-        $date_depart = $_POST['date_depart'];
-        $date_retour = $_POST['date_retour'];
-        $passagers = $_POST['passagers'];
-    }
-    var_dump($depart);
-    var_dump($destination);
-    var_dump($date_depart);
-    var_dump($date_retour);
-    var_dump($passagers);
-
-?>
