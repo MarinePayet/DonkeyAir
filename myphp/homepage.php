@@ -42,7 +42,7 @@ require_once 'Airport.php';
 
             </select>
             <label for="destination">Destination:</label>
-            <select id="destination" name="airport_id" >
+            <select id="destination" name="destination" >
                 <?php Airport::listAirport() ?>;
             </select>
 
