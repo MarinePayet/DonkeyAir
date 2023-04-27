@@ -18,40 +18,65 @@ require_once 'Database.php'
 	<div class="table-responsive">
 		<table class=" table table-striped table-hover ">
 
-			<p class="text-uppercase fw-bold fs-4">Vol Aller</p>
+			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart'];?> </p>
 			<tr class="table">
-				<th>Date</th>
-				<th>Heure</th>
+				
+				<th>Heure de depart</th>
+				<th>heure d'arriver</th>
 				<th>Numéro de vol</th>
+				<th>place disponible</th>
 				<th>prix</th>
-				<th></th>
-				<th></th>
+				<th>action</th>
+				
 			</tr>
 
 
+<?php
+
+$db= DataBase::getPdo();
+$statement=$db->query('SELECT * FROM flights');
+$statement->execute();
+$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($flights as $flight)
+{
+$arrival_time = $flight['arrival_time'];
+$departure_time = $flight['departure_time'];
+$flight_number = $flight['flight_number'];
+$available_seats = $flight['available_seats'];
+$price = $flight['price'];
+}	
+
+var_dump($flight)
+?>
+
 			<tr>
-				<td>26 avril 2023</td>
-				<td>10:00</td>
-				<td>AB123</td>
-				<td>450€</td>
+				<td><?php echo $departure_time=$flight['departure_time'];?></td>
+				<td><?php echo $arrival_time = $flight['arrival_time'];?></td>
+				<td><?php echo $flight_number = $flight['flight_number'];?></td>
+				<td><?php echo $available_seats = $flight['available_seats'];?></td>
+				<td><?php echo $price = $flight['price'];?></td>
+				<td><input class="btn btn-primary" type="submit" value="ajouter"></td>
+         		
+			</tr>
+			<tr>
+				
+			<td><?php echo $departure_time=$flight['departure_time'];?></td>
+				<td><?php echo $arrival_time = $flight['arrival_time'];?></td>
+				<td><?php echo $flight_number = $flight['flight_number'];?></td>
+				<td><?php echo $available_seats = $flight['available_seats'];?></td>
+				<td><?php echo $price = $flight['price'];?></td>
+				
 				<td>
 					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
 			</tr>
 			<tr>
-				<td>27 avril 2023</td>
-				<td>14:30</td>
-				<td>CD456</td>
-				<td>€</td>
-				<td>
-					<input class="btn btn-primary" type="submit" value="ajouter">
-				</td>
-			</tr>
-			<tr>
-				<td>28 avril 2023</td>
-				<td>08:15</td>
-				<td>EF789</td>
-				<td>€</td>
+				
+			<td><?php echo $flight['departure_time'];?></td>
+				<td><?php echo $flight['arrival_time'];?></td>
+				<td><?php echo $flight['flight_number'];?></td>
+				<td><?php echo $flight['available_seats'];?></td>
+				<td><?php echo $flight['price'];?></td>
 				<td>
 					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
@@ -64,39 +89,47 @@ require_once 'Database.php'
 	</div><br>
 	<div class="table-responsive">
 		<table class="table table-striped table-hover">
-			<p class="text-uppercase fw-bold fs-4">Vol retour</p>
+			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour'];?></p>
 			<tr class="table">
-				<th>Date</th>
-				<th>Heure</th>
+				
+				<th>Heure de depart</th>
+				<th>heure d'arriver</th>
 				<th>Numéro de vol</th>
+				<th>place disponible</th>
 				<th>prix</th>
 				<th></th>
-				<th></th>
+				
 			</tr>
 			<tr>
-				<td>26 avril 2023</td>
-				<td>10:00</td>
-				<td>AB123</td>
-				<td>450€</td>
+			
+			<td><?php echo $flight['departure_time'];?></td>
+				<td><?php echo $flight['arrival_time'];?></td>
+				<td><?php echo $flight['flight_number'];?></td>
+				<td><?php echo $flight['available_seats'];?></td>
+				<td><?php echo $flight['price'];?></td>
 				<td>
 					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
 
 			</tr>
 			<tr>
-				<td>27 avril 2023</td>
-				<td>14:30</td>
-				<td>CD456</td>
-				<td>€</td>
+				
+			<td><?php echo $flight['departure_time'];?></td>
+				<td><?php echo $flight['arrival_time'];?></td>
+				<td><?php echo $flight['flight_number'];?></td>
+				<td><?php echo $flight['available_seats'];?></td>
+				<td><?php echo $flight['price'];?></td>
 				<td>
 					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
 			</tr>
 			<tr>
-				<td>28 avril 2023</td>
-				<td>08:15</td>
-				<td>EF789</td>
-				<td>€</td>
+				
+			<td><?php echo $flight['departure_time'];?></td>
+				<td><?php echo $flight['arrival_time'];?></td>
+				<td><?php echo $flight['flight_number'];?></td>
+				<td><?php echo $flight['available_seats'];?></td>
+				<td><?php echo $flight['price'];?></td>
 				<td>
 					<input class="btn btn-primary" type="submit" value="ajouter">
 				</td>
@@ -107,6 +140,49 @@ require_once 'Database.php'
 	</div>
 
 	
+
+<?php
+
+if (isset($_POST['departs'])); {
+	$depart = $_POST['departs'];
+	$destination = $_POST['destination'];
+	$date_depart = $_POST['date_depart'];
+	$date_retour = $_POST['date_retour'];
+	$passagers = $_POST['passagers'];
+}
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<div class="optionbox">
 	<p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
 		<form>
@@ -171,18 +247,3 @@ require_once 'Database.php'
 	<button id="valider">Valider</button>
 </div>  
 
-<?php
-
-if (isset($_POST['departs'])); {
-	$depart = $_POST['departs'];
-	$destination = $_POST['destination'];
-	$date_depart = $_POST['date_depart'];
-	$date_retour = $_POST['date_retour'];
-	$passagers = $_POST['passagers'];
-}
-    var_dump($depart);
-    var_dump($destination);
-    var_dump($date_depart);
-    var_dump($date_retour);
-    var_dump($passagers);
-?>
