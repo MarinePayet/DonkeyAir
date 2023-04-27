@@ -38,12 +38,12 @@ require_once 'Airport.php';
 
             <label for="depart">Départ:</label>
             <select id="depart" name="depart">
-                <?php Airport::listAirport() ?>;
+            <?php Airport::listAirport() ?>;
 
             </select>
             <label for="destination">Destination:</label>
-            <?php $db = Database::getPdo();
-            $airports = $db->query('SELECT * FROM airports ');
+            <?php Airport::listAirport() ?>;
+
 
             ?>
             <select id="destination" name="airport_id" >
@@ -80,21 +80,7 @@ require_once 'Airport.php';
     </div>
 
 
-    <?php
-    if (isset($_POST['departs'])); {
-        $depart = $_POST['departs'];
-        $destination = $_POST['destination'];
-        $date_depart = $_POST['date_depart'];
-        $date_retour = $_POST['date_retour'];
-        $passagers = $_POST['passagers'];
-    }
-    var_dump($depart);
-    var_dump($destination);
-    var_dump($date_depart);
-    var_dump($date_retour);
-    var_dump($passagers);
-
-?>
+    
 
     <br><br><br><br><br><br>
 

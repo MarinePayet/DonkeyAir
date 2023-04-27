@@ -175,3 +175,19 @@ if(isset($_POST['destination'])){
 	<div class="total">Total à payer :     <span id="total">800€</span></div>
 	<button id="valider">Valider</button>
 </div>
+
+<?php
+    if (isset($_POST['departs'])); {
+        $depart = $_POST['departs'];
+        $destination = $_POST['destination'];
+        $date_depart = $_POST['date_depart'];
+        $date_retour = $_POST['date_retour'];
+        $passagers = $_POST['passagers'];
+    }
+    var_dump($depart);
+    var_dump($destination);
+    var_dump($date_depart);
+    var_dump($date_retour);
+    var_dump($passagers);
+
+?>
