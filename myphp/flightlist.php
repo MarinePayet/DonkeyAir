@@ -2,13 +2,23 @@
 
 require_once 'header.php';
 require_once 'footer.php';
+require_once 'Database.php'
 ?>
 <title>Liste de vols</title>
 
 
+<!-- <?php
+
+// $db = Database::getPdo();
+// $statement = $db->query('SELECT departure_time, flight_number, price
+// FROM flights 
+// WHERE id = ');
+
+// $flightlist = $statement->fetchall();
+// var_dump($flightlist);
 
 
-
+?> -->
 
 <div class="container-xl">
 	<br>
