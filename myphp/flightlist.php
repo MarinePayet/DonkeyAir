@@ -19,6 +19,11 @@ require_once 'Database.php'
 
 
 ?> -->
+<?php
+if(isset($_POST['destination'])){
+	echo $_POST['destination'];
+}
+?>
 
 <div class="container-xl">
 	<br>
