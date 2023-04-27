@@ -7,34 +7,11 @@ require_once 'verification.php';
 require_once 'Airport.php';
 ?>
 
-
-<body style="background-image: url('myphp/assets/img/pexels-nicole-avagliano-2236713.jpg');background-repeat: no-repeat;background-size: cover;">
-
-
-
-    <div id="content">
-        <!-- tester si l'utilisateur est connecté -->
-        <!-- <?php
-
-                // session_start();
-                $_SESSION['email'] = $_POST['email'];
-
-                // var_dump($_SESSION['email']);
-
-                // if($_SESSION['email'] !== ""){
-                $user = $_SESSION['email'];
-
-                // foreach (Database::getPdo()->query('SELECT * FROM users WHERE email= "' . $user . '"', PDO::FETCH_ASSOC) as $user){
-                //     echo "Bonjour " . $user['name'] . ", vous êtes connecté";
-                //     }; 
-                // }
-
-
-                ?> -->
+<body style="background-image: url('../myphp/assets/img/pexels-nicole-avagliano-2236713.jpg');background-repeat: no-repeat;background-size: cover;">
 
 
 
-    </div>
+
 
     <div class="container text-center">
         <div class="row align-items-start">
@@ -56,33 +33,52 @@ require_once 'Airport.php';
     <div class="container-lg">
 
 
+
         <form action="homepage.php" method="POST">
+
             <label for="depart">Départ:</label>
-            <select id="depart" name="departs">
+            <select id="depart" name="depart">
                 <?php Airport::listAirport() ?>;
 
             </select>
             <label for="destination">Destination:</label>
-            <select id="depart" name="destination">
-                <?php Airport::listAirport() ?>;
+            <?php $db = Database::getPdo();
+            $airports = $db->query('SELECT * FROM airports ');
+
+            ?>
+            <select id="destination" name="airport_id" >
+            <?php foreach ($airports as $airport): 
+
+            
+            ?>
+                <option name="airport_id" value="<?php echo $airport['airport_id'] ?>"> <?php echo $airport['airport_id'] ?> </option>  
+                <?php ; ?>
+
+          
+            <?php endforeach; 
+            ?>
             </select>
+
             <label for="date">Date de départ:</label>
-            <input type="date" id="date" name="date_depart" required><br>
+            <input type="date" id="date" name="date_depart" ><br>
             <label for="date">Date de retour:</label>
-            <input type="date" id="date" name="date_retour" required><br>
+            <input type="date" id="date" name="date_retour" ><br>
+
             <label for="passagers">Passagers:</label>
             <select id="passagers" name="passagers">
-                <option value="1a-0c" name="1">1 adulte, 0 enfant</option>
-                <option value="1a-1c" name="2">1 adulte, 1 enfant</option>
-                <option value="1a-2c" name="3">1 adulte, 2 enfants</option>
-                <option value="2a-0c" name="2">2 adultes, 0 enfant</option>
-                <option value="2a-1c" name="4">2 adultes, 2 enfant</option>
-                <option value="2a-2c" name="5">2 adultes, 3 enfants</option>
+                <option value="1" name="1">1 adulte, 0 enfant</option>
+                <option value="2" name="2">1 adulte, 1 enfant</option>
+                <option value="3" name="3">1 adulte, 2 enfants</option>
+                <option value="2" name="2">2 adultes, 0 enfant</option>
+                <option value="4" name="4">2 adultes, 2 enfant</option>
+                <option value="5" name="5">2 adultes, 3 enfants</option>
             </select>
+            <!-- <input type="hidden" value="<?=$airport['id']?>" name="airport_id"> -->
             <input type="submit" value="Envoyer">
 
         </form>
     </div>
+
 
     <?php
     if (isset($_POST['departs'])); {
@@ -99,3 +95,6 @@ require_once 'Airport.php';
     var_dump($passagers);
 
 ?>
+
+    <br><br><br><br><br><br>
+
