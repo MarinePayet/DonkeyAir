@@ -53,14 +53,14 @@ require_once 'Airport.php';
     <div class="container-lg">
 
 
-        <form action="flightlist.php" method="GET">
+        <form action="flightlist.php" method="POST">
             <label for="depart">Départ:</label>
-            <select id="depart" name="departs">
+            <select id="depart" name="airport_id">
                 <?php Airport::listAirport() ?>;
 
             </select>
             <label for="destination">Destination:</label>
-            <select id="depart" name="destination">
+            <select id="destination" name="airport_id">
                 <?php Airport::listAirport() ?>;
             </select>
             <label for="date">Date de départ:</label>
