@@ -7,9 +7,7 @@ require_once 'Database.php';
 // session_start();
 
 if(isset($_POST['email']) && isset($_POST['password'])) {
-
     $usermail = trim($_POST['email']);
-
     $password = trim($_POST['password']);
 
 
