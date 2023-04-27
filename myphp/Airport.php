@@ -12,7 +12,7 @@ Class Airport
         $airports = $db->query('SELECT * FROM airports ');
 
         foreach ($airports as $airport): ?>
-            <option value="<?php $airport['airport_id'] ?>"> <?php echo $airport['city']; ?> </option>  
+            <option value="<?php echo $airport['airport_id'] ?>"> <?php echo $airport['city']; ?> </option>  
         <?php endforeach; 
     }
 

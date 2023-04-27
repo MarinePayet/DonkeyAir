@@ -9,13 +9,6 @@ require_once 'Database.php'
 
 <!-- <?php
 
-// $db = Database::getPdo();
-// $statement = $db->query('SELECT departure_time, flight_number, price
-// FROM flights 
-// WHERE id = ');
-
-// $flightlist = $statement->fetchall();
-// var_dump($flightlist);
 
 
 ?> -->
