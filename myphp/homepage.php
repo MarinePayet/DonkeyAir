@@ -11,7 +11,7 @@ require_once 'Airport.php';
 
 
 
-    
+
 
     <div class="container text-center">
         <div class="row align-items-start">
@@ -33,7 +33,9 @@ require_once 'Airport.php';
     <div class="container-lg">
 
 
-        <form action="#" method="POST">
+
+        <form action="homepage.php" method="POST">
+
             <label for="depart">Départ:</label>
             <select id="depart" name="depart">
                 <?php Airport::listAirport() ?>;
@@ -76,10 +78,23 @@ require_once 'Airport.php';
 
         </form>
     </div>
+
+
+    <?php
+    if (isset($_POST['departs'])); {
+        $depart = $_POST['departs'];
+        $destination = $_POST['destination'];
+        $date_depart = $_POST['date_depart'];
+        $date_retour = $_POST['date_retour'];
+        $passagers = $_POST['passagers'];
+    }
+    var_dump($depart);
+    var_dump($destination);
+    var_dump($date_depart);
+    var_dump($date_retour);
+    var_dump($passagers);
+
+?>
+
     <br><br><br><br><br><br>
-   <?php 
-   var_dump($_POST['airport_id']);
-   var_dump($_POST);
-   if(isset($_POST['airport_id'])){
-            echo $_POST['airport_id'] ;}
-            ?>
+

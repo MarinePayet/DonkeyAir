@@ -11,10 +11,10 @@ Class Airport
         $db = Database::getPdo();
         $airports = $db->query('SELECT * FROM airports');
 
-        foreach ($airports as $airport): 
-        
-        ?>
-            <option name="airport_id" value="<?php $airport['airport_id'] ?>"> <?php echo $airport['city']; ?> </option>  
+
+        foreach ($airports as $airport): ?>
+            <option value="<?php echo $airport['airport_id'] ?>"> <?php echo $airport['city']; ?> </option>  
+
         <?php endforeach; 
     }
 
