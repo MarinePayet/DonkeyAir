@@ -17,7 +17,7 @@
 
         <div class="d-flex">
             <div class="p-2">
-                <a class="navbar-brand" href="homepage.php"><img src="DONKEY AIR.svg" alt="Logo" width="80" height="80"></a></div>
+                <a class="navbar-brand" href="homepage.php"><img src="myphp/assets/img/DONKEY AIR.svg" alt="Logo" width="80" height="80"></a></div>
             <div class="align-self-center">DonkeyAir</div>
             <div class="p-2 flex-grow-1">
             <p class="fw-bold"></p>
