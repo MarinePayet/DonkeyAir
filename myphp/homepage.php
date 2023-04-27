@@ -42,21 +42,8 @@ require_once 'Airport.php';
 
             </select>
             <label for="destination">Destination:</label>
-            <?php $db = Database::getPdo();
-            $airports = $db->query('SELECT * FROM airports ');
-
-            ?>
             <select id="destination" name="airport_id" >
-            <?php foreach ($airports as $airport): 
-
-            
-            ?>
-                <option name="airport_id" value="<?php echo $airport['airport_id'] ?>"> <?php echo $airport['airport_id'] ?> </option>  
-                <?php ; ?>
-
-          
-            <?php endforeach; 
-            ?>
+                <?php Airport::listAirport() ?>;
             </select>
 
             <label for="date">Date de départ:</label>
@@ -78,5 +65,6 @@ require_once 'Airport.php';
 
         </form>
     </div>
+
 
 
