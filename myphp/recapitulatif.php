@@ -1,6 +1,8 @@
 <?php
 require_once 'header.php';
 require_once 'footer.php';
+require_once 'Database.php'
+
 
 ?>
 
@@ -90,6 +92,10 @@ require_once 'footer.php';
         <p>Options 3</p>
     </div>
 </div>
+
+<?php
+
+
 
 
 

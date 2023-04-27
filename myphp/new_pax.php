@@ -1,6 +1,9 @@
 <?php
 require_once 'header.php';
 require_once 'footer.php';
+require_once 'Database.php';
+require_once 'Passenger.php';
+
 ?>
 
 
@@ -8,7 +11,7 @@ require_once 'footer.php';
 
 <div class="container">
      <div class="form-box">
-          <form>
+          <form action= "#" method= "post">
                <div class="form-pax">
                     <label for="sexe">Sexe :</label>
                     <div class="radio-pax">
@@ -20,33 +23,28 @@ require_once 'footer.php';
                </div>
 
                <div class="form-pax">
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" required>
-               </div>
-
-               <div class="form-pax">
-                    <label for="prenom">Prénom :</label>
-                    <input type="text" id="prenom" name="prenom" required>
+                    <label for="name">Nom Prénom :</label>
+                    <input type="text" id="name" name="name">
                </div>
 
                <div class="form-pax">
                     <label for="email">E-mail :</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email">
                </div>
 
                <div class="form-pax">
-                    <label for="tel">Téléphone :</label>
-                    <input type="tel" id="tel" name="tel" required>
+                    <label for="phone">Téléphone :</label>
+                    <input type="tel" id="phone" name="phone">
                </div>
 
                <div class="form-pax">
                     <label for="dateNaissance">Date de naissance :</label>
-                    <input type="date" id="dateNaissance" name="dateNaissance" required>
+                    <input type="date" id="dateNaissance" name="dateNaissance">
                </div>
 
                <div class="form-pax">
-                    <label for="passport">Numéro de passeport :</label>
-                    <input type="text" id="passport" name="passport" required>
+                    <label for="passport_number">Numéro de passeport :</label>
+                    <input type="text" id="passport_number" name="passport_number">
                </div>
 
                <input type="submit" value="Enregistrer">
@@ -54,6 +52,32 @@ require_once 'footer.php';
           </form>
      </div>
 </div>
+
+<?php
+
+Passenger::createPassenger();
+
+
+
+
+
+
+
+
+
+// Création d'une instance de la classe Passenger
+// $passenger = new Passenger($pdo);
+
+// var_dump($passenger);
+
+// Insertion des données des passagers dans la base de données
+// foreach ($passenger as $key => $value) {
+//     $passenger->createPassenger($names[$key], $emails[$key], $phones[$key], $passport_numbers[$key]);
+// }
+
+// Redirection vers la page de récapitulatif
+// header('Location: recapitulatif.php');
+// exit();
 
 
 
