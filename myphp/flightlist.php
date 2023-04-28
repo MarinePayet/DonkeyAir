@@ -70,7 +70,7 @@ require_once 'Database.php'
 
 			<?php
             $db = DataBase::getPdo();
-			$statement = $db->query('SELECT * FROM flights WHERE departure_airport_id = ' . $_POST['depart']);
+			$statement = $db->query('SELECT * FROM flights WHERE departure_airport_id = ' . $_POST['destination']);
 			$statement->execute();
 			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
 			foreach ($flights as $flight) {
