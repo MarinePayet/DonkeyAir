@@ -90,4 +90,6 @@ SELECT users.name, flights_go.flight_number as flight_go, flights.departure_time
 
 
 
+
 ALTER TABLE `flights` ADD COLUMN `departure_date` DATE;
+
