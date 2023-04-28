@@ -14,8 +14,12 @@ require_once 'Database.php'
 ?> -->
 <?php
 if(isset($_POST['destination'])){
-	echo $_POST['destination'];
+	echo $_POST['destination'];}
+if(isset($_POST['depart'])){
+	echo $_POST['depart'];
 }
+var_dump($_POST['depart']);
+var_dump($_POST['destination']);
 ?>
 
 <div class="container-xl">
@@ -35,31 +39,26 @@ if(isset($_POST['destination'])){
 				
 			</tr>
 
-
 <?php
+
+
 
 $db= DataBase::getPdo();
 $statement=$db->query('SELECT * FROM flights');
 $statement->execute();
 $flights = $statement->fetchAll(PDO::FETCH_ASSOC);
-foreach ($flights as $flight)
-{
-$arrival_time = $flight['arrival_time'];
-$departure_time = $flight['departure_time'];
-$flight_number = $flight['flight_number'];
-$available_seats = $flight['available_seats'];
-$price = $flight['price'];
-}	
-
+for($i=0; $i<count($flights); $i++){
+	$flight = $flights[$i];
+}
 var_dump($flight)
 ?>
 
 			<tr>
-				<td><?php echo $departure_time=$flight['departure_time'];?></td>
-				<td><?php echo $arrival_time = $flight['arrival_time'];?></td>
-				<td><?php echo $flight_number = $flight['flight_number'];?></td>
-				<td><?php echo $available_seats = $flight['available_seats'];?></td>
-				<td><?php echo $price = $flight['price'];?></td>
+				<td><?php echo $flight['departure_time'];?></td>
+				<td><?php echo $flight['arrival_time'];?></td>
+				<td><?php echo $flight['flight_number'];?></td>
+				<td><?php echo $flight['available_seats'];?></td>
+				<td><?php echo $flight['price'];?></td>
 				<td><input class="btn btn-primary" type="submit" value="ajouter"></td>
          		
 			</tr>
@@ -149,7 +148,7 @@ var_dump($flight)
 <?php
 
 if (isset($_POST['departs'])); {
-	$depart = $_POST['departs'];
+	$depart = $_POST['depart'];
 	$destination = $_POST['destination'];
 	$date_depart = $_POST['date_depart'];
 	$date_retour = $_POST['date_retour'];

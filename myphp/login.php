@@ -7,7 +7,7 @@ require_once 'footer.php';
 
 <main class="form-signin m-auto w-80">
     <form class=" form-pax form-box " action="verification.php" method="POST" >
-        <img class="mb-4" src="../myphp/assets/img/DONKEY AIR.svg" alt="" width="100" height="100">
+        <img class="mb-4" src="DONKEY AIR.svg" alt="logo" width="100" height="100">
         <h4 class=" mb-3 fw-normal"> Connectez-vous</h4>
 
         <div class="form-pax w-50">
