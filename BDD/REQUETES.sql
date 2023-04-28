@@ -83,3 +83,6 @@ SELECT users.name, flights_go.flight_number as flight_go, flights.departure_time
         LEFT JOIN flights ON flights.price = bookings.flight_go_id
         LEFT JOIN airports as airport_go ON airport_go.airport_id = flights_go.departure_airport_id
         LEFT JOIN airports as airport_return ON airport_return.airport_id = flights_return.departure_airport_id;
+
+
+SELECT * FROM flights WHERE arrival_airport_id = 4;
