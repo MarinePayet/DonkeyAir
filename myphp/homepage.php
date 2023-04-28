@@ -47,9 +47,9 @@ require_once 'Airport.php';
             </select>
 
             <label for="date">Date de départ:</label>
-            <input type="date" id="date" name="date_depart" ><br>
+            <input type="date" id="date" name="date_depart" required ><br>
             <label for="date">Date de retour:</label>
-            <input type="date" id="date" name="date_retour" ><br>
+            <input type="date" id="date" name="date_retour" required><br>
 
             <label for="passagers">Passagers:</label>
             <select id="passagers" name="passagers">
