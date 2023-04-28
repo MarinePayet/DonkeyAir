@@ -194,3 +194,11 @@ form {
   padding-top: 10px;
 }
 
+.div-booking-dedans{
+  background-color: white;
+  width: 500px;
+  border-radius: 17px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}

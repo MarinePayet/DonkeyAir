@@ -16,6 +16,48 @@ LEFT JOIN users ON users.user_id = bookings.user_id
 LEFT JOIN flights as flights_go ON flights_go.flight_id = bookings.flight_go_id 
 LEFT JOIN flights as flights_return ON flights_return.flight_id = bookings.flight_return_id;
 
+-- MES RESA VOL ALLER
+
+SELECT users.name, flights_go.flight_number as flight_go, airports.city as airport_arrival, departure_time, price
+FROM bookings 
+LEFT JOIN users ON users.user_id = bookings.user_id 
+LEFT JOIN flights as flights_go ON flights_go.flight_id = bookings.flight_go_id
+LEFT JOIN airports ON airports.airport_id = flights_go.arrival_airport_id;
+
+-- OK INFO CARD sans prix
+
+SELECT users.name, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time, return_dpt_time.departure_time as return_dpt_time
+FROM bookings 
+LEFT JOIN users ON users.user_id = bookings.user_id 
+LEFT JOIN flights as go_dpt_time ON go_dpt_time.flight_id = bookings.flight_go_id
+LEFT JOIN flights as return_dpt_time ON return_dpt_time.flight_id = bookings.flight_return_id
+LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id;
+
+-- OK INFO CARD avec prix
+
+SELECT users.name, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time, return_dpt_time.departure_time as return_dpt_time, go_dpt_time.price as go_price, return_dpt_time.price as return_price
+FROM bookings 
+LEFT JOIN users ON users.user_id = bookings.user_id 
+LEFT JOIN flights as go_dpt_time ON go_dpt_time.flight_id = bookings.flight_go_id
+LEFT JOIN flights as return_dpt_time ON return_dpt_time.flight_id = bookings.flight_return_id
+LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id;
+
+
+-- MES RESA VOL RETOUR
+SELECT users.name, flights_go.flight_number as flight_go, airports.city as airport_arrival, flights_return.flight_number as flight_return, airports.city as airport_arrival
+FROM bookings 
+LEFT JOIN users ON users.user_id = bookings.user_id 
+LEFT JOIN flights as flights_return ON flights_return.flight_id = bookings.flight_return_id
+LEFT JOIN flights as flights_go ON flights_go.flight_id = bookings.flight_go_id
+LEFT JOIN airports ON airports.airport_id = flights_go.arrival_airport_id
+LEFT JOIN airports as airport_arrival ON airports.airport_id = flights_return.arrival_airport_id;
+
+--MES RESA ALLER ET RETOUR
+SELECT users.name, flights_return.flight_number as flight_return, airports.city as airport_arrival, arrival_time, price
+FROM bookings 
+LEFT JOIN users ON users.user_id = bookings.user_id 
+LEFT JOIN flights as flights_return ON flights_return.flight_id = bookings.flight_return_id
+LEFT JOIN airports ON airports.airport_id = flights_return.arrival_airport_id;
 
 SELECT users.name, flights_return.flight_number as flight_return, airports.name as airport_return
 FROM bookings 
