@@ -26,7 +26,7 @@
 
             <?php 
     session_start();
-    if(empty($__SESSION['name'])){
+    if(empty($_SESSION['name'])){
         ?><div class="align-self-center">
                 <div class="p-2"><a class="btn btn-danger btn-lg" href="login.php" role="button">Login</a></div>
             </div> <?php

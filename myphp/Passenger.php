@@ -5,7 +5,6 @@ require_once 'Database.php';
 
 class Passenger {
     
-    
 
     public static function createPassenger() {
 
