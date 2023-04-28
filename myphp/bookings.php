@@ -8,47 +8,46 @@ require_once 'Booking.php';
 
 
 <?php
+
+
     $db = Database::getPdo();
-    $statement = $db->query(' SELECT users.name, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time, return_dpt_time.departure_time as return_dpt_time, go_dpt_time.price as go_price, return_dpt_time.price as return_price
+    $statement = $db->query(' SELECT users.user_id, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time, return_dpt_time.departure_time as return_dpt_time, go_dpt_time.price as go_price, return_dpt_time.price as return_price
     FROM bookings 
     LEFT JOIN users ON users.user_id = bookings.user_id 
     LEFT JOIN flights as go_dpt_time ON go_dpt_time.flight_id = bookings.flight_go_id
     LEFT JOIN flights as return_dpt_time ON return_dpt_time.flight_id = bookings.flight_return_id
-    LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id;');
+    LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id
+    WHERE users.user_id =' . $_SESSION['user_id']);
     $resas = $statement->fetchall();
-    
-
     
     foreach($resas as $resa):
     ?> 
     <div class="div-recap">
-        <div class="div-booking-dedans">
-        <h5> Paris ✈️ <br><?php echo $resa['airport_arrival'] ?></h5>
-
-        <div class="div-recap div-info">
+        <div class="div-booking-dedans ">
             <div>
-                <p>ALLER</p>
-                <p>DATE</p>
-                <p><?php echo $resa['go_dpt_time'] ?></p>
+                <h5> Paris ✈️ <br><?php echo $resa['airport_arrival'] ?></h5>
             </div>
-        </div>
-        <div class="div-info-vol">
-            <p>RETOUR</p>
-            <p>DATE</p>
-            <p><?php echo $resa['return_dpt_time'] ?></p>
 
-        </div>
-        <div class="div-recap">
-            <div>
-                <p>Tarifs :</p>
-                <p><?php echo $resa['go_price'] + $resa['return_price']?></p>
+            <div class="div-booking-go">
+                <div>
+                    <p>ALLER</p>
+                    <p>DATE</p>
+                    <p><?php echo $resa['go_dpt_time'] ?></p>
+                </div>
+            </div>
+            <div class="div-booking-go">
+                <div>
+                    <p>RETOUR</p>
+                    <p>DATE</p>
+                    <p><?php echo $resa['return_dpt_time'] ?></p>
+                </div>
+            </div>
+            <div class="div-recap">
+                <div>
+                    <p>Tarifs :</p>
+                    <p><?php echo $resa['go_price'] + $resa['return_price']?> €</p>
 
-            </div>
-            <div>
-                <p>
-                    €
-                </p>
-            </div>
+                </div>
         </div>
     </div>
     <?php endforeach ?>
