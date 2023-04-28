@@ -29,17 +29,17 @@ try {
         
 
         if($count != 0){
-            // foreach ($db->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC) as $user){
-            //     echo "Bonjour " . $user['name'] . ", vous êtes connecté ! </br></br>";
+        
+            header('Location: homepage.php');
 
-            // }; 
             $statement = $db->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC);
                 var_dump($result = $statement->fetch());
                 
             };
             var_dump($_SESSION['name'] = $result['name']);
-            
-            ?><a class="btn btn-primary btn-lg" href="homepage.php">Commencer la recherche</a></div><?php
+            ?>
+            <a class="btn btn-primary btn-lg" href="homepage.php">Commencer la recherche</a></div>
+            <?php
             
         } else {
             echo "introuvable";

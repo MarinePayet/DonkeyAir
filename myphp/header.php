@@ -30,15 +30,16 @@
         ?><div class="align-self-center">
                 <div class="p-2"><a class="btn btn-danger btn-lg" href="login.php" role="button">Login</a></div>
             </div> <?php
-            print_r($_SESSION['name']);
+            // print_r($_SESSION['name']);
     } else {
-        var_dump($_SESSION['name']);
+
 
         ?>
         <div class="align-self-center">
             <div class="p-2">
+                <?php echo "Coucou " . $_SESSION['name'];?>
+                <a class="btn btn-primary btn-lg" href="bookings.php" role="button">Historique</a>
                 <a class="btn btn-primary btn-lg" href="logout.php" role="button">Log out</a>
-
             </div>
         </div>
     <?php } ?>
