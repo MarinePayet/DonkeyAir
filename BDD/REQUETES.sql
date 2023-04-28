@@ -88,5 +88,8 @@ SELECT users.name, flights_go.flight_number as flight_go, flights.departure_time
         LEFT JOIN airports as airport_return ON airport_return.airport_id = flights_return.departure_airport_id;
 
 
+
+
+
 ALTER TABLE `flights` ADD COLUMN `departure_date` DATE;
- 
+
