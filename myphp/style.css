@@ -1,8 +1,14 @@
 body {
-    background-color: rgb(252, 196, 186)
+    background-color: rgb(252, 196, 186);
+  
+    font-family: 'Roboto', sans-serif;
+    
+
+    
+    
 }
 
-h1{
+h2{
     text-align: center;
 }
 
@@ -97,8 +103,12 @@ form {
 
   background-color: #f8f8f88b;
   border-radius: 10px;
-  width: 500px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
   padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .table-responsive{
@@ -209,4 +219,7 @@ form {
   justify-content: space-around;
   padding: 10px;
   
+}
+.date-grisee {
+  color: gray;
 }
