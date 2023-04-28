@@ -7,7 +7,7 @@ require_once 'Passenger.php';
 ?>
 
 
-<h1>PASSAGERS</h1>
+<h2>PASSAGERS</h2>
 
 <div class="container">
      <div class="form-box">
