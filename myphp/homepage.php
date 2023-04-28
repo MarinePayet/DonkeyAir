@@ -7,7 +7,7 @@ require_once 'verification.php';
 require_once 'Airport.php';
 ?>
 
-<body style="background-image: url('../myphp/assets/img/pexels-nicole-avagliano-2236713.jpg');background-repeat: no-repeat;background-size: cover;">
+<body style="background-image: url('pexels-nicole-avagliano-2236713.jpg');background-repeat: no-repeat;background-size: cover;">
 
 
 
