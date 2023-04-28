@@ -35,12 +35,15 @@ LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id;
 
 -- OK INFO CARD avec prix
 
-SELECT users.name, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time, return_dpt_time.departure_time as return_dpt_time, go_dpt_time.price as go_price, return_dpt_time.price as return_price
+SELECT users.user_id, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time,go_dpt_time.date as go_date, return_dpt_time.departure_time as return_dpt_time, return_dpt_time.date as return_date, go_dpt_time.price as go_price, return_dpt_time.price as return_price
 FROM bookings 
 LEFT JOIN users ON users.user_id = bookings.user_id 
 LEFT JOIN flights as go_dpt_time ON go_dpt_time.flight_id = bookings.flight_go_id
 LEFT JOIN flights as return_dpt_time ON return_dpt_time.flight_id = bookings.flight_return_id
-LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id;
+LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id
+WHERE users.user_id = 3
+ORDER BY go_date DESC;
+
 
 
 -- MES RESA VOL RETOUR
@@ -85,4 +88,5 @@ SELECT users.name, flights_go.flight_number as flight_go, flights.departure_time
         LEFT JOIN airports as airport_return ON airport_return.airport_id = flights_return.departure_airport_id;
 
 
-SELECT * FROM flights WHERE arrival_airport_id = 4;
+ALTER TABLE `flights` ADD COLUMN `departure_date` DATE;
+ 

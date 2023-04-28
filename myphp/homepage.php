@@ -7,7 +7,7 @@ require_once 'verification.php';
 require_once 'Airport.php';
 ?>
 
-<body style="background-image: url('pexels-nicole-avagliano-2236713.jpg');background-repeat: no-repeat;background-size: cover;">
+<body style="background-image: url('../myphp/pexels-nicole-avagliano-2236713.jpg');background-repeat: no-repeat;background-size: cover;">
 
 
 
@@ -46,10 +46,11 @@ require_once 'Airport.php';
                 <?php Airport::listAirport() ?>;
             </select>
 
-            <label for="date">Date de départ:</label>
-            <input type="date" id="date" name="date_depart" ><br>
-            <label for="date">Date de retour:</label>
-            <input type="date" id="date" name="date_retour" ><br>
+            <label for="date-depart">Date de départ :</label>
+            <input type="date" id="date-depart" name="date_depart" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+6 months')); ?>" <?php if (isset($_POST['date_depart']) && strtotime(date('Y-m-d')) > strtotime($_POST['date_depart'])) { echo 'class="date-grisee"'; } ?> required> <br>
+
+            <label for="date-retour">Date de retour :</label>
+            <input type="date" id="date-retour" name="date_retour" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+6 months')); ?>" <?php if (isset($_POST['date_retour']) && strtotime(date('Y-m-d')) > strtotime($_POST['date_retour'])) { echo 'class="date-grisee"'; } ?> required> <br>
 
             <label for="passagers">Passagers:</label>
             <select id="passagers" name="passagers">

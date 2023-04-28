@@ -7,84 +7,46 @@ require_once 'Database.php'
 <title>Liste de vols</title>
 
 
-<!-- <?php
 
 
-
-?> -->
-<?php
-if(isset($_POST['destination'])){
-	echo $_POST['destination'];}
-if(isset($_POST['depart'])){
-	echo $_POST['depart'];
-}
-var_dump($_POST['depart']);
-var_dump($_POST['destination']);
-?>
 
 <div class="container-xl">
 	<br>
 	<div class="table-responsive">
 		<table class=" table table-striped table-hover ">
 
-			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart'];?> </p>
+			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart']; ?> </p>
 			<tr class="table">
-				
+
 				<th>Heure de depart</th>
-				<th>heure d'arriver</th>
+				<th>Heure d'arrivée</th>
 				<th>Numéro de vol</th>
-				<th>place disponible</th>
-				<th>prix</th>
-				<th>action</th>
-				
+				<th>Place disponible</th>
+				<th>Prix</th>
+				<th>Réserver</th>
+
 			</tr>
 
-<?php
+			<?php
+            $db = DataBase::getPdo();
+			$statement = $db->query('SELECT * FROM flights WHERE arrival_airport_id = ' . $_POST['destination']);
+			$statement->execute();
+			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
+			foreach ($flights as $flight) {
+			?>
 
+				<tr>
+					<td><?php echo $flight['departure_time']; ?></td>
+					<td><?php echo $flight['arrival_time']; ?></td>
+					<td><?php echo $flight['flight_number']; ?></td>
+					<td><?php echo $flight['available_seats']; ?></td>
+					<td><?php echo $flight['price']; ?></td>
+					<td><input class="btn btn-primary" type="submit" value="Choisir"></td>
 
-
-$db= DataBase::getPdo();
-$statement=$db->query('SELECT * FROM flights');
-$statement->execute();
-$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
-for($i=0; $i<count($flights); $i++){
-	$flight = $flights[$i];
-}
-var_dump($flight)
-?>
-
-			<tr>
-				<td><?php echo $flight['departure_time'];?></td>
-				<td><?php echo $flight['arrival_time'];?></td>
-				<td><?php echo $flight['flight_number'];?></td>
-				<td><?php echo $flight['available_seats'];?></td>
-				<td><?php echo $flight['price'];?></td>
-				<td><input class="btn btn-primary" type="submit" value="ajouter"></td>
-         		
-			</tr>
-			<tr>
-				
-			<td><?php echo $departure_time=$flight['departure_time'];?></td>
-				<td><?php echo $arrival_time = $flight['arrival_time'];?></td>
-				<td><?php echo $flight_number = $flight['flight_number'];?></td>
-				<td><?php echo $available_seats = $flight['available_seats'];?></td>
-				<td><?php echo $price = $flight['price'];?></td>
-				
-				<td>
-					<input class="btn btn-primary" type="submit" value="ajouter">
-				</td>
-			</tr>
-			<tr>
-				
-			<td><?php echo $flight['departure_time'];?></td>
-				<td><?php echo $flight['arrival_time'];?></td>
-				<td><?php echo $flight['flight_number'];?></td>
-				<td><?php echo $flight['available_seats'];?></td>
-				<td><?php echo $flight['price'];?></td>
-				<td>
-					<input class="btn btn-primary" type="submit" value="ajouter">
-				</td>
-			</tr>
+				</tr>
+			<?php
+			}
+			?>
 
 
 
@@ -93,69 +55,56 @@ var_dump($flight)
 	</div><br>
 	<div class="table-responsive">
 		<table class="table table-striped table-hover">
-			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour'];?></p>
+			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour']; ?></p>
 			<tr class="table">
-				
-				<th>Heure de depart</th>
-				<th>heure d'arriver</th>
+
+			<th>Heure de depart</th>
+				<th>Heure d'arrivée</th>
 				<th>Numéro de vol</th>
-				<th>place disponible</th>
-				<th>prix</th>
-				<th></th>
-				
-			</tr>
-			<tr>
-			
-			<td><?php echo $flight['departure_time'];?></td>
-				<td><?php echo $flight['arrival_time'];?></td>
-				<td><?php echo $flight['flight_number'];?></td>
-				<td><?php echo $flight['available_seats'];?></td>
-				<td><?php echo $flight['price'];?></td>
-				<td>
-					<input class="btn btn-primary" type="submit" value="ajouter">
-				</td>
+				<th>Place disponible</th>
+				<th>Prix</th>
+				<th>Réserver</th>
 
 			</tr>
 			<tr>
-				
-			<td><?php echo $flight['departure_time'];?></td>
-				<td><?php echo $flight['arrival_time'];?></td>
-				<td><?php echo $flight['flight_number'];?></td>
-				<td><?php echo $flight['available_seats'];?></td>
-				<td><?php echo $flight['price'];?></td>
-				<td>
-					<input class="btn btn-primary" type="submit" value="ajouter">
-				</td>
-			</tr>
-			<tr>
-				
-			<td><?php echo $flight['departure_time'];?></td>
-				<td><?php echo $flight['arrival_time'];?></td>
-				<td><?php echo $flight['flight_number'];?></td>
-				<td><?php echo $flight['available_seats'];?></td>
-				<td><?php echo $flight['price'];?></td>
-				<td>
-					<input class="btn btn-primary" type="submit" value="ajouter">
-				</td>
-			</tr>
 
+			<?php
+            $db = DataBase::getPdo();
+			$statement = $db->query('SELECT * FROM flights WHERE departure_airport_id = ' . $_POST['destination']);
+			$statement->execute();
+			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
+			foreach ($flights as $flight) {
+			?>
+
+
+				<td><?php echo $flight['departure_time']; ?></td>
+				<td><?php echo $flight['arrival_time']; ?></td>
+				<td><?php echo $flight['flight_number']; ?></td>
+				<td><?php echo $flight['available_seats']; ?></td>
+				<td><?php echo $flight['price']; ?></td>
+				<td>
+					<input class="btn btn-primary" type="submit" value="Choisir">
+				</td>
+
+			</tr>
+		<?php
+			}
+			?>
 		</table>
 
 	</div>
 
-	
-
-<?php
-
-if (isset($_POST['departs'])); {
-	$depart = $_POST['depart'];
-	$destination = $_POST['destination'];
-	$date_depart = $_POST['date_depart'];
-	$date_retour = $_POST['date_retour'];
-	$passagers = $_POST['passagers'];
-}
 
 
+	<?php
+
+	if (isset($_POST['departs'])); {
+		$depart = $_POST['depart'];
+		$destination = $_POST['destination'];
+		$date_depart = $_POST['date_depart'];
+		$date_retour = $_POST['date_retour'];
+		$passagers = $_POST['passagers'];
+	}
 
 
 
@@ -163,12 +112,14 @@ if (isset($_POST['departs'])); {
 
 
 
-?>
+
+
+	?>
 
 
 
 
-	
+
 
 
 
@@ -188,7 +139,7 @@ if (isset($_POST['departs'])); {
 
 
 	<div class="optionbox">
-	<p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
+		<p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
 		<form>
 			<label for="vip-access">VIP Acces:</label>
 			<p>Accès au salon - Accès prioritaire aux controles</p>
@@ -247,7 +198,6 @@ if (isset($_POST['departs'])); {
 	</div>
 </div>
 <div class="sticky-bar">
-	<div class="total">Total à payer :     <span id="total">800€</span></div>
+	<div class="total">Total à payer : <span id="total">800€</span></div>
 	<button id="valider">Valider</button>
-</div>  
-
+</div>
