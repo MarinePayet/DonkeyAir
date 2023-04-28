@@ -90,11 +90,6 @@ require_once 'Database.php'
 		<?php
 			}
 			?>
-
-		
-			
-				
-
 		</table>
 
 	</div>
