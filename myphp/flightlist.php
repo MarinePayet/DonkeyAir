@@ -19,11 +19,11 @@ require_once 'Database.php'
 			<tr class="table">
 
 				<th>Heure de depart</th>
-				<th>heure d'arriver</th>
+				<th>Heure d'arrivée</th>
 				<th>Numéro de vol</th>
-				<th>place disponible</th>
-				<th>prix</th>
-				<th>action</th>
+				<th>Place disponible</th>
+				<th>Prix</th>
+				<th>Réserver</th>
 
 			</tr>
 
@@ -41,7 +41,7 @@ require_once 'Database.php'
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<td><input class="btn btn-primary" type="submit" value="ajouter"></td>
+					<td><input class="btn btn-primary" type="submit" value="Choisir"></td>
 
 				</tr>
 			<?php
@@ -58,12 +58,12 @@ require_once 'Database.php'
 			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour']; ?></p>
 			<tr class="table">
 
-				<th>Heure de depart</th>
-				<th>heure d'arriver</th>
+			<th>Heure de depart</th>
+				<th>Heure d'arrivée</th>
 				<th>Numéro de vol</th>
-				<th>place disponible</th>
-				<th>prix</th>
-				<th></th>
+				<th>Place disponible</th>
+				<th>Prix</th>
+				<th>Réserver</th>
 
 			</tr>
 			<tr>
@@ -83,7 +83,7 @@ require_once 'Database.php'
 				<td><?php echo $flight['available_seats']; ?></td>
 				<td><?php echo $flight['price']; ?></td>
 				<td>
-					<input class="btn btn-primary" type="submit" value="ajouter">
+					<input class="btn btn-primary" type="submit" value="Choisir">
 				</td>
 
 			</tr>
