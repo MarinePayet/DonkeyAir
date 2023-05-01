@@ -5,11 +5,16 @@ require_once 'footer.php';
 require_once 'Database.php'
 ?>
 <title>Liste de vols</title>
+<?php
 
-
-
-
-
+	if (isset($_POST['departs'])); {
+		$depart = $_POST['depart'];
+		$destination = $_POST['destination'];
+		$date_depart = $_POST['date_depart'];
+		$date_retour = $_POST['date_retour'];
+		$passagers = $_POST['passagers'];
+	}
+?>
 <div class="container-xl">
 	<br>
 	<div class="table-responsive">
@@ -95,8 +100,7 @@ require_once 'Database.php'
 	</div>
 
 
-
-	<?php
+<?php
 
 	if (isset($_POST['departs'])); {
 		$depart = $_POST['depart'];
@@ -105,16 +109,7 @@ require_once 'Database.php'
 		$date_retour = $_POST['date_retour'];
 		$passagers = $_POST['passagers'];
 	}
-
-
-
-
-
-
-
-
-
-	?>
+?>
 
 
 

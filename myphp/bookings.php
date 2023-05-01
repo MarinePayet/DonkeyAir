@@ -65,55 +65,9 @@ require_once 'Booking.php';
     <?php endforeach ?>
 </div>
 
+<table class="table table-striped table-hover ">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <table class="table table-striped table-hover "> -->
-
-<!-- 
-
-    <p class="text-uppercase fw-bold fs-4">Vol à Venir</p>
-    <tr class="table-light">
-        <th>username</th>    
-        <th>Date Aller</th>
-        <th>Destination</th>
-        <th>Heure</th>
-        <th>Numéro de vol</th>
-        <th>prix</th>
-        <th>Date Retour</th>
-        <th>Destination</th>
-        <th>Heure</th>
-        <th>Numéro de vol</th>
-        <th>prix</th>
-        
-    </tr> -->
-    
     <!-- <?php Booking::listBookingAller(); 
     Booking::listBookingRetour(); ?> -->
 
