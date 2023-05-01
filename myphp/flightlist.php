@@ -6,19 +6,20 @@ require_once 'Database.php';
 ?>
 <title>Liste de vols</title>
 
+
 <div class="container-xl">
 	<br>
 	<div class="table-responsive">
 		<table class=" table table-striped table-hover ">
-		<?php $db = DataBase::getPdo();
+			<?php $db = DataBase::getPdo();
 			$statement = $db->query('SELECT *, city FROM flights
 			LEFT JOIN airports ON airports.airport_id = flights.arrival_airport_id
 			WHERE arrival_airport_id = ' . $_POST['destination']);
 			$statement->execute();
 			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
-?>
-				<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart'] . ' -> ' . $flights['0']['city']; ?> </p>
-			
+			?>
+			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart'] . ' -> ' . $flights['0']['city']; ?> </p>
+
 
 
 			<tr class="table">
@@ -33,7 +34,7 @@ require_once 'Database.php';
 			</tr>
 
 			<?php
-            $db = DataBase::getPdo();
+			$db = DataBase::getPdo();
 			$statement = $db->query('SELECT *, city FROM flights 
 			LEFT JOIN airports ON airports.airport_id = flights.arrival_airport_id
 			WHERE arrival_airport_id = ' . $_POST['destination']);
@@ -48,16 +49,20 @@ require_once 'Database.php';
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<td><a href="saveflights.php?go_id=<?php echo $flight['flight_id']; ?>">Choisir</a></td>
-					
-					<?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
+
+					<form method="post" action="saveflights.php">
+						<input type="hidden" name="flight_id" value="<?php echo $flight['flight_id']; ?>">
+
+						<td><button type="submit" class="btn btn-primary" name="selectionnevolaller">Choisir</button></td>
+					</form>
+          <?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td>choisi</td>";
 					} ?>
+
 				</tr>
 			<?php
 			}
 			?>
-
 
 
 
@@ -78,47 +83,37 @@ require_once 'Database.php';
 			</tr>
 			<tr>
 
-			<?php
-            $db = DataBase::getPdo();
-			$statement = $db->query('SELECT * FROM flights WHERE departure_airport_id = ' . $_POST['destination']);
-			$statement->execute();
-			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
-			foreach ($flights as $flight) {
-			
-			?>
-				<td><?php echo $flight['departure_time']; ?></td>
-				<td><?php echo $flight['arrival_time']; ?></td>
-				<td><?php echo $flight['flight_number']; ?></td>
-				<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
-				<td><?php echo $flight['price']; ?></td>
-				<td>
-					<a href="recapitulatif.php?return_id=<?php echo $flight['flight_id']; ?>">Choisir</a>
-				</td>
+
+				<?php
+				$db = DataBase::getPdo();
+				$statement = $db->query('SELECT * FROM flights WHERE departure_airport_id = ' . $_POST['destination']);
+				$statement->execute();
+				$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
+				foreach ($flights as $flight) {
+				?>
+
+
+					<td><?php echo $flight['departure_time']; ?></td>
+					<td><?php echo $flight['arrival_time']; ?></td>
+					<td><?php echo $flight['flight_number']; ?></td>
+					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
+					<td><?php echo $flight['price']; ?></td>
+					<form method="post" action="traitement.php">
+						<input type="hidden" name="flight_id" value="<?php echo $flight['flight_id']; ?>">
+
+						<td><button type="submit" class="btn btn-primary" name="selectionnevolretour">Choisir</button></td>
+					</form>
+
 			</tr>
 		<?php
-			}
-			?>
+				}
+		?>
 		</table>
 
 	</div>
 
 
-
-	<?php
-
-	if (isset($_POST['departs'])); {
-		$depart = $_POST['depart'];
-		$destination = $_POST['destination'];
-		$date_depart = $_POST['date_depart'];
-		$date_retour = $_POST['date_retour'];
-		$passagers = $_POST['passagers'];
-	}
-
-	?>
-
-
-
-	<div class="optionbox">
+	<!-- <div class="optionbox">
 		<p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
 		<form>
 			<label for="vip-access">VIP Acces:</label>
@@ -176,6 +171,7 @@ require_once 'Database.php';
 			<br>
 		</form>
 	</div>
+
 </div>
 
 
@@ -187,3 +183,5 @@ require_once 'Database.php';
 <?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td>choisi</td>";
 					} ?>
+
+
