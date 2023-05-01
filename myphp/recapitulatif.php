@@ -11,6 +11,7 @@ require_once 'Passenger.php';
     <div class="div-recap-dedans">
         <h5>🛫 Vol Aller</h5>
         <p><?php echo $_SESSION['go_id'] ?></p>
+        
 
         <div class="div-recap div-info">
             <div>
@@ -128,8 +129,13 @@ require_once 'Passenger.php';
         <div class="div-info-vol">
             <h5>Options </h5>
         </div>
-        <p>Options 1</p>
-        <p>Options 2</p>
-        <p>Options 3</p>
+        <p><?php echo $_POST['vip_access']; ?></p>
+        <p><?php echo $_POST['seats']; ?></p>
+        <p><?php echo $_POST['luggage']; ?></p>
+        <p><?php echo $_POST['pmr-assistance']; ?></p>
+        <p><?php echo $_POST['meal']; ?></p>
+        
+
+
     </div>
 </div>

@@ -8,21 +8,21 @@ require_once 'header.php';
 			<label for="vip-access">VIP Acces :</label>
 			<p>Accès au salon - Accès prioritaire aux controles</p>
 			<div class="form-check">
-                <input type="checkbox" class="form-check-input" id="vip_access" name="vip_access">
-                <label class="form-check-label" for="vip_access" name="vip_access">50 €</label>
+                <input type="checkbox" class="form-check-input" id="vip_access" value="vip_access 50 €" name="vip_access">
+                <label class="form-check-label" for="vip_access"  name="vip_access">50 €</label>
             </div>
 			<br>
             
 			<label for="seat-exit">Sièg Premium : </label>
 			<p>Espace prévilégié - Confortable et ajustable - Ecran vidéo </p>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="seats" id="exit_seat" value="exit_seat" >
+                <input class="form-check-input" type="radio" name="seats" id="exit_seat" value="exit_seat 50 €" >
                 <label class="form-check-label" for="exampleRadios1">
                     Sortie de Secours : 50 €
                 </label>
                 </div>
                 <div class="form-check">
-                <input class="form-check-input" type="radio" name="seats" id="premium_seat" value="premium_seat">
+                <input class="form-check-input" type="radio" name="seats" id="premium_seat" value="premium_seat  150 €">
                 <label class="form-check-label" for="exampleRadios2">
                     Premium: 150 €
                 </label>
@@ -44,9 +44,9 @@ require_once 'header.php';
 			<p>Franchise bagage adaptée à vos besoins</p>
 			<select id="luggage" name="luggage">
 				<option value="0">Nombre de bagage à ajouter</option>
-				<option value="70" name>1 bagage de 23kg -> 70 €</option>
-				<option value="160">2 bagages 23kg -> 160 €</option>
-				<option value="250">3 bagages de 23kg -> 250 €</option>
+				<option value="1 bagage de 23kg 70 €" name>1 bagage de 23kg -> 70 €</option>
+				<option value="2 eme bagages 23kg 160 €">2 bagages 23kg -> 160 €</option>
+				<option value="3 eme bagages de 23kg 250 €">3 bagages de 23kg -> 250 €</option>
 				<!-- <input type="submit" value="Ajouter"> -->
 			</select>
 			<br>
@@ -55,10 +55,10 @@ require_once 'header.php';
 			<p>A vos côtés pour vous assister </p>
 			<select id="pmr-assistance" name="pmr-assistance">
                 <option value="0">Choisir</option>
-				<option value="1">Chaise roulante</option>
-				<option value="2">Aveugle</option>
-				<option value="3">Sourd</option>
-				<option value="4">Mineur non accompagné -> 50 €</option>
+				<option value="Chaise roulante">Chaise roulante</option>
+				<option value="Mal voyant">Aveugle</option>
+				<option value="Mal entendant">Sourd</option>
+				<option value="umnr 50€">Mineur non accompagné -> 50 €</option>
 				<!-- <input type="submit" value="Ajouter"> -->
 			</select>
 			<br>
@@ -67,9 +67,9 @@ require_once 'header.php';
 			<p>Choisissez le repas qui vous convient</p>
 			<select id="meal" name="meal">
                 <option value="0"></option>
-				<option value="1">Végétarien -> 20 €</option>
-				<option value="2">Halal -> 20 €</option>
-				<option value="3">Casher -> 20 €</option>
+				<option value="Végétarien 20 €">Végétarien -> 20 €</option>
+				<option value="Halal 20 €">Halal -> 20 €</option>
+				<option value="Casher 20 €">Casher -> 20 €</option>
 				<input type="submit" value="Ajouter">
                 
 			</select>
