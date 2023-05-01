@@ -103,5 +103,10 @@ SELECT users.user_id, airports.city as airport_arrival, go_dpt_time.departure_ti
         WHERE users.user_id = 1 
         ORDER BY go_date DESC;
 
+-- REQUETE POUR LE RECAP
 
-
+SELECT go_airport.city as go_airport, arrival_airport.city as arrival_airport, departure_time, arrival_time, flight_number, price
+FROM flights
+LEFT JOIN airports as go_airport ON go_airport.airport_id = flights.departure_airport_id
+LEFT JOIN airports as arrival_airport ON arrival_airport.airport_id = flights.arrival_airport_id
+WHERE flight_id = '2';
