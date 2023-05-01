@@ -24,7 +24,7 @@ function validateDates() {
         if (departValue < new Date()) {
             alert("La date de départ ne peut pas être antérieure à la date du jour.");
             departDate.value = new Date();
-        } 
+        }
 
         if (retourValue < new Date()) {
             alert("La date de retour ne peut pas être antérieure à la date du jour.");
@@ -47,7 +47,25 @@ function validedestination() {
     }
 
 }
+function calculatePrice() {
+    var selectElement = document.getElementById('flight-select');
+    var flightId = selectElement.options[selectElement.selectedIndex].value;
 
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'savelist.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var totalPrice = xhr.responseText;
+                document.getElementById('total-price').innerHTML = 'Le prix total est de ' + totalPrice;
+            } else {
+                alert('Une erreur est survenue');
+            }
+        }
+    };
+    xhr.send('flight_id=' + flightId);
+}
 
 
 

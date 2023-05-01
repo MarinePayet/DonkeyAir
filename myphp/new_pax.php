@@ -62,7 +62,7 @@ var_dump($passenger);
 <div class="div-recap">
      <div class="div-recap-dedans">
           <div class="div-info-vol"> 
-          <h5>P     assagers </h5>
+          <h5>Passagers </h5>
           </div>
                <p>Nom et prénom : <?php echo $passenger['name']; ?></p>
                <p>Date de naissance : <?php echo $passenger['birthdate']; ?></p>

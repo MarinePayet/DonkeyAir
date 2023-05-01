@@ -4,7 +4,7 @@ require_once 'header.php';
 
 <div class="optionbox">
 		<p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
-		<form method="POST" action="#">
+		<form method="POST" action="recapitulatif.php">
 			<label for="vip-access">VIP Acces :</label>
 			<p>Accès au salon - Accès prioritaire aux controles</p>
 			<div class="form-check">
