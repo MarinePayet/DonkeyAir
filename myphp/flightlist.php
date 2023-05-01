@@ -2,13 +2,9 @@
 
 require_once 'header.php';
 require_once 'footer.php';
-require_once 'Database.php'
+require_once 'Database.php';
 ?>
 <title>Liste de vols</title>
-
-
-
-
 
 <div class="container-xl">
 	<br>
@@ -52,8 +48,11 @@ require_once 'Database.php'
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<td><input class="btn btn-primary" type="submit" value="Choisir"></td>
-
+					<td><a href="saveflights.php?go_id=<?php echo $flight['flight_id']; ?>">Choisir</a></td>
+					
+					<?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
+						echo "<td>choisi</td>";
+					} ?>
 				</tr>
 			<?php
 			}
@@ -85,18 +84,16 @@ require_once 'Database.php'
 			$statement->execute();
 			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
 			foreach ($flights as $flight) {
+			
 			?>
-
-
 				<td><?php echo $flight['departure_time']; ?></td>
 				<td><?php echo $flight['arrival_time']; ?></td>
 				<td><?php echo $flight['flight_number']; ?></td>
 				<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 				<td><?php echo $flight['price']; ?></td>
 				<td>
-					<input class="btn btn-primary" type="submit" value="Choisir">
+					<a href="recapitulatif.php?return_id=<?php echo $flight['flight_id']; ?>">Choisir</a>
 				</td>
-
 			</tr>
 		<?php
 			}
@@ -117,35 +114,7 @@ require_once 'Database.php'
 		$passagers = $_POST['passagers'];
 	}
 
-
-
-
-
-
-
-
-
 	?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -208,7 +177,13 @@ require_once 'Database.php'
 		</form>
 	</div>
 </div>
+
+
 <div class="sticky-bar">
 	<div class="total">Total à payer : <span id="total">800€</span></div>
 	<button id="valider">Valider</button>
+
 </div>
+<?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
+						echo "<td>choisi</td>";
+					} ?>

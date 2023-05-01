@@ -15,5 +15,5 @@ require_once 'Booking.php';
     <p>VOL PASSE</p>
 </div>
 
-<?php Booking::volPasse();
+<?php Booking::volPasse(); ?>
 
