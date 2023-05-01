@@ -5,12 +5,11 @@ require_once 'footer.php';
 require_once 'Database.php';
 
 
-if (isset($_POST['go_id'])){
+if (isset($_POST['go_id'])) {
     $_SESSION['go_id'] = (int)$_POST['go_id'];
-
 }
 
-if(isset($_POST['return_id'])){
+if (isset($_POST['return_id'])) {
     $_SESSION['return_id'] = (int)$_POST['return_id'];
 }
 
@@ -20,7 +19,7 @@ if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
 
     $go_id = $_SESSION['go_id'];
     $return_id = $_SESSION['return_id'];
-    
+
     $db = DataBase::getPdo();
     $statement = $db->prepare('SELECT price, flight_number FROM flights WHERE flight_id = :go_id');
     $statement->bindValue(':go_id', $go_id, PDO::PARAM_INT);
@@ -37,5 +36,4 @@ if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
 
     $_SESSION['total_price'] = $total_price;
 }
-
 

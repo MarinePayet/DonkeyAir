@@ -4,7 +4,7 @@ require_once 'header.php';
 require_once 'footer.php';
 require_once 'Database.php';
 
-
+require_once 'saveflights.php';
 ?>
 <title>Liste de vols</title>
 
@@ -13,18 +13,14 @@ require_once 'Database.php';
 	<br>
 	<div class="table-responsive">
 		<table class=" table table-striped table-hover ">
-			<?php 
-			$_SESSION['date_depart'] = $_POST['date_depart'];
-
-			$db = DataBase::getPdo();
+			<?php $db = DataBase::getPdo();
 			$statement = $db->query('SELECT *, city FROM flights
 			LEFT JOIN airports ON airports.airport_id = flights.arrival_airport_id
 			WHERE arrival_airport_id = ' . $_POST['destination']);
 			$statement->execute();
 			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
-			
 			?>
-			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_SESSION['date_depart'] . ' -> ' . $flights['0']['city']; ?> </p>
+			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart'] . ' -> ' . $flights['0']['city']; ?> </p>
 
 
 
@@ -65,7 +61,7 @@ require_once 'Database.php';
 
 
 
-          		<?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
+					<?php if (isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td>choisi</td>";
 					} ?>
 
@@ -80,7 +76,6 @@ require_once 'Database.php';
 	</div><br>
 	<div class="table-responsive">
 		<table class="table table-striped table-hover">
-			<?php $_SESSION['date_retour'] = $_POST['date_retour'];?>
 			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour']; ?> -> PARIS</p>
 			<tr class="table">
 
@@ -115,20 +110,18 @@ require_once 'Database.php';
 
 						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
 					</form>
-					<?php if(isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
+					<?php if (isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
 						echo "<td>choisi</td>";
 					} ?>
 
 			</tr>
 		<?php
 				}
-		?> 
+		?>
 		</table>
 
 	</div>
 	<a href="recapitulatif.php">RECAP</a>
-	<br>
-	<a href="options.php">OPTIONS</a>
 
 	
 
@@ -136,18 +129,21 @@ require_once 'Database.php';
 
 
 <div class="sticky-bar">
-	<?php if (isset ($total_price)){
-?>
-	
-	<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?></span></div>
-<?php
-	}else {
+	<?php if (isset($total_price)) {
+	?>
+
+		<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?></span>
+	<?php
+	} else {
 		echo "";
 	}
-?>
-	<button id="valider">Valider</button>
+	?>
+	<div>
+
+	<button id="valider" >Valider</button>
 
 </div>
-
-
-
+</div>
+<?php if (isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
+	echo "<td>choisi</td>";
+} ?>
