@@ -109,6 +109,8 @@ require_once 'Passenger.php';
 
 
 
+
+
 <div class="div-recap">
     <div class="div-recap-dedans">
         <div class="div-info-vol">
@@ -116,10 +118,9 @@ require_once 'Passenger.php';
         </div>
         <p>Nom et prénom : <?php echo $passenger['name']; ?></p>
         <p>Date de naissance : <?php echo $passenger['birthdate']; ?></p>
-        <p>Numéro de téléphone : <?php echo $passenger['phone']; ?></p>
+        <p>Numéro de téléphone : <?php echo $passenger['phone_number']; ?></p>
         <p>Adresse e-mail : <?php echo $passenger['email']; ?> </p>
     </div>
-</div>
 </div>
 
 </br>
@@ -133,3 +134,6 @@ require_once 'Passenger.php';
         <p>Options 3</p>
     </div>
 </div>
+
+<?php
+
