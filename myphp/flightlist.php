@@ -2,22 +2,10 @@
 
 require_once 'header.php';
 require_once 'footer.php';
-require_once 'Database.php'
+require_once 'Database.php';
 ?>
 <title>Liste de vols</title>
 
-
-<?php
-
-if (isset($_POST['departs'])); {
-	$depart = $_POST['depart'];
-	$destination = $_POST['destination'];
-	$date_depart = $_POST['date_depart'];
-	$date_retour = $_POST['date_retour'];
-	$passagers = $_POST['passagers'];
-}
-
-?>
 
 <div class="container-xl">
 	<br>
@@ -61,18 +49,20 @@ if (isset($_POST['departs'])); {
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<form method="post" action="traitement.php">
+
+					<form method="post" action="saveflights.php">
 						<input type="hidden" name="flight_id" value="<?php echo $flight['flight_id']; ?>">
 
 						<td><button type="submit" class="btn btn-primary" name="selectionnevolaller">Choisir</button></td>
 					</form>
-
+          <?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
+						echo "<td>choisi</td>";
+					} ?>
 
 				</tr>
 			<?php
 			}
 			?>
-
 
 
 
@@ -92,6 +82,7 @@ if (isset($_POST['departs'])); {
 
 			</tr>
 			<tr>
+
 
 				<?php
 				$db = DataBase::getPdo();
@@ -120,30 +111,6 @@ if (isset($_POST['departs'])); {
 		</table>
 
 	</div>
-
-
-	<div class="sticky-bar">
-		<div class="total">Total à payer : <span name="total">€</span></div>
-		<button id="valider">Valider</button>
-	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	<!-- <div class="optionbox">
@@ -204,4 +171,17 @@ if (isset($_POST['departs'])); {
 			<br>
 		</form>
 	</div>
-</div> -->
+
+</div>
+
+
+<div class="sticky-bar">
+	<div class="total">Total à payer : <span id="total">800€</span></div>
+	<button id="valider">Valider</button>
+
+</div>
+<?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
+						echo "<td>choisi</td>";
+					} ?>
+
+
