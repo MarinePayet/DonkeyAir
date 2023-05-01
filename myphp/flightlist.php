@@ -117,11 +117,11 @@ require_once 'saveflights.php';
 			</tr>
 		<?php
 				}
-		?>
+		?> 
 		</table>
 
 	</div>
-
+	<a href="recapitulatif.php">RECAP</a>
 
 	<div class="optionbox">
 		<p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
