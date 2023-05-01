@@ -51,11 +51,13 @@ require_once 'Database.php';
 					<td><?php echo $flight['price']; ?></td>
 
 					<form method="post" action="saveflights.php">
-						<input type="hidden" name="flight_id" value="<?php echo $flight['flight_id']; ?>">
-
-						<td><button type="submit" class="btn btn-primary" name="selectionnevolaller">Choisir</button></td>
+						<input type="hidden" name="go_id" value="<?php echo $flight['flight_id']; ?>">
+						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
 					</form>
-          <?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
+
+
+
+          		<?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td>choisi</td>";
 					} ?>
 
@@ -98,11 +100,14 @@ require_once 'Database.php';
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<form method="post" action="traitement.php">
-						<input type="hidden" name="flight_id" value="<?php echo $flight['flight_id']; ?>">
+					<form method="post" action="saveflights.php">
+						<input type="hidden" name="return_id" value="<?php echo $flight['flight_id']; ?>">
 
-						<td><button type="submit" class="btn btn-primary" name="selectionnevolretour">Choisir</button></td>
+						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
 					</form>
+					<?php if(isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
+						echo "<td>choisi</td>";
+					} ?>
 
 			</tr>
 		<?php
