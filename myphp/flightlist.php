@@ -53,9 +53,13 @@ require_once 'Database.php';
 					<form method="post" action="saveflights.php">
 						<input type="hidden" name="go_id" value="<?php echo $flight['flight_id']; ?>">
 
-						<td><button type="submit" class="btn btn-primary" >Choisir</button></td>
+						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
+
 					</form>
-          <?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
+
+
+
+          		<?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td>choisi</td>";
 					} ?>
 
@@ -101,11 +105,13 @@ require_once 'Database.php';
 					<form method="post" action="saveflights.php">
 						<input type="hidden" name="return_id" value="<?php echo $flight['flight_id']; ?>">
 
-						<td><button type="submit" class="btn btn-primary" >Choisir</button></td>
+
+						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
 					</form>
 					<?php if(isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
 						echo "<td>choisi</td>";
 					} ?>
+
 			</tr>
 		<?php
 				}
