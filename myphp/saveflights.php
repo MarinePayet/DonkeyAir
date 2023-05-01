@@ -42,8 +42,8 @@ if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
     $total_price = $go_price + $return_price;
 
     return $total_price;
-
-
-}else {
-    return "prix en cours";
 }
+
+    
+
+

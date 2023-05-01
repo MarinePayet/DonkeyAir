@@ -120,67 +120,6 @@ require_once 'saveflights.php';
 		?> 
 		</table>
 
-	</div>
-	<a href="recapitulatif.php">RECAP</a>
-
-	<div class="optionbox">
-		<p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
-		<form>
-			<label for="vip-access">VIP Acces:</label>
-			<p>Accès au salon - Accès prioritaire aux controles</p>
-			<select id="vip-access" name="vip-access">
-				<option value="0"></option>
-				<option value="50">50 €</option>
-				<input type="submit" value="Ajouter">
-			</select>
-			<br>
-
-			<label for="seat-exit">Siège Premium:</label>
-			<p>Espace prévilégié - Confortable et ajustable - Ecran vidéo </p>
-			<select id="seat-exit" name="seat-exit">
-				<option value="0"></option>
-				<option value="1">Siège 1A -> 25 €</option>
-				<option value="2">Siege 1C -> 25 €</option>
-				<input type="submit" value="Ajouter">
-			</select>
-			<br>
-
-			<label for="luggage">Bagages:</label>
-			<p>Franchise bagage adaptée à vos besoins</p>
-			<select id="luggage" name="luggage">
-				<option value="0">0 BAG</option>
-				<option value="1">1PC 23KG -> 70 €</option>
-				<option value="2">2PC 23KG -> 160 €</option>
-				<option value="3">3PC 23KG -> 250 €</option>
-				<input type="submit" value="Ajouter">
-			</select>
-			<br>
-
-			<label for="pmr-assistance">Assistance PMR:</label>
-			<p>A vos côtés pour vous assister </p>
-			<select id="pmr-assistance" name="pmr-assistance">
-				<option value="0"></option>
-				<option value="1">WCHR</option>
-				<option value="2">BLND</option>
-				<option value="3">DEAF</option>
-				<option value="4">UMNR -> 50 €</option>
-				<input type="submit" value="Ajouter">
-			</select>
-			<br>
-
-			<label for="meal">Repas:</label>
-			<p>Choisissez le repas qui vous convient</p>
-			<select id="meal" name="meal">
-				<option value="0"></option>
-				<option value="1">Végétarien -> 20 €</option>
-				<option value="2">Halal -> 20 €</option>
-				<option value="3">Casher -> 20 €</option>
-				<input type="submit" value="Ajouter">
-
-			</select>
-			<br>
-		</form>
-	</div>
 
 </div>
 

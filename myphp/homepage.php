@@ -64,7 +64,7 @@ require_once 'Airport.php';
                 <option value="5" name="5">2 adultes, 3 enfants</option>
             </select>
             <!-- <input type="hidden" value="<?= $airport['id'] ?>" name="airport_id"> -->
-            <input type="submit" value="Envoyer">
+            <input type="submit"  value="Envoyer" >
 
         </form>
     </div>
