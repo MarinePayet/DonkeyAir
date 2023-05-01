@@ -151,18 +151,6 @@ require_once 'Passenger.php';
      </div>
 </div>
 
-<?php
-
-$passenger_id = $_POST['passenger_id'];
-
-// Connexion à la base de données
-$db = DataBase::getPdo();
-
-// Récupération des informations du passager
-$passenger = Passenger::getPassenger($db, 1); // Remplacez $passenger_id par l'ID du passager que vous souhaitez récupérer
-
-?>
-
 <div class="div-recap">
     <div class="div-recap-dedans">
         <div class="div-info-vol"> 
