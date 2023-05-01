@@ -10,8 +10,6 @@ if(isset($_POST['go_id']) && isset($_POST['return_id'])){
 } elseif (isset($_POST['go_id'])){
     $_SESSION['go_id'] = (int)$_POST['go_id'];
 
-    var_dump($_SESSION['go_id']);
-    // header("location: flightlist.php");
 
 } elseif(isset($_POST['return_id'])){
 
@@ -46,4 +44,6 @@ if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
     return $total_price;
 
 
+}else {
+    return "prix en cours";
 }
