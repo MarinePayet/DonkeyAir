@@ -3,6 +3,8 @@
 require_once 'header.php';
 require_once 'footer.php';
 require_once 'Database.php';
+
+require_once 'saveflights.php';
 ?>
 <title>Liste de vols</title>
 
@@ -184,7 +186,7 @@ require_once 'Database.php';
 
 
 <div class="sticky-bar">
-	<div class="total">Total à payer : <span id="total">800€</span></div>
+	<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?></span></div>
 	<button id="valider">Valider</button>
 
 </div>
