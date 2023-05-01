@@ -186,12 +186,20 @@ require_once 'saveflights.php';
 
 
 <div class="sticky-bar">
+	<?php if (isset ($total_price)){
+?>
+	
 	<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?></span></div>
+<?php
+	}else {
+		echo "";
+	}
+?>
 	<button id="valider">Valider</button>
 
 </div>
 <?php if(isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td>choisi</td>";
-					} ?>
+} ?>
 
 
