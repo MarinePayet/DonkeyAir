@@ -52,7 +52,9 @@ require_once 'Database.php';
 
 					<form method="post" action="saveflights.php">
 						<input type="hidden" name="go_id" value="<?php echo $flight['flight_id']; ?>">
+
 						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
+
 					</form>
 
 
@@ -103,6 +105,7 @@ require_once 'Database.php';
 					<form method="post" action="saveflights.php">
 						<input type="hidden" name="return_id" value="<?php echo $flight['flight_id']; ?>">
 
+
 						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
 					</form>
 					<?php if(isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
@@ -118,7 +121,7 @@ require_once 'Database.php';
 	</div>
 
 
-	<!-- <div class="optionbox">
+	<div class="optionbox">
 		<p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
 		<form>
 			<label for="vip-access">VIP Acces:</label>
