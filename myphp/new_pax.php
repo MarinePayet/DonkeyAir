@@ -55,30 +55,21 @@ require_once 'Passenger.php';
 
 <?php
 
-
-
-Passenger::createPassenger();
-
-
-$db = Database::getPdo();
-        $query = 'SELECT * FROM passengers WHERE passenger_id = 1';
-        $stmt = $db->prepare($query);
-        $stmt->execute();
-        $passenger = $stmt->fetch(\PDO::FETCH_ASSOC);
-        var_dump ($passenger); // Remplacez $passenger_id par l'ID du passager que vous souhaitez récupérer
-
+$passenger = Passenger::createPassenger();
+var_dump($passenger);
 ?>
 
 <div class="div-recap">
-    <div class="div-recap-dedans">
-        <div class="div-info-vol"> 
-            <h5>Passagers </h5>
-        </div>
-        <p>Nom et prénom : <?php echo $passenger['name']; ?></p>
-        <p>Date de naissance : <?php echo $passenger['birthdate']; ?></p>
-        <p>Numéro de téléphone : <?php echo $passenger['phone']; ?></p>
-        <p>Adresse e-mail : <?php echo $passenger['email']; ?> </p>
-    </div>
+     <div class="div-recap-dedans">
+          <div class="div-info-vol"> 
+          <h5>P     assagers </h5>
+          </div>
+               <p>Nom et prénom : <?php echo $passenger['name']; ?></p>
+               <p>Date de naissance : <?php echo $passenger['birthdate']; ?></p>
+               <p>Numéro de téléphone : <?php echo $passenger['phone']; ?></p>
+               <p>Adresse e-mail : <?php echo $passenger['email']; ?> </p>
+          </div>
+     </div>
 </div>
 
 

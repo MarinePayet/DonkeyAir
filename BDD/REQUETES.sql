@@ -110,3 +110,6 @@ FROM flights
 LEFT JOIN airports as go_airport ON go_airport.airport_id = flights.departure_airport_id
 LEFT JOIN airports as arrival_airport ON arrival_airport.airport_id = flights.arrival_airport_id
 WHERE flight_id = '2';
+
+
+SELECT * FROM options LIMIT 100;

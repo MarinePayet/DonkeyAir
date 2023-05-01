@@ -23,15 +23,14 @@ class Passenger {
         $stmt->bindValue(':passport_number', $passport_number, \PDO::PARAM_STR);
         $stmt->execute();
 
-        $passenger_id = $db->lastInsertId();
-        return $passenger_id;
+        return self::getPassenger($db->lastInsertId());
     }
 
     
 
     public static function getPassenger($passenger_id) {
         $db = Database::getPdo();
-        $query = 'SELECT * FROM passengers WHERE id = :passenger_id';
+        $query = 'SELECT * FROM passengers WHERE passenger_id = :passenger_id';
         $stmt = $db->prepare($query);
         $stmt->bindValue(':passenger_id', $passenger_id);
         $stmt->execute();

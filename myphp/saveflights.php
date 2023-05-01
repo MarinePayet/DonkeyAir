@@ -5,20 +5,14 @@ require_once 'footer.php';
 require_once 'Database.php';
 
 
-if(isset($_POST['go_id']) && isset($_POST['return_id'])){
-    header("location: recapitulatif.php");
-} elseif (isset($_POST['go_id'])){
+if (isset($_POST['go_id'])){
     $_SESSION['go_id'] = (int)$_POST['go_id'];
 
-
-} elseif(isset($_POST['return_id'])){
-
-    $_SESSION['return_id'] = (int)$_POST['return_id'];
 }
 
-
-
-
+if(isset($_POST['return_id'])){
+    $_SESSION['return_id'] = (int)$_POST['return_id'];
+}
 
 
 
@@ -41,9 +35,7 @@ if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
     $return_price = $return_flight['price'];
     $total_price = $go_price + $return_price;
 
-    return $total_price;
-
-
-}else {
-    return "prix en cours";
+    $_SESSION['total_price'] = $total_price;
 }
+
+
