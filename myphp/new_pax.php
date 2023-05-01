@@ -39,7 +39,7 @@ require_once 'Passenger.php';
 
                <div class="form-pax">
                     <label for="dateNaissance">Date de naissance :</label>
-                    <input type="date" id="dateNaissance" name="dateNaissance">
+                    <input type="date" id="birthdate" name="birthdate">
                </div>
 
                <div class="form-pax">
@@ -55,9 +55,31 @@ require_once 'Passenger.php';
 
 <?php
 
+
+
 Passenger::createPassenger();
 
 
+$db = Database::getPdo();
+        $query = 'SELECT * FROM passengers WHERE passenger_id = 1';
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $passenger = $stmt->fetch(\PDO::FETCH_ASSOC);
+        var_dump ($passenger); // Remplacez $passenger_id par l'ID du passager que vous souhaitez récupérer
+
+?>
+
+<div class="div-recap">
+    <div class="div-recap-dedans">
+        <div class="div-info-vol"> 
+            <h5>Passagers </h5>
+        </div>
+        <p>Nom et prénom : <?php echo $passenger['name']; ?></p>
+        <p>Date de naissance : <?php echo $passenger['birthdate']; ?></p>
+        <p>Numéro de téléphone : <?php echo $passenger['phone']; ?></p>
+        <p>Adresse e-mail : <?php echo $passenger['email']; ?> </p>
+    </div>
+</div>
 
 
 
@@ -65,19 +87,8 @@ Passenger::createPassenger();
 
 
 
-// Création d'une instance de la classe Passenger
-// $passenger = new Passenger($pdo);
 
-// var_dump($passenger);
 
-// Insertion des données des passagers dans la base de données
-// foreach ($passenger as $key => $value) {
-//     $passenger->createPassenger($names[$key], $emails[$key], $phones[$key], $passport_numbers[$key]);
-// }
-
-// Redirection vers la page de récapitulatif
-// header('Location: recapitulatif.php');
-// exit();
 
 
 
