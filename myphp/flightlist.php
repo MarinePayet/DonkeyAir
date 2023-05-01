@@ -14,8 +14,17 @@ require_once 'Database.php'
 	<br>
 	<div class="table-responsive">
 		<table class=" table table-striped table-hover ">
+		<?php $db = DataBase::getPdo();
+			$statement = $db->query('SELECT *, city FROM flights
+			LEFT JOIN airports ON airports.airport_id = flights.arrival_airport_id
+			WHERE arrival_airport_id = ' . $_POST['destination']);
+			$statement->execute();
+			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
+?>
+				<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart'] . ' -> ' . $flights['0']['city']; ?> </p>
+			
 
-			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart']; ?> </p>
+
 			<tr class="table">
 
 				<th>Heure de depart</th>
@@ -29,7 +38,9 @@ require_once 'Database.php'
 
 			<?php
             $db = DataBase::getPdo();
-			$statement = $db->query('SELECT * FROM flights WHERE arrival_airport_id = ' . $_POST['destination']);
+			$statement = $db->query('SELECT *, city FROM flights 
+			LEFT JOIN airports ON airports.airport_id = flights.arrival_airport_id
+			WHERE arrival_airport_id = ' . $_POST['destination']);
 			$statement->execute();
 			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
 			foreach ($flights as $flight) {
@@ -39,7 +50,7 @@ require_once 'Database.php'
 					<td><?php echo $flight['departure_time']; ?></td>
 					<td><?php echo $flight['arrival_time']; ?></td>
 					<td><?php echo $flight['flight_number']; ?></td>
-					<td><?php echo $flight['available_seats']; ?></td>
+					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
 					<td><input class="btn btn-primary" type="submit" value="Choisir"></td>
 
@@ -55,10 +66,10 @@ require_once 'Database.php'
 	</div><br>
 	<div class="table-responsive">
 		<table class="table table-striped table-hover">
-			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour']; ?></p>
+			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour']; ?> -> PARIS</p>
 			<tr class="table">
 
-			<th>Heure de depart</th>
+				<th>Heure de depart</th>
 				<th>Heure d'arrivée</th>
 				<th>Numéro de vol</th>
 				<th>Place disponible</th>
@@ -80,7 +91,7 @@ require_once 'Database.php'
 				<td><?php echo $flight['departure_time']; ?></td>
 				<td><?php echo $flight['arrival_time']; ?></td>
 				<td><?php echo $flight['flight_number']; ?></td>
-				<td><?php echo $flight['available_seats']; ?></td>
+				<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 				<td><?php echo $flight['price']; ?></td>
 				<td>
 					<input class="btn btn-primary" type="submit" value="Choisir">

@@ -90,6 +90,10 @@ SELECT users.name, flights_go.flight_number as flight_go, flights.departure_time
 
 
 
+SELECT *, city FROM flights 
+LEFT JOIN airports ON airports.airport_id = flights.arrival_airport_id
+WHERE arrival_airport_id = 3;
 
-ALTER TABLE `flights` ADD COLUMN `departure_date` DATE;
+
+
 

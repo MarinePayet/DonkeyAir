@@ -30,7 +30,7 @@ try {
 
         if($count != 0){
         
-            // header(' Location: homepage.php');
+            header('Location: homepage.php');
             $statement = $db->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC);
                 var_dump($result = $statement->fetch());
                 
