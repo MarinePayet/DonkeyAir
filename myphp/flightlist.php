@@ -10,7 +10,12 @@ require_once 'Database.php';
 
 <div class="container-xl">
 	<br>
-	<?php $_SESSION['go_date'] = $_POST['date_depart']?>
+	<?php
+		
+		if (isset($_POST['date_depart'])) {
+			$_SESSION['go_date'] = $_POST['date_depart'];
+		}
+	?>
 	
 	<div class="table-responsive">
 		<table class=" table table-striped table-hover ">
@@ -52,15 +57,7 @@ require_once 'Database.php';
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-
-					<form method="post" action="saveflights.php" onclick="fetchData()" >
-						<input type="hidden" name="go_id" value="<?php echo $flight['flight_id']; ?>">
-
-						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
-
-					</form>
-
-
+					<td><button type="button" class="btn btn-primary" onclick="fetchData('go_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 
 					<?php if (isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td>choisi</td>";
@@ -106,12 +103,8 @@ require_once 'Database.php';
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<form method="post" action="saveflights.php">
-						<input type="hidden" name="return_id" value="<?php echo $flight['flight_id']; ?>">
+					<td><button type="button" class="btn btn-primary" onclick="fetchData('return_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 
-
-						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
-					</form>
 					<?php if (isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
 						echo "<td>choisi</td>";
 					} ?>
@@ -126,19 +119,23 @@ require_once 'Database.php';
 	<a href="recapitulatif.php">RECAP</a>
 
 	<div class="sticky-bar">
-	<?php if (isset($total_price)) {
+	<?php if (isset($_SESSION['total_price'])) {
 	?>
 
-		<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?> €</span>
+
+		<p class="text-uppercase fw-bold fs-4">Prix total : <?php echo $_SESSION['total_price']; ?> €</p>
+
 	<?php
 
 		?><p> ==> <a href="options.php"> Choisir une option </a></p><?php
 
 	} else {
+
 		echo " Sélectionnez un Aller & un Retour ";
 	}
 	?>
 	
+
 	</div>
 
 </div>
