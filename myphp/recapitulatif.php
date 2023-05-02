@@ -103,11 +103,11 @@ require_once 'Passenger.php';
 </div>
 
 </div>
-</br>
+</br> -->
 
 
 
-<div class="div-recap">
+<!-- <div class="div-recap">
     <div class="div-recap-dedans">
         <div class="div-info-vol">
             <h5>Passagers </h5>
@@ -126,11 +126,15 @@ require_once 'Passenger.php';
         <div class="div-info-vol">
             <h5>Options </h5>
         </div>
-        <p><?php echo $_POST['vip_access']; ?></p>
-        <p><?php echo $_POST['seats']; ?></p>
-        <p><?php echo $_POST['luggage']; ?></p>
-        <p><?php echo $_POST['pmr-assistance']; ?></p>
-        <p><?php echo $_POST['meal']; ?></p>
+        <?php foreach($_POST as $key => $value){ ?>
+            <ul>
+                <li>
+                    <?php echo $key . " => " . $value;?>
+                </li>
+            </ul>
+        <?php }
+        ?>
+        
         
 
 
