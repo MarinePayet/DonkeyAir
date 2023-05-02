@@ -41,29 +41,27 @@ function validedestination() {
 }
 
 
-function fetchData(){
-    let response = fetch('/myphp/saveflights.php',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accpert': 'application/json',
-        },
-        body: JSON.stringify({ query : ' { flights { id, depart, destination, date_depart, date_retour, price,} }' })
-    })
+function fetchData(type, flightId){
+    fetch('/saveflights.php?type='+type+'&flightId='+flightId)
     .then(response => response.json())
     .then(function(data){
-        data = JSON.parse(data);
         console.log(data);
-        let flights = data.data.flights;
-        let table = document.getElementById("table");
-        for (let i = 0; i < flights.length; i++) {
-            let row = table.insertRow(i+1);
-            let cell1 = row.insertCell(0);
-            let cell2 = row.insertCell(1);
-            cell1.innerHTML = flights[i].depart;
-            cell2.innerHTML = flights[i].destination;
+        location.reload();
+        if(data.status == 'success'){
+            alert('Le vol a été ajouté à vos favoris');
+        }else{
+            alert('Le vol a été retiré de vos favoris');
         }
-    })
+    
+})
+
+
+
+
+
+
+
+
 }
 
 
