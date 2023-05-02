@@ -69,3 +69,18 @@ function fetchData(){
 
 
 
+// document.querySelectorAll(“#go_form”).addEventListener(‘submit’, function(event) {
+//     event.preventDefault();
+//     const form_data = new FormData(document.querySelectorAll(“#go_form”));
+//     console.log(form_data);
+//     fetch(“saveflights.php”, {
+//       method: “POST”,
+//       body: form_data
+//     }).then(function(response) {
+//       return response.text();
+//     }).then(function(data) {
+//       document.querySelector(“#result”).innerHTML = data;
+//     });
+//   });
+
+
