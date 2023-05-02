@@ -47,57 +47,14 @@ function validedestination() {
     }
 
 }
-function calculatePrice() {
-    var selectElement = document.getElementById('flight-select');
-    var flightId = selectElement.options[selectElement.selectedIndex].value;
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'savelist.php');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                var totalPrice = xhr.responseText;
-                document.getElementById('total-price').innerHTML = 'Le prix total est de ' + totalPrice;
-            } else {
-                alert('Une erreur est survenue');
-            }
-        }
-    };
-    xhr.send('flight_id=' + flightId);
-}
 
-// const goFormRefresh = document.getElementById("go_form");
-
-// goFormRefresh.addEventListener("submit", (e) => {
-//     e.preventDefault();
-
+// form.addEventListener('submit', (e) => {
 //     console.log(e);
-// });
+// }
+// )
 
 
-
-
-// form.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     if (pseudo && email && password && confirmPass) {
-//         const data = {
-//         pseudo,
-//         email,
-//         password,
-//         };
-//         console.log(data);
-//         inputs.forEach((input) => (input.value = ""));
-//         progressBar.classList = "";
-//         pseudo = null;
-//         email = null;
-//         password = null;
-//         confirmPass = null;
-//         alert("Inscription validée !");
-//     } else {
-//         alert("veuillez remplir correctement les champs");
-//     }
-//     });
 
 
 
