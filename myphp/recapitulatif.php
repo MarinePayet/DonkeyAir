@@ -108,7 +108,7 @@ require_once 'Passenger.php';
 
 
 
-<div class="div-recap">
+<!-- <div class="div-recap">
     <div class="div-recap-dedans">
         <div class="div-info-vol">
             <h5>Passagers </h5>
@@ -119,7 +119,7 @@ require_once 'Passenger.php';
         <p>Adresse e-mail : <?php echo $passenger['email']; ?> </p>
     </div>
 </div>
-</div>
+</div> -->
 
 </br>
 <div class="div-recap">
@@ -127,11 +127,63 @@ require_once 'Passenger.php';
         <div class="div-info-vol">
             <h5>Options </h5>
         </div>
-        <p><?php echo $_POST['vip_access']; ?></p>
-        <p><?php echo $_POST['seats']; ?></p>
-        <p><?php echo $_POST['luggage']; ?></p>
-        <p><?php echo $_POST['pmr-assistance']; ?></p>
-        <p><?php echo $_POST['meal']; ?></p>
+
+
+        <?php 
+        $totalOptions = 0;
+        
+        foreach($_POST as $k => $v) { 
+            
+            $totalOptions += $v; ?>
+
+<?php 
+?>
+<p><?php $k . "<br>";?></p>
+
+
+
+
+        <?php switch ($k) {
+            case "Ajouter_une_valise":
+                echo "Ajouter une valise";
+                break;
+            case "VIP_Mode":
+                echo "Accès VIP";
+                break;
+            case "Mineur_non_accompagné":
+                echo "Mineur non accompagné";
+                break;
+            case "Sortie_de_secours":
+                echo "Sortie de Secours";
+                break;
+            case "Chaise_roulante":
+                echo "Fauteuil roulant";
+                break;
+            case  "Mal_entendant":
+                echo "Mal Entendant";
+                break;
+            case "Mal_voyant":
+                echo "Mal Voyant";
+                break;
+            case "Végétarien":
+                echo "Végétarien";
+                break;
+            case "Halal":
+                echo "Halal";
+                break;
+            case "Casher":
+                echo "Casher";
+                break;
+            case "Siège_Premium":
+                echo "Siège Premium";
+                break;
+        }
+    }
+echo "<br><br> Prix total des options : " . $totalOptions . "€";
+        
+        ?>
+
+
         
 
 

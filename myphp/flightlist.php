@@ -4,7 +4,6 @@ require_once 'header.php';
 require_once 'footer.php';
 require_once 'Database.php';
 
-require_once 'saveflights.php';
 ?>
 <title>Liste de vols</title>
 
@@ -130,16 +129,16 @@ require_once 'saveflights.php';
 	<?php if (isset($total_price)) {
 	?>
 
-		<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?></span>
+		<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?> €</span>
 	<?php
 
-		?><a href="options.php"> Choisir une option </a><?php
+		?><p> ==> <a href="options.php"> Choisir une option </a></p><?php
 
 	} else {
-		echo "";
+		echo " Sélectionnez un Aller & un Retour ";
 	}
 	?>
-	<button id="valider" >Valider</button>
+	
 	</div>
 
 </div>
