@@ -1,12 +1,4 @@
-
-
-
-
-
 'use strict';
-
-
-
 
 function validateDates() {
     const departDate = document.getElementById("date-depart");
@@ -32,6 +24,7 @@ function validateDates() {
         }
     }
 }
+
 function validedestination() {
     const destination = document.getElementById("destination");
     if (destination) {
@@ -45,20 +38,33 @@ function validedestination() {
             alert("Veuillez choisir une destination différente de la ville de départ");
         }
     }
-
 }
 
 
-// form.addEventListener('submit', (e) => {
-//     console.log(e);
-// }
-// )
-
-
-
-
-
-
+function fetchData(){
+    let response = fetch('/myphp/saveflights.php',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accpert': 'application/json',
+        },
+        body: JSON.stringify({ query : ' { flights { id, depart, destination, date_depart, date_retour, price,} }' })
+    })
+    .then(response => response.json())
+    .then(function(data){
+        data = JSON.parse(data);
+        console.log(data);
+        let flights = data.data.flights;
+        let table = document.getElementById("table");
+        for (let i = 0; i < flights.length; i++) {
+            let row = table.insertRow(i+1);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            cell1.innerHTML = flights[i].depart;
+            cell2.innerHTML = flights[i].destination;
+        }
+    })
+}
 
 
 
