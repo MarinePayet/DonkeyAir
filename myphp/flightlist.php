@@ -122,15 +122,19 @@ require_once 'Database.php';
 	<?php if (isset($_SESSION['total_price'])) {
 	?>
 
+
 		<p class="text-uppercase fw-bold fs-4">Prix total : <?php echo $_SESSION['total_price']; ?> €</p>
+
 	<?php
 
-		?><a href="options.php"> Choisir une option </a><?php
+		?><p> ==> <a href="options.php"> Choisir une option </a></p><?php
 
 	} else {
-		echo " choisir un aller & retour";
+
+		echo " Sélectionnez un Aller & un Retour ";
 	}
 	?>
+	
 
 	</div>
 
