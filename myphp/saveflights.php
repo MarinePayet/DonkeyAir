@@ -1,5 +1,4 @@
 <?php
-
 require_once 'header.php';
 require_once 'footer.php';
 require_once 'Database.php';
@@ -12,7 +11,6 @@ if (isset($_POST['go_id'])) {
 if (isset($_POST['return_id'])) {
     $_SESSION['return_id'] = (int)$_POST['return_id'];
 }
-
 
 
 if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
@@ -36,4 +34,3 @@ if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
 
     $_SESSION['total_price'] = $total_price;
 }
-
