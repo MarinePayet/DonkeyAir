@@ -1,12 +1,4 @@
-
-
-
-
-
 'use strict';
-
-
-
 
 function validateDates() {
     const departDate = document.getElementById("date-depart");
@@ -32,6 +24,7 @@ function validateDates() {
         }
     }
 }
+
 function validedestination() {
     const destination = document.getElementById("destination");
     if (destination) {
@@ -45,33 +38,32 @@ function validedestination() {
             alert("Veuillez choisir une destination différente de la ville de départ");
         }
     }
-
 }
-function calculatePrice() {
-    var selectElement = document.getElementById('flight-select');
-    var flightId = selectElement.options[selectElement.selectedIndex].value;
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'savelist.php');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                var totalPrice = xhr.responseText;
-                document.getElementById('total-price').innerHTML = 'Le prix total est de ' + totalPrice;
-            } else {
-                alert('Une erreur est survenue');
-            }
+function fetchData(){
+    let response = fetch('/saveflights.php', {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accpert': 'application/json',
+        },
+        body: JSON.stringify({ query : '{ flights { id, depart, destination, date_depart, date_retour, price,} }' })
+    })
+    .then(response => response.json())
+    .then(function(data){
+        data = JSON.parse(data);
+        console.log(data);
+        let flights = data.data.flights;
+        let table = document.getElementById("table");
+        for (let i = 0; i < flights.length; i++) {
+            let row = table.insertRow(i+1);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            cell1.innerHTML = flights[i].depart;
+            cell2.innerHTML = flights[i].destination;
+            cell3.innerHTML = flights[i].price;
+            
         }
-    };
-    xhr.send('flight_id=' + flightId);
+    })
 }
-
-
-
-
-
-
-
-
 

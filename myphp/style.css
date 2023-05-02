@@ -120,6 +120,7 @@ form {
 .sticky-bar {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   background-color: #f8f8f88b;
   padding: 10px;
