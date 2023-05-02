@@ -11,6 +11,8 @@ require_once 'saveflights.php';
 
 <div class="container-xl">
 	<br>
+	<?php $_SESSION['go_date'] = $_POST['date_depart']?>
+	
 	<div class="table-responsive">
 		<table class=" table table-striped table-hover ">
 			<?php $db = DataBase::getPdo();
@@ -76,6 +78,7 @@ require_once 'saveflights.php';
 	</div><br>
 	<div class="table-responsive">
 		<table class="table table-striped table-hover">
+		<?php $_SESSION['return_date'] = $_POST['date_retour']?>
 			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour']; ?> -> PARIS</p>
 			<tr class="table">
 
@@ -129,6 +132,9 @@ require_once 'saveflights.php';
 
 		<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?></span>
 	<?php
+
+		?><a href="options.php"> Choisir une option </a><?php
+
 	} else {
 		echo "";
 	}

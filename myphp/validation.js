@@ -40,6 +40,7 @@ function validedestination() {
     }
 }
 
+
 function fetchData(){
     let response = fetch('/myphp/saveflights.php',{
         method: 'POST',
@@ -64,4 +65,7 @@ function fetchData(){
         }
     })
 }
+
+
+
 

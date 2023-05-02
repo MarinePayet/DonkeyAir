@@ -13,7 +13,6 @@ if (isset($_POST['return_id'])) {
 }
 
 
-
 if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
 
     $go_id = $_SESSION['go_id'];
@@ -35,8 +34,4 @@ if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
 
     $_SESSION['total_price'] = $total_price;
 }
-
-
-
-
 

@@ -10,7 +10,8 @@ require_once 'Passenger.php';
 <div class="div-recap">
     <div class="div-recap-dedans">
         <h5>🛫 Vol Aller</h5>
-        <p><?php echo $_SESSION['go_id'] ?></p>
+
+        <p><?php echo $_SESSION['go_date'] ?></p>
         <div class="div-recap div-info">
             <div>
                 <?php
@@ -54,7 +55,7 @@ require_once 'Passenger.php';
 
 <div class="div-recap-dedans">
     <h5>🛬 Vol Retour</h5>
-    <p><?php echo $_SESSION['return_id'] ?></p>
+    <p><?php echo $_SESSION['return_date'] ?></p>
     <div class="div-recap div-info">
         <div>
 
@@ -103,11 +104,11 @@ require_once 'Passenger.php';
 </div>
 
 </div>
-</br> -->
+</br>
 
 
 
-<!-- <div class="div-recap">
+<div class="div-recap">
     <div class="div-recap-dedans">
         <div class="div-info-vol">
             <h5>Passagers </h5>
@@ -126,15 +127,11 @@ require_once 'Passenger.php';
         <div class="div-info-vol">
             <h5>Options </h5>
         </div>
-        <?php foreach($_POST as $key => $value){ ?>
-            <ul>
-                <li>
-                    <?php echo $key . " => " . $value;?>
-                </li>
-            </ul>
-        <?php }
-        ?>
-        
+        <p><?php echo $_POST['vip_access']; ?></p>
+        <p><?php echo $_POST['seats']; ?></p>
+        <p><?php echo $_POST['luggage']; ?></p>
+        <p><?php echo $_POST['pmr-assistance']; ?></p>
+        <p><?php echo $_POST['meal']; ?></p>
         
 
 
