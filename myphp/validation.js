@@ -67,6 +67,37 @@ function calculatePrice() {
     xhr.send('flight_id=' + flightId);
 }
 
+// const goFormRefresh = document.getElementById("go_form");
+
+// goFormRefresh.addEventListener("submit", (e) => {
+//     e.preventDefault();
+
+//     console.log(e);
+// });
+
+
+
+
+// form.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     if (pseudo && email && password && confirmPass) {
+//         const data = {
+//         pseudo,
+//         email,
+//         password,
+//         };
+//         console.log(data);
+//         inputs.forEach((input) => (input.value = ""));
+//         progressBar.classList = "";
+//         pseudo = null;
+//         email = null;
+//         password = null;
+//         confirmPass = null;
+//         alert("Inscription validée !");
+//     } else {
+//         alert("veuillez remplir correctement les champs");
+//     }
+//     });
 
 
 

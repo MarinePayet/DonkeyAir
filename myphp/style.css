@@ -131,9 +131,16 @@ form {
   font-weight: bold;
 }
 
-.sticky-bar button {
-    background-color: #b22d7d;
-    
+.sticky-bar .btn-option {
+  background-color: #b22d7d;  
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-option {
+  background-color: #b22d7d;  
   color: white;
   padding: 10px 20px;
   border: none;
@@ -141,7 +148,7 @@ form {
   cursor: pointer;
 }
 
-.sticky-bar button:hover {
+.sticky-bar .btn-option:hover {
   background-color: #8e3992;
 }
 .text-uppercase{

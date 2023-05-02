@@ -52,7 +52,7 @@ require_once 'saveflights.php';
 					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
 
-					<form method="post" action="saveflights.php">
+					<form method="post" action="saveflights.php" id="go_form">
 						<input type="hidden" name="go_id" value="<?php echo $flight['flight_id']; ?>">
 
 						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
@@ -108,7 +108,7 @@ require_once 'saveflights.php';
 						<input type="hidden" name="return_id" value="<?php echo $flight['flight_id']; ?>">
 
 
-						<td><button type="submit" class="btn btn-primary">Choisir</button></td>
+						<td><button type="submit" class="btn btn-primary" id="btn-submit">Choisir</button></td>
 					</form>
 					<?php if (isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
 						echo "<td>choisi</td>";
@@ -117,32 +117,33 @@ require_once 'saveflights.php';
 			</tr>
 		<?php
 				}
-		?>
+				?>
+				
 		</table>
 
 	</div>
-	<a href="recapitulatif.php">RECAP</a>
-
-	
-
-</div>
 
 
-<div class="sticky-bar">
+	<div class="sticky-bar">
 	<?php if (isset($total_price)) {
 	?>
 
-		<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?></span>
+		<div <span id="total"><?php echo "<p>Le prix total est de " . $total_price ?> €</span>
 	<?php
+		?><a href="options.php" class="btn-option"> Choisir une option </a><?php
 	} else {
-		echo "";
+		echo "Sélectionnez un vol aller & retour";
 	}
-	?>
+		?>
 	<div>
-
-	<button id="valider" >Valider</button>
+		
 
 </div>
+
+</div>
+
+
+
 </div>
 <?php if (isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 	echo "<td>choisi</td>";
