@@ -5,18 +5,15 @@ require_once 'Database.php';
 require_once 'Passenger.php';
 
 
-?>
+?> 
 
 <div class="div-recap">
     <div class="div-recap-dedans">
         <h5>🛫 Vol Aller</h5>
         <p><?php echo $_SESSION['go_id'] ?></p>
-        
-
         <div class="div-recap div-info">
             <div>
                 <?php
-
                 if (isset($_SESSION['go_id'])) {
                     $db = DataBase::getPdo();
                     $statement = $db->query('SELECT go_airport.city as go_airport, arrival_airport.city as arrival_airport, departure_time, arrival_time, flight_number, price

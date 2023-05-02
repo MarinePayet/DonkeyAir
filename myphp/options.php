@@ -27,16 +27,6 @@ require_once 'header.php';
                     Premium: 150 €
                 </label>
                 </div>
-            
-            <!-- <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="seat-exit" name="seat_exit">
-                <label class="form-check-label" for="exampleCheck1" > </label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="premium_seat" name="seat-premium_seat">
-                <label class="form-check-label" for="premium_seat" >Premium - 150 €</label>
-            </div> -->
-            <!-- <input type="submit" value="Ajouter"> -->
 			
 			<br>
             
@@ -56,8 +46,8 @@ require_once 'header.php';
 			<select id="pmr-assistance" name="pmr-assistance">
                 <option value="0">Choisir</option>
 				<option value="Chaise roulante">Chaise roulante</option>
-				<option value="Mal voyant">Aveugle</option>
-				<option value="Mal entendant">Sourd</option>
+				<option value="Mal voyant">Mal voyant</option>
+				<option value="Mal entendant">Mal entendant</option>
 				<option value="umnr 50€">Mineur non accompagné -> 50 €</option>
 				<!-- <input type="submit" value="Ajouter"> -->
 			</select>

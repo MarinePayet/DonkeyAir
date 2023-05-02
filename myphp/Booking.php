@@ -16,9 +16,7 @@ class Booking
         WHERE users.user_id = ' . $_SESSION['user_id'] . ' ORDER BY go_date DESC');
         $resas = $statement->fetchall(); ?>
 
-
         <?php for($i=0; $i<count($resas); $i++){
-
             if ($resas[$i]['go_date']>= date("Y-m-d")){ ?>
                 <div class="div-recap">
                     <div class="div-booking-dedans ">
@@ -99,8 +97,6 @@ class Booking
                             </div>
                         </div>
                     </div>
-
-
                     <?php }
             }
     }
