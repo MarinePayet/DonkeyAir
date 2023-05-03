@@ -11,6 +11,12 @@ require_once 'Flight.php';
 <div class="container-xl">
 	<br>
 	<?php
+	 if(isset($_POST['pax'])) { 
+
+        $_SESSION['nb_pax'] = $_POST['pax'];
+    }
+    
+		
 		if (isset($_POST['date_depart'])) {
 			$_SESSION['go_date'] = $_POST['date_depart'];
 		}
@@ -98,9 +104,12 @@ require_once 'Flight.php';
 	</a>
 	
 	<div class="sticky-bar">
-		<?php if (isset($_SESSION['total_price'])) { ?>
-			<p class="text-uppercase fw-bold fs-4">Prix total : <?php echo $_SESSION['total_price']; ?> €</p>
-			<p><a href="options.php"> Choisir des options </a></p><?php
+
+	<?php if (isset($_SESSION['total_price'])) { ?>
+		<p class="text-uppercase fw-bold fs-4">Prix par voyageur : <?php echo $_SESSION['total_price']; ?> €</p>
+		<p class="text-uppercase fw-bold fs-4">prix pour <?php echo $_SESSION['nb_pax']. ' voyageurs : ' . $_SESSION['total_price']*$_SESSION['nb_pax'] ?> € </p>
+		<p><a href="options.php"> Choisir des options </a></p><?php
+
 
 	} else {
 
