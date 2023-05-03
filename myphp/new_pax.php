@@ -4,10 +4,20 @@ require_once 'footer.php';
 require_once 'Database.php';
 require_once 'Passenger.php';
 
-?>
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+     $nb_pax = $_SESSION['nb_pax'];
+     $passengers = [];
 
 
-<h2>PASSAGERS</h2>
+
+     for ($i = 0; $i < $nb_pax; $i++) {
+          $sexe = $_POST['sexe'][$i];
+          $name = $_POST['name'][$i];
+          $email = $_POST['email'][$i];
+          $phone = $_POST['phone'][$i];
+          $birthdate = $_POST['birthdate'][$i];
+          $passport_number = $_POST['passport_number'][$i];
 
 <!-- <div class="container">
      <div class="form-box">
@@ -22,25 +32,22 @@ require_once 'Passenger.php';
                     </div>
                </div>
 
-               <div class="form-pax">
-                    <label for="name">Nom Prénom :</label>
-                    <input type="text" id="name" name="name">
-               </div>
 
-               <div class="form-pax">
-                    <label for="email">E-mail :</label>
-                    <input type="email" id="email" name="email">
-               </div>
+          $passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
 
-               <div class="form-pax">
-                    <label for="phone">Téléphone :</label>
-                    <input type="tel" id="phone" name="phone">
-               </div>
+          $passengers[] = $passenger;
+     
 
-               <div class="form-pax">
-                    <label for="dateNaissance">Date de naissance :</label>
-                    <input type="date" id="birthdate" name="birthdate">
-               </div>
+     }
+
+     $_SESSION['passengers'] = $passengers;
+     Passenger::viewPax($nb_pax);
+     
+   
+
+
+}
+
 
                <div class="form-pax">
                     <label for="passport_number">Numéro de passeport :</label>
@@ -59,29 +66,63 @@ Passenger::ftcForm($_SESSION['nb_pax']);
 $passenger = Passenger::createPassenger();
 
 var_dump($passenger);
+
 ?>
 
-<div class="div-recap">
-     <div class="div-recap-dedans">
-          <div class="div-info-vol"> 
-          <h5>Passagers </h5>
+<h2>PASSAGERS</h2>
+
+<form method="post" action="recapitulatif.php">
+     <?php
+     $nb_pax = $_SESSION['nb_pax'];
+     for ($i = 0; $i < $nb_pax; $i++) {
+     ?>
+          <div class="container">
+               <div class="form-box">
+                    <div class="form-pax">
+                         <label for="sexe">Sexe :</label>
+                         <div class="radio-pax">
+                              <input type="radio" id="homme" name="sexe[<?php echo $i; ?>]" value="homme" required>
+                              <label for="homme">Homme</label>
+                              <input type="radio" id="femme" name="sexe[<?php echo $i; ?>]" value="femme" required>
+                              <label for="femme">Femme</label>
+                         </div>
+                    </div>
+
+                    <div class="form-pax">
+                         <label for="name">Nom Prénom :</label>
+                         <input type="text" id="name" name="name[<?php echo $i; ?>]">
+                    </div>
+
+                    <div class="form-pax">
+                         <label for="email">E-mail :</label>
+                         <input type="email" id="email" name="email[<?php echo $i; ?>]">
+                    </div>
+
+                    <div class="form-pax">
+                         <label for="phone">Téléphone :</label>
+                         <input type="tel" id="phone" name="phone[<?php echo $i; ?>]">
+                    </div>
+
+                    <div class="form-pax">
+                         <label for="birthdate">Date de naissance :</label>
+                         <input type="date" id="birthdate" name="birthdate[<?php echo $i; ?>]">
+                    </div>
+
+                    <div class="form-pax">
+                         <label for="passport_number">Numéro de passeport :</label>
+                         <input type="text" id="passport_number" name="passport_number[<?php echo $i; ?>]">
+                    </div>
+               </div>
           </div>
-               <p>Nom et prénom : <?php echo $passenger['name']; ?></p>
-               <p>Date de naissance : <?php echo $passenger['birthdate']; ?></p>
-               <p>Numéro de téléphone : <?php echo $passenger['phone']; ?></p>
-               <p>Adresse e-mail : <?php echo $passenger['email']; ?> </p>
-          </div>
-     </div>
-</div>
+     <?php
+     }
+     ?>
+     <input type="submit" value="Enregistrer">
+</form>
 
 
 
+<?php
 
-
-
-
-
-
-
-
-
+require_once 'footer.php';
+?>
