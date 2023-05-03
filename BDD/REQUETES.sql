@@ -144,3 +144,7 @@ VALUES ('3345', '1', '07:15', '3', '08:50', '82', '20', '2023-05-08');
 --  LISBONNE - PARIS
 INSERT INTO flights (flight_number, departure_airport_id, departure_time, arrival_airport_id, arrival_time, price, capacity, date) 
 VALUES ('4533', '3', '16:40', '1', '20:10', '87', '20', '2023-05-16');
+
+-- MODIF TABLE BOOKINGS
+ALTER TABLE `bookings` 
+	CHANGE `created_at` `nb_pax` INT DEFAULT NULL ;

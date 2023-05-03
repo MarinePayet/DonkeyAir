@@ -27,14 +27,14 @@ class Booking
                         <div class="div-booking-go">
                             <div>
                                 <p>ALLER</p>
-                                <p><?php echo $resas[$i]['go_date'] ?></p>
+                                <p><?php echo date('d-m-Y', strtotime($resas[$i]['go_date'])); ?></p>
                                 <p><?php echo $resas[$i]['go_dpt_time'] ?></p>
                             </div>
                         </div>
                         <div class="div-booking-go">
                             <div>
                                 <p>RETOUR</p>
-                                <p><?php echo $resas[$i]['return_date'] ?></p>
+                                <p><?php echo date('d-m-Y', strtotime($resas[$i]['return_date'])); ?></p>
                                 <p><?php echo $resas[$i]['return_dpt_time'] ?></p>
                             </div>
                         </div>
@@ -77,14 +77,14 @@ class Booking
                             <div class="div-booking-go">
                                 <div>
                                     <p>ALLER</p>
-                                    <p><?php echo $resas[$i]['go_date'] ?></p>
+                                    <p><?php echo date('d-m-Y', strtotime($resas[$i]['go_date'])); ?></p>
                                     <p><?php echo $resas[$i]['go_dpt_time'] ?></p>
                                 </div>
                             </div>
                             <div class="div-booking-go">
                                 <div>
                                     <p>RETOUR</p>
-                                    <p><?php echo $resas[$i]['return_date'] ?></p>
+                                    <p><?php echo date('d-m-Y', strtotime($resas[$i]['return_date'])); ?></p>
                                     <p><?php echo $resas[$i]['return_dpt_time'] ?></p>
                                 </div>
                             </div>
