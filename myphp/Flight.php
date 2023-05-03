@@ -43,9 +43,9 @@ class Flight
         $db = DataBase::getPdo();
         var_dump($_SESSION['go_date']);
         $date = trim($_SESSION['go_date']);
-        $statement = $db->prepare('UPDATE flights SET date = ' . $date . ' WHERE flight_id = ' . $go_id);
+        $statement = $db->prepare('UPDATE flights SET date = "' .  $date  . '" WHERE flight_id = ' . $go_id);
         var_dump($statement);
-        $statement->bindValue(':date', $date, \PDO::PARAM_STR);
+        // $statement->bindValue(':date', $date, \PDO::PARAM_STR);
         $statement->execute();
         $flights = $statement->fetchAll(PDO::FETCH_ASSOC);
         var_dump($go_id);
@@ -54,7 +54,7 @@ class Flight
         
         echo "new date = " . $flights['0']['date'];
 
-
+        return  $flights;
 
     }
 

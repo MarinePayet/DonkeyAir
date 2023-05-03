@@ -124,3 +124,4 @@ WHERE flight_id = '2';
 SELECT * FROM flights WHERE flight_id = 2;
 INSERT INTO flights (date) VALUES ('2023-04-01') WHERE flight_id = '2';
 
+UPDATE flights SET date = '2023-05-05' WHERE flight_id = 8;
