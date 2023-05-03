@@ -122,9 +122,10 @@ form {
   bottom: 0;
   width: 100%;
   background-color: #f8f8f88b;
-  padding: 10px;
+  padding: 2px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  
 }
 
 .sticky-bar .total {
