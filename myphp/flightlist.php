@@ -116,6 +116,7 @@ require_once 'Database.php';
 		</table>
 
 	</div>
+</div>
 	<a href="recapitulatif.php">RECAP</a>
 
 	<div class="sticky-bar">
@@ -138,7 +139,7 @@ require_once 'Database.php';
 
 	</div>
 
-</div>
+
 
 
 
