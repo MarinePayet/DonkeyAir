@@ -92,18 +92,17 @@ require_once 'Flight.php';
 
 	</div>
 </div>
-	<a href="recapitulatif.php">RECAP</a>
-
-	<div class="sticky-bar">
-	<?php if (isset($_SESSION['total_price'])) { ?>
-		<p class="text-uppercase fw-bold fs-4">Prix total : <?php echo $_SESSION['total_price']; ?> €</p>
-		<p><a href="new_pax.php"> Ajouter des passagers </a></p><?php
-
-	} else {
-
-		echo " Sélectionnez un Aller & un Retour ";
-	} ?>
-	
+<a href="recapitulatif.php">RECAP</a>
+    <p><a href="new_pax.php"> Ajouter des passagers </a></p>
+    </a>
+    <div class="sticky-bar">
+    <?php if (isset($_SESSION['total_price'])) { ?>
+        <p class="text-uppercase fw-bold fs-4">Prix par voyageur : <?php echo $_SESSION['total_price']; ?> €</p>
+        <p class="text-uppercase fw-bold fs-4">prix pour <?php echo $_SESSION['nb_pax']. ' voyageurs : ' . $_SESSION['total_price']*$_SESSION['nb_pax'] ?> € </p>
+        <p><a href="options.php"> Choisir des options </a></p><?php
+    } else {
+        echo " Sélectionnez un Aller & un Retour ";
+    } ?>
 
 	</div>git 
 
