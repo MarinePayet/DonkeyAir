@@ -143,3 +143,4 @@ require_once 'Passenger.php';
         <?php echo "Total de votre voyage : " . $_SESSION['total_price'] + $totalOptions ?>
     </div>
 </div>
+

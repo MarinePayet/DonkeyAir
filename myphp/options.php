@@ -19,8 +19,9 @@ require_once 'Option.php';
                         </div>
 
         <?php endforeach; ?>
-        
                 <input type="submit" value="Ajouter">
+                <p></p>
+                <a href="new_pax.php"> Pas d'options ? Choisissez vos passagers.</a>
         </form>
 
 </div>
