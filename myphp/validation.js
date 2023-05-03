@@ -47,38 +47,13 @@ function fetchData(type, flightId){
     .then(function(data){
         console.log(data);
         location.reload();
-        if(data.status == 'success'){
-            alert('Le vol a été ajouté à vos favoris');
+        if(data.status !== 'success'){
+            alert('Le vol a été ajouté');
         }else{
-            alert('Le vol a été retiré de vos favoris');
+            alert('Le vol a été retiré');
         }
     
 })
-
-
-
-
-
-
-
-
 }
-
-
-
-
-// document.querySelectorAll(“#go_form”).addEventListener(‘submit’, function(event) {
-//     event.preventDefault();
-//     const form_data = new FormData(document.querySelectorAll(“#go_form”));
-//     console.log(form_data);
-//     fetch(“saveflights.php”, {
-//       method: “POST”,
-//       body: form_data
-//     }).then(function(response) {
-//       return response.text();
-//     }).then(function(data) {
-//       document.querySelector(“#result”).innerHTML = data;
-//     });
-//   });
 
 

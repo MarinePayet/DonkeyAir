@@ -93,6 +93,7 @@ require_once 'Passenger.php';
                 endforeach;
             }
 ?>
+<p class="text-uppercase fw-bold fs-4">Prix total : <?php echo $_SESSION['total_price']; ?> €</p>
 
 </br>
 
