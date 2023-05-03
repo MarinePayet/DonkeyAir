@@ -47,19 +47,13 @@ function fetchData(type, flightId){
     .then(function(data){
         console.log(data);
         location.reload();
-        if(data.status == 'success'){
+        if(data.status !== 'success'){
             alert('Le vol a été ajouté à vos favoris');
         }else{
             alert('Le vol a été retiré de vos favoris');
         }
     
 })
-
-
-
-
-
-
 
 
 }
