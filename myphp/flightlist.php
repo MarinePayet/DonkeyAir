@@ -56,7 +56,7 @@ require_once 'Flight.php';
 					<td><button type="button" class="btn btn-primary" onclick="fetchData('go_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 
 					<?php if (isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
-						echo "<td>choisi</td>";
+						echo "<td><h5>✓</h5></td>";
 					} ?>
 				</tr>
 			<?php }	?>
@@ -92,7 +92,7 @@ require_once 'Flight.php';
 					<td><button type="button" class="btn btn-primary" onclick="fetchData('return_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 
 					<?php if (isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
-						echo "<td>choisi</td>";
+						echo "<td><h5>✓</h5></td>";
 					} ?>
 			</tr>
 		<?php
@@ -109,8 +109,10 @@ require_once 'Flight.php';
     <div class="sticky-bar">
     <?php if (isset($_SESSION['total_price'])) { ?>
         <p class="text-uppercase fw-bold fs-4">Prix par voyageur : <?php echo $_SESSION['total_price']; ?> €</p>
-        <p class="text-uppercase fw-bold fs-4">prix pour <?php echo $_SESSION['nb_pax']. ' voyageurs : ' . $_SESSION['total_price']*$_SESSION['nb_pax'] ?> € </p>
-        <p><a href="options.php"> Choisir des options </a></p><?php
+		<?php if($_SESSION['nb_pax']>= '2') { ?>
+			<p class="text-uppercase fw-bold fs-4">prix pour <?php echo $_SESSION['nb_pax']. ' voyageurs : ' . $_SESSION['total_price']*$_SESSION['nb_pax'] ?> € </p>
+		<?php } ?>
+		<p><a href="options.php"> Choisir des options </a></p><?php
     } else {
 		
         echo " Sélectionnez un Aller & un Retour ";

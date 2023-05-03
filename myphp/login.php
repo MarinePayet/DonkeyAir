@@ -16,7 +16,7 @@ require_once 'footer.php';
         </div>
 
         <div class="form-pax w-50">
-            <label for="nom">Mot de Pass :</label>
+            <label for="nom">Mot de Passe :</label>
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
         </div>
 

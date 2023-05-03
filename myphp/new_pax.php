@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $birthdate = $_POST['birthdate'][$i];
           $passport_number = $_POST['passport_number'][$i];
 
+
           $passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
           $passengers[] = $passenger;
 
@@ -28,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 }
+
 ?>
 
 <h2>PASSAGERS</h2>

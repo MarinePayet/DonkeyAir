@@ -120,8 +120,27 @@ UPDATE flights
 SET date = '2023-06-06'
 WHERE flight_id = '2';
 
-
-SELECT * FROM flights WHERE flight_id = 2;
-INSERT INTO flights (date) VALUES ('2023-04-01') WHERE flight_id = '2';
-
 UPDATE flights SET date = '2023-05-05' WHERE flight_id = 8;
+
+SELECT * FROM flights;
+
+-- PARIS - NEW YORK
+INSERT INTO flights (flight_number, departure_airport_id, departure_time, arrival_airport_id, arrival_time, price, capacity, date) 
+VALUES ('7712', '1', '09:30', '4', '13:59', '487', '20', '2023-05-07');
+--  NEW YORK - PARIS
+INSERT INTO flights (flight_number, departure_airport_id, departure_time, arrival_airport_id, arrival_time, price, capacity, date) 
+VALUES ('1277', '4', '00:30', '1', '13:55', '590', '20', '2023-05-20');
+
+-- PARIS - SHANGHAI
+
+INSERT INTO flights (flight_number, departure_airport_id, departure_time, arrival_airport_id, arrival_time, price, capacity, date) 
+VALUES ('5521', '1', '22:30', '2', '16:55', '1297', '20', '2023-09-01');
+--  SHANGHAI - PARIS
+INSERT INTO flights (flight_number, departure_airport_id, departure_time, arrival_airport_id, arrival_time, price, capacity, date) 
+VALUES ('2155', '2', '22:30', '1', '22:00', '750', '20', '2023-09-30');
+--  PARIS - LISBONNE
+INSERT INTO flights (flight_number, departure_airport_id, departure_time, arrival_airport_id, arrival_time, price, capacity, date) 
+VALUES ('3345', '1', '07:15', '3', '08:50', '82', '20', '2023-05-08');
+--  LISBONNE - PARIS
+INSERT INTO flights (flight_number, departure_airport_id, departure_time, arrival_airport_id, arrival_time, price, capacity, date) 
+VALUES ('4533', '3', '16:40', '1', '20:10', '87', '20', '2023-05-16');
