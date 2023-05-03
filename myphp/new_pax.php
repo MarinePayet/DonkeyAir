@@ -7,7 +7,7 @@ require_once 'Passenger.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      $nb_pax = $_SESSION['nb_pax'];
      $passengers = [];
-     
+
 
 
      for ($i = 0; $i < $nb_pax; $i++) {
@@ -17,16 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $phone = $_POST['phone'][$i];
           $birthdate = $_POST['birthdate'][$i];
           $passport_number = $_POST['passport_number'][$i];
-
           $passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
           $passengers[] = $passenger;
-
      }
 
      $_SESSION['passengers'] = $passengers;
-     
-
-
 }
 ?>
 
