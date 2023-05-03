@@ -11,39 +11,23 @@ require_once 'Airport.php';
 
 <body style="background-image: url('pexels-nicole-avagliano-2236703.jpg');background-repeat: no-repeat;background-size: cover;">
 
-
-
-
-
-
     <div class="container text-center">
         <div class="row align-items-start">
-
             <div class="col">
-
                 <h1 class="titre">DonkeyAir</h1>
-
                 <p class="slogan">la compagnie qui vous fait prendre de la hauteur.......à dos d’ane✈</p>
-
             </div>
-
         </div>
     </div>
     <br>
 
-
-
     <div class="container-lg">
-
-
-
         <form action="flightlist.php" method="POST">
-
             <label for="depart">Départ:</label>
             <select class="form-select" aria-label="Default select example"  id="depart" name="depart" onchange=" validedestination()">
                 <?php Airport::listAirport() ?>;
-
             </select>
+
             <label for="destination">Destination:</label>
             <select class="form-select" aria-label="Default select example" id="destination" name="destination" onchange=" validedestination()">
                 <?php Airport::listAirport() ?>;
@@ -63,7 +47,7 @@ require_once 'Airport.php';
                 <option value="4" name="4">2 adultes, 2 enfant</option>
                 <option value="5" name="5">2 adultes, 3 enfants</option>
             </select>
-            <!-- <input type="hidden" value="<?= $airport['id'] ?>" name="airport_id"> -->
+
             <input type="submit" value="Envoyer">
 
         </form>

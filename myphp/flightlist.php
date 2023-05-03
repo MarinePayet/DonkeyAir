@@ -3,15 +3,14 @@
 require_once 'header.php';
 require_once 'footer.php';
 require_once 'Database.php';
+require_once 'Flight.php';
 
 ?>
 <title>Liste de vols</title>
 
-
 <div class="container-xl">
 	<br>
 	<?php
-		
 		if (isset($_POST['date_depart'])) {
 			$_SESSION['go_date'] = $_POST['date_depart'];
 		}
@@ -19,37 +18,24 @@ require_once 'Database.php';
 	
 	<div class="table-responsive">
 		<table class=" table table-striped table-hover ">
-			<?php $db = DataBase::getPdo();
-			$statement = $db->query('SELECT *, city FROM flights
-			LEFT JOIN airports ON airports.airport_id = flights.arrival_airport_id
-			WHERE arrival_airport_id = ' . $_POST['destination']);
-			$statement->execute();
-			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
-			?>
+			<?php 
+			$flights = Flight::findByDestination($_POST['destination']) ?>
+			
 			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart'] . ' -> ' . $flights['0']['city']; ?> </p>
-
-
-
+			
 			<tr class="table">
-
 				<th>Heure de depart</th>
 				<th>Heure d'arrivée</th>
 				<th>Numéro de vol</th>
 				<th>Place disponible</th>
 				<th>Prix</th>
 				<th>Réserver</th>
-
 			</tr>
 
 			<?php
-			$db = DataBase::getPdo();
-			$statement = $db->query('SELECT *, city FROM flights 
-			LEFT JOIN airports ON airports.airport_id = flights.arrival_airport_id
-			WHERE arrival_airport_id = ' . $_POST['destination']);
-			$statement->execute();
-			$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
-			foreach ($flights as $flight) {
-			?>
+			$flights = Flight::findByDestination($_POST['destination']);
+			
+			foreach ($flights as $flight) { ?>
 
 				<tr>
 					<td><?php echo $flight['departure_time']; ?></td>
@@ -62,16 +48,12 @@ require_once 'Database.php';
 					<?php if (isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td>choisi</td>";
 					} ?>
-
 				</tr>
-			<?php
-			}
-			?>
-
-
+			<?php }	?>
 
 		</table>
-	</div><br>
+	</div>
+	<br>
 	<div class="table-responsive">
 		<table class="table table-striped table-hover">
 		<?php $_SESSION['return_date'] = $_POST['date_retour']?>
@@ -87,17 +69,11 @@ require_once 'Database.php';
 
 			</tr>
 			<tr>
-
-
 				<?php
-				$db = DataBase::getPdo();
-				$statement = $db->query('SELECT * FROM flights WHERE departure_airport_id = ' . $_POST['destination']);
-				$statement->execute();
-				$flights = $statement->fetchAll(PDO::FETCH_ASSOC);
+				$flights = Flight::returnToParis($_POST['destination']);
+				
 				foreach ($flights as $flight) {
 				?>
-
-
 					<td><?php echo $flight['departure_time']; ?></td>
 					<td><?php echo $flight['arrival_time']; ?></td>
 					<td><?php echo $flight['flight_number']; ?></td>
@@ -108,7 +84,6 @@ require_once 'Database.php';
 					<?php if (isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
 						echo "<td>choisi</td>";
 					} ?>
-
 			</tr>
 		<?php
 				}
@@ -120,21 +95,14 @@ require_once 'Database.php';
 	<a href="recapitulatif.php">RECAP</a>
 
 	<div class="sticky-bar">
-	<?php if (isset($_SESSION['total_price'])) {
-	?>
-
-
+	<?php if (isset($_SESSION['total_price'])) { ?>
 		<p class="text-uppercase fw-bold fs-4">Prix total : <?php echo $_SESSION['total_price']; ?> €</p>
-
-	<?php
-
-		?><p> ==> <a href="options.php"> Choisir une option </a></p><?php
+		<p><a href="new_pax.php"> Ajouter des passagers </a></p><?php
 
 	} else {
 
 		echo " Sélectionnez un Aller & un Retour ";
-	}
-	?>
+	} ?>
 	
 
 	</div>
@@ -146,6 +114,3 @@ require_once 'Database.php';
 
 
 
-<?php if (isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
-	echo "<td>choisi</td>";
-} ?>

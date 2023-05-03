@@ -56,7 +56,6 @@ require_once 'Passenger.php';
 <?php
 
 $passenger = Passenger::createPassenger();
-var_dump($passenger);
 ?>
 
 <div class="div-recap">
