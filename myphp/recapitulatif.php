@@ -41,6 +41,7 @@ require_once 'Passenger.php';
         </div>
         <div class="div-recap">
             <div>
+            <?php $_SESSION['flight_go_price'] = $flight['price'] ?>
                 <p>Tarifs : <?php echo $flight['price'] ?> €</p>
             </div>
 
@@ -84,6 +85,7 @@ require_once 'Passenger.php';
     </div>
     <div class="div-recap">
         <div>
+        <?php $_SESSION['flight_return_price'] = $flight['price'] ?>
             <p>Tarifs : <?php echo $flight['price'] ?> €</p>
         </div>
 
@@ -136,6 +138,6 @@ require_once 'Passenger.php';
 </div>
 <div class="div-recap">
     <div class="div-recap-dedans">
-        <?php echo "Total de votre voayge : " . $_SESSION['flight_go'] + $_SESSION['flight_return'] + $totalOptions ?>
+        <?php echo "Total de votre voyage : " . $_SESSION['flight_go_price'] + $_SESSION['flight_return_price'] + $totalOptions ?>
     </div>
 </div>
