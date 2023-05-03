@@ -100,4 +100,24 @@ class Booking
                     <?php }
             }
     }
+
+
+public static function newBooking() {
+
+    $db = Database::getPdo();
+    $user_id = $_SESSION['user_id'];
+    $flight_go_id = $_SESSION['go_id'];
+    $flight_return_id = $_SESSION['return_id'];
+    
+    $query = 'INSERT INTO bookings (user_id, flight_go_id, flight_return_id) VALUES (:user_id, :flight_go_id, :flight_return_id)';
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':user_id', $user_id, \PDO::PARAM_INT);
+    $stmt->bindValue(':flight_go_id', $flight_go_id, \PDO::PARAM_INT);
+    $stmt->bindValue(':flight_return_id', $flight_return_id, \PDO::PARAM_INT);
+    $stmt->execute();
+    
+}
+
+
+
 }

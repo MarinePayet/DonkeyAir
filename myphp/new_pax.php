@@ -9,7 +9,7 @@ require_once 'Passenger.php';
 
 <h2>PASSAGERS</h2>
 
-<div class="container">
+<!-- <div class="container">
      <div class="form-box">
           <form action= "#" method= "post">
                <div class="form-pax">
@@ -51,11 +51,14 @@ require_once 'Passenger.php';
 
           </form>
      </div>
-</div>
+</div> -->
 
 <?php
+Passenger::ftcForm($_SESSION['nb_pax']);
 
 $passenger = Passenger::createPassenger();
+
+var_dump($passenger);
 ?>
 
 <div class="div-recap">
