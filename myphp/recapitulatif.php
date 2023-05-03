@@ -9,7 +9,9 @@ require_once 'Passenger.php';
 <div class="div-recap">
     <div class="div-recap-dedans">
         <h5>🛫 Vol Aller</h5>
-        <p><?php echo $_SESSION['go_date'] ?></p>
+        <div class="h5-date">
+            <h5><?php echo date('d-m-Y',strtotime($_SESSION['go_date'])); ?></h5>
+        </div>
         <div class="div-recap div-info">
             <div>
                 <?php
@@ -41,7 +43,6 @@ require_once 'Passenger.php';
         </div>
         <div class="div-recap">
             <div>
-            <?php $_SESSION['flight_go_price'] = $flight['price'] ?>
                 <p>Tarifs : <?php echo $flight['price'] ?> €</p>
             </div>
 
@@ -51,10 +52,12 @@ require_once 'Passenger.php';
                     endforeach;
                 }
 ?>
-</div>
+
 <div class="div-recap-dedans">
     <h5>🛬 Vol Retour</h5>
-    <p><?php echo $_SESSION['return_date'] ?></p>
+    <div class="h5-date">
+        <h5><?php echo date('d-m-Y',strtotime($_SESSION['return_date'])); ?></h5>
+    </div>    
     <div class="div-recap div-info">
         <div>
             <?php
@@ -85,17 +88,16 @@ require_once 'Passenger.php';
     </div>
     <div class="div-recap">
         <div>
-        <?php $_SESSION['flight_return_price'] = $flight['price'] ?>
             <p>Tarifs : <?php echo $flight['price'] ?> €</p>
         </div>
 
     </div>
 </div>
+</div>
 <?php
                 endforeach;
             }
 ?>
-<p class="text-uppercase fw-bold fs-4">Prix total : <?php echo $_SESSION['total_price']; ?> €</p>
 
 </br>
 
@@ -138,6 +140,6 @@ require_once 'Passenger.php';
 </div>
 <div class="div-recap">
     <div class="div-recap-dedans">
-        <?php echo "Total de votre voyage : " . $_SESSION['flight_go_price'] + $_SESSION['flight_return_price'] + $totalOptions ?>
+        <?php echo "Total de votre voyage : " . $_SESSION['total_price'] + $totalOptions ?>
     </div>
 </div>
