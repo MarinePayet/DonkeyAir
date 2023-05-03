@@ -18,7 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $phone = $_POST['phone'][$i];
           $birthdate = $_POST['birthdate'][$i];
           $passport_number = $_POST['passport_number'][$i];
-
+     }
+}
+?>
 <!-- <div class="container">
      <div class="form-box">
           <form action= "#" method= "post">
@@ -63,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php
 Passenger::ftcForm($_SESSION['nb_pax']);
 
-$passenger = Passenger::createPassenger();
+$passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
 
 var_dump($passenger);
 
