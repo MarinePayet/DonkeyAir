@@ -110,6 +110,18 @@ FROM flights
 LEFT JOIN airports as go_airport ON go_airport.airport_id = flights.departure_airport_id
 LEFT JOIN airports as arrival_airport ON arrival_airport.airport_id = flights.arrival_airport_id
 WHERE flight_id = '2';
+SELECT * FROM passengers 
+ORDER BY passenger_id DESC
+LIMIT 1;
 
 
-SELECT * FROM options LIMIT 100;
+
+UPDATE flights 
+SET date = '2023-06-06'
+WHERE flight_id = '2';
+
+
+SELECT * FROM flights WHERE flight_id = 2;
+INSERT INTO flights (date) VALUES ('2023-04-01') WHERE flight_id = '2';
+
+UPDATE flights SET date = '2023-05-05' WHERE flight_id = 8;

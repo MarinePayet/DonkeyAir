@@ -9,14 +9,16 @@ require_once 'Flight.php';
 <title>Liste de vols</title>
 
 <div class="container-xl">
-	<br>
+<br>
 	<?php
-	
-	   if(isset($_POST['pax'])) { 
 
-			$_SESSION['nb_pax'] = $_POST['pax'];
-			var_dump($_SESSION['nb_pax']);
-		}
+	
+	
+	if(isset($_POST['pax'])) { 
+        $_SESSION['nb_pax'] = $_POST['pax'];
+    }
+	
+
 		if (isset($_POST['date_depart'])) {
 			$_SESSION['go_date'] = $_POST['date_depart'];
 		}
@@ -28,8 +30,8 @@ require_once 'Flight.php';
 		<table class=" table table-striped table-hover ">
 			<?php 
 			$flights = Flight::findByDestination($_POST['destination']) ?>
-			
-			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart'] . ' -> ' . $flights['0']['city']; ?> </p>
+
+			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo date('d-m-Y', strtotime($_POST['date_depart'])) . ' -> ' . $flights['0']['city']; ?> </p>
 			
 			<tr class="table">
 				<th>Heure de depart</th>
@@ -65,7 +67,7 @@ require_once 'Flight.php';
 	<div class="table-responsive">
 		<table class="table table-striped table-hover">
 		<?php $_SESSION['return_date'] = $_POST['date_retour']?>
-			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour']; ?> -> PARIS</p>
+			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo date('d-m-Y', strtotime($_POST['date_retour'])); ?> -> PARIS</p>
 			<tr class="table">
 
 				<th>Heure de depart</th>

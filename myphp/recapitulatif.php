@@ -102,6 +102,7 @@ require_once 'Passenger.php';
 ?>
 
 </br>
+<?php var_dump($_SESSION['nb_pax'])?>
 
 <div class="div-recap">
     <div class="div-recap-dedans">
@@ -138,6 +139,10 @@ require_once 'Passenger.php';
     }
 ?>
         </div>
+
+
+        <p> Nombre de passagers = <?php echo $_SESSION['nb_pax']?></p>
+
 </div>
 </div>
 
@@ -167,7 +172,11 @@ require_once 'Passenger.php';
 </div>
 <div class="div-recap">
     <div class="div-recap-dedans">
-        <?php echo "Total de votre voyage : " . $_SESSION['total_price'] + $totalOptions ?>
+        <?php echo "Total de votre voyage : " . $_SESSION['total_price']*$_SESSION['nb_pax'] + $totalOptions . ' €' ?>
     </div>
 </div>
 
+<form action="saveBooking.php" method="POST">
+
+    <button type="submit" class="btn btn-primary" ">Choisir</button></td>
+</form>
