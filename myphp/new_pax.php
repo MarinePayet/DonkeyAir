@@ -4,11 +4,10 @@ require_once 'footer.php';
 require_once 'Database.php';
 require_once 'Passenger.php';
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      $nb_pax = $_SESSION['nb_pax'];
      $passengers = [];
-
+     
 
 
      for ($i = 0; $i < $nb_pax; $i++) {
@@ -18,56 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $phone = $_POST['phone'][$i];
           $birthdate = $_POST['birthdate'][$i];
           $passport_number = $_POST['passport_number'][$i];
-     }
-}
-?>
-<!-- <div class="container">
-     <div class="form-box">
-          <form action= "#" method= "post">
-               <div class="form-pax">
-                    <label for="sexe">Sexe :</label>
-                    <div class="radio-pax">
-                         <input type="radio" id="homme" name="sexe" value="homme" required>
-                         <label for="homme">Homme</label>
-                         <input type="radio" id="femme" name="sexe" value="femme" required>
-                         <label for="femme">Femme</label>
-                    </div>
-               </div>
 
 
           $passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
-
           $passengers[] = $passenger;
-     
 
      }
 
      $_SESSION['passengers'] = $passengers;
-     Passenger::viewPax($nb_pax);
      
-   
 
 
 }
-
-
-               <div class="form-pax">
-                    <label for="passport_number">Numéro de passeport :</label>
-                    <input type="text" id="passport_number" name="passport_number">
-               </div>
-
-               <input type="submit" value="Enregistrer">
-
-          </form>
-     </div>
-</div> -->
-
-<?php
-Passenger::ftcForm($_SESSION['nb_pax']);
-
-$passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
-
-var_dump($passenger);
 
 ?>
 
@@ -121,10 +82,3 @@ var_dump($passenger);
      ?>
      <input type="submit" value="Enregistrer">
 </form>
-
-
-
-<?php
-
-require_once 'footer.php';
-?>

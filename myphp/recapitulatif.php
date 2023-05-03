@@ -113,15 +113,17 @@ require_once 'Passenger.php';
     
     
      for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
-        foreach($paxpax[$i] as $post){
+        foreach ($paxpax as $pax) : ?>
 
-            echo $post. "// ";
+            <h5>Passager <?php echo $i+1; ?></h5>
+            <div class="card">
 
-        }
+           
+
+        
 
 
      
-?>
             <h5>Passagers </h5>
             <div class="card">
   <div class="card-body">
@@ -136,6 +138,7 @@ require_once 'Passenger.php';
 </div>
 <?php
 
+        endforeach;
     }
 ?>
         </div>
