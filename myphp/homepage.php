@@ -39,7 +39,7 @@ require_once 'Airport.php';
             <label for="date-retour">Date de retour :</label>
             <input type="date" id="date-retour"  name="date_retour" onchange="validateDates()"min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+6 months')); ?>" <?php if (isset($_POST['date_depart']) && strtotime(date('Y-m-d')) > strtotime($_POST['date_depart'])) { echo 'class="date-grisee"'; } ?> required>
             <label for="passagers">Passagers:</label>
-            <select class="form-select" aria-label="Default select example" id="passagers" name="passagers">
+            <select class="form-select" aria-label="Default select example" id="passagers" name="pax">
                 <option value="1" name="1">1 adulte, 0 enfant</option>
                 <option value="2" name="2">1 adulte, 1 enfant</option>
                 <option value="3" name="3">1 adulte, 2 enfants</option>
@@ -52,3 +52,10 @@ require_once 'Airport.php';
 
         </form>
     </div>
+    <?php
+
+    if(isset($_POST['pax'])) { 
+
+        $_SESSION['nb_pax'] = $_POST['pax'];
+    }
+    ?>
