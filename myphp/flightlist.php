@@ -27,8 +27,8 @@ require_once 'Flight.php';
 			<?php 
 			$flights = Flight::findByDestination($_POST['destination']) ?>
 			
-			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo $_POST['date_depart'] . ' -> ' . $flights['0']['city']; ?> </p>
-			
+			<p class="text-uppercase fw-bold fs-4">Vol Aller le <?php echo date('d-m-Y',strtotime($_POST['date_depart'])) . ' -> ' . $flights['0']['city']; ?> </p>
+
 			<tr class="table">
 				<th>Heure de depart</th>
 				<th>Heure d'arrivée</th>
@@ -63,7 +63,7 @@ require_once 'Flight.php';
 	<div class="table-responsive">
 		<table class="table table-striped table-hover">
 		<?php $_SESSION['return_date'] = $_POST['date_retour']?>
-			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo $_POST['date_retour']; ?> -> PARIS</p>
+			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo date('d-m-Y',strtotime($_POST['date_retour'])); ?> -> PARIS</p>
 			<tr class="table">
 
 				<th>Heure de depart</th>
@@ -99,12 +99,17 @@ require_once 'Flight.php';
 	</div>
 </div>
 	<a href="recapitulatif.php">RECAP</a>
-
+	<p><a href="new_pax.php"> Ajouter des passagers </a></p>
+	
+	</a>
+	
 	<div class="sticky-bar">
+
 	<?php if (isset($_SESSION['total_price'])) { ?>
 		<p class="text-uppercase fw-bold fs-4">Prix par voyageur : <?php echo $_SESSION['total_price']; ?> €</p>
 		<p class="text-uppercase fw-bold fs-4">prix pour <?php echo $_SESSION['nb_pax']. ' voyageurs : ' . $_SESSION['total_price']*$_SESSION['nb_pax'] ?> € </p>
-		<p><a href="new_pax.php"> Ajouter des passagers </a></p><?php
+		<p><a href="options.php"> Choisir des options </a></p><?php
+
 
 	} else {
 
