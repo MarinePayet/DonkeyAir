@@ -52,10 +52,3 @@ require_once 'Airport.php';
 
         </form>
     </div>
-    <?php
-
-    if(isset($_POST['pax'])) { 
-
-        $_SESSION['nb_pax'] = $_POST['pax'];
-    }
-    ?>

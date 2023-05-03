@@ -6,14 +6,9 @@ require_once 'Database.php';
 class Passenger {
     
 
-    public static function createPassenger() {
+    public static function createPassenger($name, $email, $phone, $birthdate, $passport_number) {
 
         $db = Database::getPdo();
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $birthdate = $_POST['birthdate'];
-        $passport_number = $_POST['passport_number'];
         $query = 'INSERT INTO passengers (name, email, phone, birthdate, passport_number) VALUES (:name, :email, :phone, :birthdate, :passport_number)';
         $stmt = $db->prepare($query);
         $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
@@ -36,11 +31,27 @@ class Passenger {
         $stmt->execute();
         $passenger = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $passenger;
-        var_dump ($passenger);
+}
 
+    public static function viewPax($nb_pax) {
+        $db = Database::getPdo();
+        $query = 'SELECT * FROM passengers
+        ORDER BY passenger_id DESC
+        LIMIT ' . $nb_pax;
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $view_pax= $stmt->fetchAll(\PDO::FETCH_ASSOC);
+       
+        return $view_pax;
+        
+        
+
+
+
+
+
+        
     }
 
 
-    
-    
 }

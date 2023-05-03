@@ -11,9 +11,17 @@ require_once 'Flight.php';
 <div class="container-xl">
 	<br>
 	<?php
+	
+	   if(isset($_POST['pax'])) { 
+
+			$_SESSION['nb_pax'] = $_POST['pax'];
+			var_dump($_SESSION['nb_pax']);
+		}
 		if (isset($_POST['date_depart'])) {
 			$_SESSION['go_date'] = $_POST['date_depart'];
 		}
+		
+		
 	?>
 	
 	<div class="table-responsive">
@@ -86,6 +94,7 @@ require_once 'Flight.php';
 					} ?>
 			</tr>
 		<?php
+		
 				}
 		?>
 		</table>
@@ -101,10 +110,11 @@ require_once 'Flight.php';
         <p class="text-uppercase fw-bold fs-4">prix pour <?php echo $_SESSION['nb_pax']. ' voyageurs : ' . $_SESSION['total_price']*$_SESSION['nb_pax'] ?> € </p>
         <p><a href="options.php"> Choisir des options </a></p><?php
     } else {
+		
         echo " Sélectionnez un Aller & un Retour ";
     } ?>
 
-	</div>git 
+	</div>
 
 
 
