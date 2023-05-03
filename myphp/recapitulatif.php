@@ -100,19 +100,21 @@ require_once 'Passenger.php';
 ?>
 
 </br>
+<?php var_dump($_SESSION['nb_pax'])?>
 
-<!-- <div class="div-recap">
+<div class="div-recap">
     <div class="div-recap-dedans">
         <div class="div-info-vol">
             <h5>Passagers </h5>
         </div>
-        <p>Nom et prénom : <?php echo $passenger['name']; ?></p>
+        <p> Nombre de passagers = <?php echo $_SESSION['nb_pax']?></p>
+        <!-- <p>Nom et prénom : <?php echo $passenger['name']; ?></p>
         <p>Date de naissance : <?php echo $passenger['birthdate']; ?></p>
         <p>Numéro de téléphone : <?php echo $passenger['phone']; ?></p>
-        <p>Adresse e-mail : <?php echo $passenger['email']; ?> </p>
+        <p>Adresse e-mail : <?php echo $passenger['email']; ?> </p> -->
     </div>
 </div>
-</div> -->
+</div>
 
 </br>
 <div class="div-recap">
@@ -140,7 +142,11 @@ require_once 'Passenger.php';
 </div>
 <div class="div-recap">
     <div class="div-recap-dedans">
-        <?php echo "Total de votre voyage : " . $_SESSION['total_price'] + $totalOptions ?>
+        <?php echo "Total de votre voyage : " . $_SESSION['total_price']*$_SESSION['nb_pax'] + $totalOptions . ' €' ?>
     </div>
 </div>
 
+<form action="saveBooking.php" method="POST">
+
+    <button type="submit" class="btn btn-primary" ">Choisir</button></td>
+</form>
