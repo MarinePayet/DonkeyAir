@@ -201,18 +201,7 @@ for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
         </div>
     </div>
 
-    </br>
-    <div class="div-recap">
-        <div class="div-recap-dedans">
-            <div class="div-info-vol">
-                <h5>Options </h5>
-            </div>
-
-            <?php
-            $totalOptions = 0;
-
-            foreach ($_POST as $k => $v) {
-
-
-
+<?php
+}   
+?>
 
