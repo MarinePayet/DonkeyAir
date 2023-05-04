@@ -5,13 +5,13 @@ require_once 'Database.php';
 require_once 'Passenger.php';
 
 
-?> 
+?>
 
 <div class="div-recap">
     <div class="div-recap-dedans">
         <h5>🛫 Vol Aller</h5>
         <div class="h5-date">
-            <h5><?php echo date('d-m-Y',strtotime($_SESSION['go_date'])); ?></h5>
+            <h5><?php echo date('d-m-Y', strtotime($_SESSION['go_date'])); ?></h5>
         </div>
         <div class="div-recap div-info">
             <div>
@@ -57,8 +57,8 @@ require_once 'Passenger.php';
 <div class="div-recap-dedans">
     <h5>🛬 Vol Retour</h5>
     <div class="h5-date">
-        <h5><?php echo date('d-m-Y',strtotime($_SESSION['return_date'])); ?></h5>
-    </div>    
+        <h5><?php echo date('d-m-Y', strtotime($_SESSION['return_date'])); ?></h5>
+    </div>
     <div class="div-recap div-info">
         <div>
             <?php
@@ -134,6 +134,50 @@ require_once 'Passenger.php';
 <button type="submit" class="btn btn-primary" ">Choisir</button></td>
 </form>
 </br>
+<?php var_dump($_SESSION['nb_pax']) ?>
+
+<div class="div-recap">
+    <div class="div-recap-dedans">
+        <div class="div-info-vol">
+            <?php
+
+            $paxpax = Passenger::viewPax($_SESSION['nb_pax']);
+
+
+            for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
+                foreach ($paxpax as $pax) : ?>
+
+                    <h5>Passager <?php echo $i + 1; ?></h5>
+                    <div class="card">
+
+
+
+
+
+
+
+                        <h5>Passagers </h5>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Informations du passager</h5>
+                                <p class="card-text">Sexe: <?php echo implode(', ', $_POST['sexe']); ?></p>
+                                <p class="card-text">Nom: <?php echo implode(', ', $_POST['name']); ?></p>
+                                <p class="card-text">Email: <?php echo implode(', ', $_POST['email']); ?></p>
+                                <p class="card-text">Téléphone: <?php echo implode(', ', $_POST['phone']); ?></p>
+                                <p class="card-text">Date de naissance: <?php echo implode(', ', $_POST['birthdate']); ?></p>
+                                <p class="card-text">Numéro de passeport: <?php echo implode(', ', $_POST['passport_number']); ?></p>
+                            </div>
+                        </div>
+                <?php
+
+                endforeach;
+            }
+                ?>
+                    </div>
+
+
+                    <p> Nombre de passagers = <?php echo $_SESSION['nb_pax'] ?></p>
+
 
 
 <?php
@@ -153,17 +197,22 @@ for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
             <p class="card-text">Téléphone: <?php echo $pax['phone']; ?></p>
             <p class="card-text">Date de naissance: <?php echo $pax['birthdate']; ?></p>
             <p class="card-text">Numéro de passeport: <?php echo $pax['passport_number']; ?></p>
+
         </div>
     </div>
-<?php
-}
-?>
 
+    </br>
+    <div class="div-recap">
+        <div class="div-recap-dedans">
+            <div class="div-info-vol">
+                <h5>Options </h5>
+            </div>
 
-        <p> Nombre de passagers = <?php echo $_SESSION['nb_pax']?></p>
+            <?php
+            $totalOptions = 0;
 
-</div>
-</div>
+            foreach ($_POST as $k => $v) {
+
 
 
 

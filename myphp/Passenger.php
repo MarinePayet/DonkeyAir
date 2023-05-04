@@ -19,6 +19,7 @@ class Passenger {
         $stmt->execute();
 
         return self::getPassenger($db->lastInsertId());
+        
     }
 
     
@@ -42,7 +43,7 @@ class Passenger {
         $stmt = $db->prepare($query);
         $stmt->execute();
         $view_pax= $stmt->fetchAll(\PDO::FETCH_ASSOC);
-       
+
         return $view_pax;
         
 

@@ -8,7 +8,7 @@ require_once 'Flight.php';
 ?>
 <title>Liste de vols</title>
 
-<div class="container-xl">
+< class="container-xl">
 <br>
 	<?php
 
@@ -25,7 +25,7 @@ require_once 'Flight.php';
 		
 
 	?>
-	<div class="table-responsive">
+
 		<table class=" table table-striped table-hover ">
 			<?php 
 			$flights = Flight::findByDestination($_POST['destination']) ?>
@@ -61,9 +61,9 @@ require_once 'Flight.php';
 			<?php }	?>
 
 		</table>
-	</div>
+
 	<br>
-	<div class="table-responsive">
+	
 		<table class="table table-striped table-hover">
 		<?php $_SESSION['return_date'] = $_POST['date_retour']?>
 			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo date('d-m-Y', strtotime($_POST['date_retour'])); ?> -> PARIS</p>
@@ -101,7 +101,7 @@ require_once 'Flight.php';
 		</table>
 
 	</div>
-</div>
+
 <a href="recapitulatif.php">RECAP</a>
     <p><a href="new_pax.php"> Ajouter des passagers </a></p>
     </a>
