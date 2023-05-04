@@ -35,9 +35,12 @@ require_once 'Flight.php';
 			</tr>
 
 			<?php
-			
-			foreach ($flights as $flight) { ?>
 
+			
+			foreach ($flights as $flight) { 
+				if(($flight['available_seats']>0) && (intval($_SESSION['nb_pax']) <= $flight['available_seats']) ){
+					
+					?>
 				<tr>
 					<td><?php echo $flight['departure_time']; ?></td>
 					<td><?php echo $flight['arrival_time']; ?></td>
@@ -50,7 +53,8 @@ require_once 'Flight.php';
 						echo "<td><h5>✓</h5></td>";
 					} ?>
 				</tr>
-			<?php }	?>
+			<?php }
+		}	?>
 
 		</table>
 
@@ -74,11 +78,13 @@ require_once 'Flight.php';
 				$flights = Flight::returnToParis($_POST['destination']);
 				
 				foreach ($flights as $flight) {
+					if(($flight['available_seats']>0) && (intval($_SESSION['nb_pax']) <= $flight['available_seats']) ){
+
 				?>
 					<td><?php echo $flight['departure_time']; ?></td>
 					<td><?php echo $flight['arrival_time']; ?></td>
 					<td><?php echo $flight['flight_number']; ?></td>
-					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
+					<td><?php echo $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
 					<td><button type="button" class="btn btn-primary" onclick="fetchData('return_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 
@@ -87,6 +93,7 @@ require_once 'Flight.php';
 					} ?>
 			</tr>
 		<?php
+		}
 				}
 		?>
 		</table>

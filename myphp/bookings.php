@@ -9,6 +9,13 @@ if(!session_id()){
     session_start();
 }
 
-Booking::newBooking();
+$lastBooking = Booking::newBooking();
+
+echo $lastBooking;
+
+var_dump(Flight::updateAvailableSeatsGo($lastBooking));
+var_dump(Flight::updateAvailableSeatsReturn($lastBooking));
+
+// Flight::updateSeatsAvailable();
 
 header('Location: historic.php');

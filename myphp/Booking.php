@@ -108,7 +108,6 @@ class Booking
 
         if(isset($_SESSION['go_id'])) {
 
-
         $db = Database::getPdo();
         $user_id = $_SESSION['user_id'];
         $flight_go_id = $_SESSION['go_id'];
@@ -129,13 +128,12 @@ class Booking
 
         $stmt->execute();
 
-        
-
         unset($_SESSION['go_id']);
         unset($_SESSION['nb_pax']);
         unset($_SESSION['return_id']);
         unset($_SESSION['total_option_price']);
         
+        return $lastBooking= $db->lastInsertId();
             
         } else {
             header('Location: homepage.php');

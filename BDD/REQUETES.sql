@@ -171,6 +171,7 @@ SELECT users.user_id, go_flight_id.flight_id as go_flight_id, return_flight_id.f
 SELECT
 users.user_id,
 go_flight_id.flight_id as go_flight_id,
+return_flight_id.flight_id as return_flight_id,
 go_available_seats.available_seats as go_available_seats,
 go_capacity.capacity as go_capacity,
 bookings.booking_id,
@@ -180,8 +181,17 @@ FROM
 bookings
 LEFT JOIN users ON users.user_id = bookings.user_id
 LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go_id
+LEFT JOIN flights as return_flight_id ON return_flight_id.flight_id = bookings.flight_return_id
 LEFT JOIN flights as go_available_seats ON go_available_seats.flight_id = bookings.flight_go_id
 LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_id;
 
+-- RETURN FLIGHT CAPACITY ET AVAILABLE
 
-DELETE FROM `passengers` WHERE `email`= ;
+SELECT users.user_id, return_flight_id.flight_id as return_flight_id, return_available_seats.available_seats as return_available_seats, return_capacity.capacity as return_capacity,
+        bookings.booking_id, bookings.nb_pax, bookings.status
+        FROM bookings
+        LEFT JOIN users ON users.user_id = bookings.user_id
+        LEFT JOIN flights as return_flight_id ON return_flight_id.flight_id = bookings.flight_return_id
+        LEFT JOIN flights as return_available_seats ON return_available_seats.flight_id = bookings.flight_return_id
+        LEFT JOIN flights as return_capacity ON return_capacity.flight_id = bookings.flight_return_id
+        WHERE booking_id = 140;

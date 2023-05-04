@@ -50,5 +50,6 @@ if (isset($_SESSION['go_id']) && isset($_SESSION['return_id'])) {
     ]);
 } else {
     echo json_encode(["price" => -1]);
-}
+};
+
 
