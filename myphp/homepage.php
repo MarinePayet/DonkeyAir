@@ -15,7 +15,7 @@ require_once 'Airport.php';
         <div class="row align-items-start">
             <div class="col">
                 <h1 class="titre">DonkeyAir</h1>
-                <p class="slogan">la compagnie qui vous fait prendre de la hauteur.......à dos d’ane✈</p>
+                <p class="slogan">la compagnie qui vous fait prendre de la hauteur.......à dos d’ane ✈</p>
             </div>
         </div>
     </div>
@@ -51,6 +51,7 @@ require_once 'Airport.php';
             <input type="submit" value="Envoyer">
 
         </form>
-
+        
     </div>
+    <br>
 

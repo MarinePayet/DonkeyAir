@@ -4,4 +4,4 @@ require_once 'footer.php';
 require_once 'database.php';
 
 
-echo "hello";
+header('location: homepage.php');
