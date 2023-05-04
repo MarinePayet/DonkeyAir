@@ -138,6 +138,7 @@ require_once 'Passenger.php';
 
 <?php
 var_dump($_POST);
+?><p><?php echo "Nombre de voyageur : " . $_SESSION['nb_pax'] ?></p><?php
 $paxpax = Passenger::viewPax($_SESSION['nb_pax']);
 for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
     $pax = $paxpax[$i];

@@ -148,3 +148,37 @@ VALUES ('4533', '3', '16:40', '1', '20:10', '87', '20', '2023-05-16');
 -- MODIF TABLE BOOKINGS
 ALTER TABLE `bookings` 
 	CHANGE `created_at` `nb_pax` INT DEFAULT NULL ;
+
+SELECT users.user_id, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time,go_dpt_time.date as go_date, return_dpt_time.departure_time as return_dpt_time, return_dpt_time.date as return_date, go_dpt_time.price as go_price, return_dpt_time.price as return_price, booking_id, nb_pax, status
+        FROM bookings 
+        LEFT JOIN users ON users.user_id = bookings.user_id 
+        LEFT JOIN flights as go_dpt_time ON go_dpt_time.flight_id = bookings.flight_go_id
+        LEFT JOIN flights as return_dpt_time ON return_dpt_time.flight_id = bookings.flight_return_id
+        LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id
+        WHERE users.user_id = 3 ORDER BY go_date ASC;
+
+SELECT users.user_id, go_flight_id.flight_id as go_flight_id, return_flight_id.flight_id as return_flight_id, go_available_seats.available_seats as go_available_seats, return_available_seats.available_seats as return_available_seats, go_capacity.capacity as go_capacity, return_capacity.capacity as return_capacity,  booking_id, nb_pax, status
+        FROM bookings 
+        LEFT JOIN users ON users.user_id = bookings.user_id 
+        LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go_id
+        LEFT JOIN flights as return_flight_id ON return_flight_id.flight_id = bookings.flight_return_id
+        LEFT JOIN flights as go_available_seats ON go_available_seats.available_seats = bookings.flight_go_id
+        LEFT JOIN flights as return_available_seats ON return_available_seats.available_seats = bookings.flight_return_id
+        LEFT JOIN flights as go_capacity ON go_capacity.capacity = bookings.flight_go_id
+        LEFT JOIN flights as return_capacity ON return_capacity.capacity = bookings.flight_return_id;
+
+-- GO FLIGHT CAPACITY ET AVAILABLE
+SELECT
+users.user_id,
+go_flight_id.flight_id as go_flight_id,
+go_available_seats.available_seats as go_available_seats,
+go_capacity.capacity as go_capacity,
+bookings.booking_id,
+bookings.nb_pax,
+bookings.status
+FROM
+bookings
+LEFT JOIN users ON users.user_id = bookings.user_id
+LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go_id
+LEFT JOIN flights as go_available_seats ON go_available_seats.flight_id = bookings.flight_go_id
+LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_id;

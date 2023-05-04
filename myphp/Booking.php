@@ -7,7 +7,7 @@ class Booking
     {
 
         $db = Database::getPdo();
-        $statement = $db->query('SELECT users.user_id, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time,go_dpt_time.date as go_date, return_dpt_time.departure_time as return_dpt_time, return_dpt_time.date as return_date, go_dpt_time.price as go_price, return_dpt_time.price as return_price
+        $statement = $db->query('SELECT users.user_id, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time,go_dpt_time.date as go_date, return_dpt_time.departure_time as return_dpt_time, return_dpt_time.date as return_date, go_dpt_time.price as go_price, return_dpt_time.price as return_price, booking_id, nb_pax, status
         FROM bookings 
         LEFT JOIN users ON users.user_id = bookings.user_id 
         LEFT JOIN flights as go_dpt_time ON go_dpt_time.flight_id = bookings.flight_go_id
@@ -22,6 +22,7 @@ class Booking
                     <div class="div-booking-dedans ">
                         <div>
                             <h5> Paris ✈️ <br><?php echo $resas[$i]['airport_arrival'] ?></h5>
+                            <h5> 🫏 : <?php echo $resas[$i]['nb_pax'] ?></h5>
                         </div>
 
                         <div class="div-booking-go">
