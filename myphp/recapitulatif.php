@@ -6,7 +6,7 @@ require_once 'Passenger.php';
 
 
 
-if(empty($_POST['email']['0'])){
+if (empty($_POST['email']['0'])) {
     header('Location: new_pax.php');
 }
 
@@ -106,87 +106,89 @@ if(empty($_POST['email']['0'])){
             }
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nb_pax = $_SESSION['nb_pax'];
-    $passengers = [];
-    
-    for ($i = 0; $i < $nb_pax; $i++) {
-        $name = $_POST['name'][$i];
-        $email = $_POST['email'][$i];
-        $phone = $_POST['phone'][$i];
-        $birthdate = $_POST['birthdate'][$i];
-        $passport_number = $_POST['passport_number'][$i];
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $nb_pax = $_SESSION['nb_pax'];
+                $passengers = [];
 
-        $passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
-            $passengers[] = $passenger;
-    }
-    
-        $_SESSION['passengers'] = $passengers;
+                for ($i = 0; $i < $nb_pax; $i++) {
+                    $name = $_POST['name'][$i];
+                    $email = $_POST['email'][$i];
+                    $phone = $_POST['phone'][$i];
+                    $birthdate = $_POST['birthdate'][$i];
+                    $passport_number = $_POST['passport_number'][$i];
 
-}
+                    $passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
+                    $passengers[] = $passenger;
+                }
 
-?>
-
-
-</br>
-
-<div class="div-recap">
-    <div class="div-recap-dedans">
-        <div class="div-info-vol">
-            
-                    </div>
-
-<p><?php echo "Nombre de voyageur : " . $_SESSION['nb_pax'] ?></p><?php
-$paxpax = Passenger::viewPax($_SESSION['nb_pax']);
-for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
-    $pax = $paxpax[$i];
-?>
-    <h5>Passager <?php echo $i+1; ?></h5>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Informations du passager</h5>
-            <p class="card-text">Nom: <?php echo $pax['name']; ?></p>
-            <p class="card-text">Email: <?php echo $pax['email']; ?></p>
-            <p class="card-text">Téléphone: <?php echo $pax['phone']; ?></p>
-            <p class="card-text">Date de naissance: <?php echo $pax['birthdate']; ?></p>
-            <p class="card-text">Numéro de passeport: <?php echo $pax['passport_number']; ?></p>
-
-        </div>
-    </div>
-
-<?php
-}   
-?>
-
-<form action="bookings.php" method="POST">
-</br>
-<div class="div-recap">
-    <div class="div-recap-dedans">
-        <div class="div-info-vol">
-            <h5>Options </h5>
-        </div>
-        
-        <?php 
-        $totalOptions = 0;
-        
-        foreach($_SESSION['options'] as $k => $v) { 
-            
-            $totalOptions += $v; ?>
-
-            <p><?php $k . "<br>";?></p>
-            <?php 
-            $newk = str_replace('_', ' ', $k);
-            echo $newk ; 
+                $_SESSION['passengers'] = $passengers;
             }
 
-        echo "<br><br> Prix total des options : " . $totalOptions . "€"; ?>
+?>
 
-    </div>
-</div>
-<div class="div-recap">
+
+</br>
+
+<div class="div-recap" style="background-color: red;">
     <div class="div-recap-dedans">
-        <?php echo "Total de votre voyage : " . $_SESSION['total_price']*$_SESSION['nb_pax'] + $totalOptions . ' €' ?>
-    </div>
+        <div class="div-info-vol">
+
+       
+
+        <p><?php echo "Nombre de voyageur : " . $_SESSION['nb_pax'] ?></p><?php
+                                                                            $paxpax = Passenger::viewPax($_SESSION['nb_pax']);
+                                                                            for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
+                                                                                $pax = $paxpax[$i];
+                                                                            ?>
+            <h5>Passager <?php echo $i + 1; ?></h5>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Informations du passager</h5>
+                    <p class="card-text">Nom: <?php echo $pax['name']; ?></p>
+                    <p class="card-text">Email: <?php echo $pax['email']; ?></p>
+                    <p class="card-text">Téléphone: <?php echo $pax['phone']; ?></p>
+                    <p class="card-text">Date de naissance: <?php echo $pax['birthdate']; ?></p>
+                    <p class="card-text">Numéro de passeport: <?php echo $pax['passport_number']; ?></p>
+
+                </div>
+            </div>
+         </div>
+     </div>
+
 </div>
-<button type="submit" class="btn btn-primary" ">Choisir</button></td>
+        <?php
+                                                                            }
+        ?>
+
+        <form action="bookings.php" method="POST">
+            </br>
+            <div class="div-recap">
+                <div class="div-recap-dedans">
+                    <div class="div-info-vol">
+                        <h5>Options </h5>
+                    </div>
+
+                    <?php
+                    $totalOptions = 0;
+
+                    foreach ($_SESSION['options'] as $k => $v) {
+
+                        $totalOptions += $v; ?>
+
+                        <p><?php $k . "<br>"; ?></p>
+                    <?php
+                        $newk = str_replace('_', ' ', $k);
+                        echo $newk;
+                    }
+
+                    echo "<br><br> Prix total des options : " . $totalOptions . "€"; ?>
+
+                </div>
+            </div>
+            <div class="div-recap">
+                <div class="div-recap-dedans">
+                    <?php echo "Total de votre voyage : " . $_SESSION['total_price'] * $_SESSION['nb_pax'] + $totalOptions . ' €' ?>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" ">Choisir</button></td>
 </form>

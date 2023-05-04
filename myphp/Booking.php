@@ -22,7 +22,7 @@ class Booking
                     <div class="div-booking-dedans ">
                         <div>
                             <h5> Paris ✈️ <br><?php echo $resas[$i]['airport_arrival'] ?></h5>
-                            <h5> 🫏 : <?php echo $resas[$i]['nb_pax'] ?></h5>
+                            <h5>  : <?php echo $resas[$i]['nb_pax'] ?></h5>
                         </div>
 
                         <div class="div-booking-go">
@@ -123,6 +123,7 @@ public static function newBooking() {
     $stmt->bindValue(':status', $status, \PDO::PARAM_STR);
     $stmt->bindValue(':nb_pax', $nb_pax, \PDO::PARAM_INT);
     $stmt->bindValue(':flight_return_id', $flight_return_id, \PDO::PARAM_INT);
+
 
     $stmt->execute();
 

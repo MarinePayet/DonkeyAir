@@ -185,3 +185,4 @@ LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_i
 
 
 DELETE FROM `passengers` WHERE `email`= ;
+
