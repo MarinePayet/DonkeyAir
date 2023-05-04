@@ -182,3 +182,4 @@ LEFT JOIN users ON users.user_id = bookings.user_id
 LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go_id
 LEFT JOIN flights as go_available_seats ON go_available_seats.flight_id = bookings.flight_go_id
 LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_id;
+
