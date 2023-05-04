@@ -14,11 +14,15 @@ require_once 'Option.php';
                 foreach ($options as $option) : ?>
 
                         <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="vip_access" value="<?php echo $option['price'] ?>" name="<?php echo $option['name'] ?>">
-                                <label class="form-check-label" for="vip_access" name="<?php echo $option['name'] ?>"><?php echo $option['name'] . ' ' . $option['price'] ?> €</label>
+                                <input type="checkbox" class="form-check-input"  value="<?php echo $option['price'] ?>" name="<?php echo $option['name'] ?>">
+                                <label class="form-check-label" name="<?php echo $option['name'] ?>"><?php echo $option['name'] . ' ' . $option['price'] ?> €</label>
                         </div>
 
         <?php endforeach; ?>
+                <div class="form-check">
+                        <input type="checkbox" class="form-check-input" value="0" name="noOption">
+                        <label class="form-check-label" name="noOption">Pas d'option</label>
+                </div>        
                 <input type="submit" value="Ajouter">
                 <p></p>
                 <a href="new_pax.php"> Pas d'options ? Choisissez vos passagers.</a>

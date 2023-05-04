@@ -183,3 +183,8 @@ LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go
 LEFT JOIN flights as go_available_seats ON go_available_seats.flight_id = bookings.flight_go_id
 LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_id;
 
+<<<<<<< HEAD
+=======
+
+DELETE FROM `passengers` WHERE `email`= ;
+>>>>>>> 40360e33fc88cf6546e4603413cc87dd65cc1cd5

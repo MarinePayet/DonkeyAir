@@ -3,7 +3,41 @@ require_once 'header.php';
 require_once 'footer.php';
 require_once 'Database.php';
 require_once 'Passenger.php';
+<<<<<<< HEAD
 ?>
+=======
+
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//      $nb_pax = $_SESSION['nb_pax'];
+//      $passengers = [];
+
+//      echo"1er passengers <br>";  
+//      var_dump( $passengers);
+     
+     
+
+//      for ($i = 0; $i < $nb_pax; $i++) {
+//           $name = $_POST['name'][$i];
+//           $email = $_POST['email'][$i];
+//           $phone = $_POST['phone'][$i];
+//           $birthdate = $_POST['birthdate'][$i];
+//           $passport_number = $_POST['passport_number'][$i];
+
+//      }
+//      $passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
+//           $passengers[] = $passenger;
+//           echo"2 une foix create passengers <br>";  
+//           var_dump( $passengers);
+
+//      $_SESSION['passengers'] = $passengers;
+
+     
+
+
+// }
+
+// ?>
+>>>>>>> 40360e33fc88cf6546e4603413cc87dd65cc1cd5
 
 <h2>PASSAGERS</h2>
 
