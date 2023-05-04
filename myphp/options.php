@@ -23,7 +23,7 @@ require_once 'Option.php';
                         <input type="checkbox" class="form-check-input" value="0" name="noOption">
                         <label class="form-check-label" name="noOption">Pas d'option</label>
                 </div>        
-                <input type="submit" value="Ajouter">
+                <input type="submit" value="Ajouter" >
                 <p></p>
                 <a href="new_pax.php"> Pas d'options ? Choisissez vos passagers.</a>
         </form>

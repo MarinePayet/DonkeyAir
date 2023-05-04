@@ -3,6 +3,7 @@ require_once 'header.php';
 require_once 'footer.php';
 require_once 'Database.php';
 require_once 'Passenger.php';
+require_once 'SAVE.OptiondeRecap.php';
 
 ?>
 
@@ -100,7 +101,7 @@ require_once 'Passenger.php';
             }
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (!$_SERVER['REQUEST_METHOD'] === 'POST') {
     $nb_pax = $_SESSION['nb_pax'];
     $passengers = [];
     

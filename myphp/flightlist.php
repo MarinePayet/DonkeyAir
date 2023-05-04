@@ -8,7 +8,7 @@ require_once 'Flight.php';
 ?>
 <title>Liste de vols</title>
 
-< class="container-xl">
+
 <br>
 	<?php
 
@@ -111,7 +111,7 @@ require_once 'Flight.php';
 		<?php if($_SESSION['nb_pax']>= '2') { ?>
 			<p class="text-uppercase fw-bold fs-4">prix pour <?php echo $_SESSION['nb_pax']. ' voyageurs : ' . $_SESSION['total_price']*$_SESSION['nb_pax'] ?> € </p>
 		<?php } ?>
-		<p><a href="options.php"> Choisir des options </a></p><?php
+		<p><a href="new_pax.php"> Choisir des options </a></p><?php
     } else {
 		
         echo " Sélectionnez un Aller & un Retour ";

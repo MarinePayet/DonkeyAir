@@ -29,5 +29,5 @@
         <?php echo "Total de votre voyage : " . $_SESSION['total_price']*$_SESSION['nb_pax'] + $totalOptions . ' €' ?>
     </div>
 </div>
-<button type="submit" class="btn btn-primary" ">Choisir</button></td>
+<button type="submit" class="btn btn-primary">Choisir</button></td>
 </form>
