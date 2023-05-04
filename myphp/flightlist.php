@@ -23,9 +23,8 @@ require_once 'Flight.php';
 			$_SESSION['go_date'] = $_POST['date_depart'];
 		}
 		
-		
+
 	?>
-	
 
 		<table class=" table table-striped table-hover ">
 			<?php 

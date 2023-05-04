@@ -3,8 +3,10 @@ require_once 'header.php';
 require_once 'database.php';
 require_once 'footer.php';
 require_once 'Booking.php';
-?>
+require_once 'Flight.php';
 
+Booking::newBooking();
+?>
 <div class="div-recap">
     <p>VOL A VENIR</p>
 </div>
@@ -15,5 +17,6 @@ require_once 'Booking.php';
     <p>VOL PASSE</p>
 </div>
 
-<?php Booking::volPasse(); ?>
+<?php Booking::volPasse(); 
 
+Flight::updateSeatsAvailable();
