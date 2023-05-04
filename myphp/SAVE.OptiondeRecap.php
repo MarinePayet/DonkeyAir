@@ -14,7 +14,8 @@
             
             $totalOptions += $v; ?>
 
-            <p><?php $k . "<br>";?></p>
+<p><?php echo $k . "<br>";?></p>
+
             <?php 
             $newk = str_replace('_', ' ', $k);
             echo $newk ; 

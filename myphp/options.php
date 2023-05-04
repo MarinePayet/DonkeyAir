@@ -7,9 +7,12 @@ require_once 'Option.php';
 
 <div class="optionbox">
         <p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
-        <form method="POST" action="recapitulatif.php">
+        <form method="POST" action="new_pax.php">
 
                 <?php $options = Option::listOptions();
+
+                
+
 
                 foreach ($options as $option) : ?>
 
