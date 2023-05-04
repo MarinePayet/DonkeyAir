@@ -3,37 +3,6 @@ require_once 'header.php';
 require_once 'footer.php';
 require_once 'Database.php';
 require_once 'Passenger.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-     $nb_pax = $_SESSION['nb_pax'];
-     $passengers = [];
-   
-
-     
-     $passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
-          $passengers[] = $passenger;
-
-     for ($i = 0; $i < $nb_pax; $i++) {
-          $sexe = $_POST['sexe'][$i];
-          $name = $_POST['name'][$i];
-          $email = $_POST['email'][$i];
-          $phone = $_POST['phone'][$i];
-          $birthdate = $_POST['birthdate'][$i];
-          $passport_number = $_POST['passport_number'][$i];
-
-
-     
-
-     }
-
-     $_SESSION['passengers'] = $passengers;
-  
-
-     
-
-
-}
-
 ?>
 
 <h2>PASSAGERS</h2>
@@ -46,13 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="container">
                <div class="form-box">
                     <div class="form-pax">
-                         <label for="sexe">Sexe :</label>
+                         <!-- <label for="sexe">Sexe :</label>
                          <div class="radio-pax">
                               <input type="radio" id="homme" name="sexe[<?php echo $i; ?>]" value="homme" required>
                               <label for="homme">Homme</label>
                               <input type="radio" id="femme" name="sexe[<?php echo $i; ?>]" value="femme" required>
                               <label for="femme">Femme</label>
-                         </div>
+                         </div> -->
                     </div>
 
                     <div class="form-pax">
@@ -86,3 +55,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      ?>
      <input type="submit" value="Enregistrer">
 </form>
+
+
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+     $nb_pax = $_SESSION['nb_pax'];
+     $passengers = [];
+
+
+
+     $passenger = Passenger::createPassenger($_POST['name'], $_POST['email'], $_POST['phone'], $_POST['birthdate'], $_POST['passport_number']);
+     var_dump($passenger);
+
+
+
+   
+     }
+
+
+
+?>
