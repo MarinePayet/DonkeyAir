@@ -8,7 +8,7 @@ require_once 'Flight.php';
 ?>
 <title>Liste de vols</title>
 
-< class="container-xl">
+
 <br>
 	<?php
 

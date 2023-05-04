@@ -4,6 +4,12 @@ require_once 'footer.php';
 require_once 'Database.php';
 require_once 'Passenger.php';
 
+
+
+if(empty($_POST['email']['0'])){
+    header('Location: new_pax.php');
+}
+
 ?>
 
 <div class="div-recap">
@@ -123,7 +129,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 </br>
-<?php var_dump($_SESSION['nb_pax']) ?>
 
 <div class="div-recap">
     <div class="div-recap-dedans">
@@ -153,3 +158,35 @@ for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
 }   
 ?>
 
+<form action="bookings.php" method="POST">
+</br>
+<div class="div-recap">
+    <div class="div-recap-dedans">
+        <div class="div-info-vol">
+            <h5>Options </h5>
+        </div>
+        
+        <?php 
+        $totalOptions = 0;
+        
+        foreach($_SESSION['options'] as $k => $v) { 
+            
+            $totalOptions += $v; ?>
+
+            <p><?php $k . "<br>";?></p>
+            <?php 
+            $newk = str_replace('_', ' ', $k);
+            echo $newk ; 
+            }
+
+        echo "<br><br> Prix total des options : " . $totalOptions . "€"; ?>
+
+    </div>
+</div>
+<div class="div-recap">
+    <div class="div-recap-dedans">
+        <?php echo "Total de votre voyage : " . $_SESSION['total_price']*$_SESSION['nb_pax'] + $totalOptions . ' €' ?>
+    </div>
+</div>
+<button type="submit" class="btn btn-primary" ">Choisir</button></td>
+</form>

@@ -42,7 +42,7 @@ class Booking
                         <div class="div-recap">
                             <div>
                                 <p>Tarifs :</p>
-                                <p><?php echo $resas[$i]['go_price'] + $resas[$i]['return_price']?> €</p>
+                                <p><?php echo ($resas[$i]['go_price'] + $resas[$i]['return_price'])*$resas[$i]['nb_pax']?> €</p>
 
                             </div>
                         </div>
@@ -78,7 +78,6 @@ class Booking
                             <div class="div-booking-go">
                                 <div>
                                     <p>ALLER</p>
-                                    <?php var_dump(date('d-m-Y', strtotime($resas[$i]['go_date'])));?>
                                     <p><?php echo date('d-m-Y', strtotime($resas[$i]['go_date'])); ?></p>
                                     <p><?php echo $resas[$i]['go_dpt_time'] ?></p>
                                 </div>
@@ -105,9 +104,9 @@ class Booking
 
 
 public static function newBooking() {
-    var_dump($_SESSION);
+
     if(isset($_SESSION['go_id'])) {
-        var_dump("Dans if");
+
 
     $db = Database::getPdo();
     $user_id = $_SESSION['user_id'];
