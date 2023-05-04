@@ -9,7 +9,6 @@ require_once 'Database.php';
 if(isset($_POST['email']) && isset($_POST['password'])) {
     $usermail = trim($_POST['email']);
     $password = trim($_POST['password']);
-    
 
 
 try {
@@ -27,19 +26,26 @@ try {
         $reponse = $statement->execute();
         $count = $statement->fetchColumn();
         
+        var_dump($reponse);
+        var_dump($count);
 
-        if($count != 0){
+        if($count){
         
             header('Location: homepage.php');
+
             $statement = $db->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC);
                 var_dump($result = $statement->fetch());
                 
-            };
+            
             var_dump($_SESSION['name'] = $result['name']);
             var_dump($_SESSION['user_id'] = $result['user_id']);
             ?>
             <a class="btn btn-primary btn-lg" href="homepage.php">Commencer la recherche</a></div>
-            <?php
+            <?php 
+            
+            } else {
+                echo "Mauvais Identifiant / mdp";
+            }
             
         } else {
             echo "introuvable";

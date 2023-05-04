@@ -20,12 +20,11 @@ require_once 'Option.php';
 
         <?php endforeach; ?>
                 <div class="form-check">
-                        <input type="checkbox" class="form-check-input" value="0" name="noOption">
-                        <label class="form-check-label" name="noOption">Pas d'option</label>
+                        <input type="checkbox" class="form-check-input" value="0" name="Pas d'option">
+                        <label class="form-check-label" name="Pas d'option">Pas d'option</label>
                 </div>        
                 <input type="submit" value="Ajouter">
                 <p></p>
-                <a href="new_pax.php"> Pas d'options ? Choisissez vos passagers.</a>
         </form>
 
 </div>

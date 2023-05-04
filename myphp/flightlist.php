@@ -7,23 +7,16 @@ require_once 'Flight.php';
 
 ?>
 <title>Liste de vols</title>
-
-
 <br>
 	<?php
 
-	
-	
 	if(isset($_POST['pax'])) { 
         $_SESSION['nb_pax'] = $_POST['pax'];
     }
-	
-
-		if (isset($_POST['date_depart'])) {
-			$_SESSION['go_date'] = $_POST['date_depart'];
-		}
+	if (isset($_POST['date_depart'])) {
+		$_SESSION['go_date'] = $_POST['date_depart'];
+	}
 		
-
 	?>
 
 		<table class=" table table-striped table-hover ">
@@ -42,7 +35,6 @@ require_once 'Flight.php';
 			</tr>
 
 			<?php
-			$flights = Flight::findByDestination($_POST['destination']);
 			
 			foreach ($flights as $flight) { ?>
 
@@ -95,16 +87,13 @@ require_once 'Flight.php';
 					} ?>
 			</tr>
 		<?php
-		
 				}
 		?>
 		</table>
 
 	</div>
 
-<a href="recapitulatif.php">RECAP</a>
-    <p><a href="new_pax.php"> Ajouter des passagers </a></p>
-    </a>
+
     <div class="sticky-bar">
     <?php if (isset($_SESSION['total_price'])) { ?>
         <p class="text-uppercase fw-bold fs-4">Prix par voyageur : <?php echo $_SESSION['total_price']; ?> €</p>
