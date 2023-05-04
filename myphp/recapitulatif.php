@@ -100,39 +100,7 @@ require_once 'Passenger.php';
                 endforeach;
             }
 ?>
-<form action="bookings.php" method="POST">
-</br>
-<div class="div-recap">
-    <div class="div-recap-dedans">
-        <div class="div-info-vol">
-            <h5>Options </h5>
-        </div>
 
-        <?php 
-        $totalOptions = 0;
-        
-        foreach($_POST as $k => $v) { 
-            
-            $totalOptions += $v; ?>
-
-            <p><?php $k . "<br>";?></p>
-            <?php 
-            $newk = str_replace('_', ' ', $k);
-            echo $newk ; 
-            }
-
-        echo "<br><br> Prix total des options : " . $totalOptions . "€"; ?>
-
-    </div>
-</div>
-<div class="div-recap">
-    <div class="div-recap-dedans">
-        <?php echo "Total de votre voyage : " . $_SESSION['total_price']*$_SESSION['nb_pax'] + $totalOptions . ' €' ?>
-    </div>
-</div>
-
-<button type="submit" class="btn btn-primary" ">Choisir</button></td>
-</form>
 </br>
 <?php var_dump($_SESSION['nb_pax']) ?>
 
@@ -178,41 +146,6 @@ require_once 'Passenger.php';
 
                     <p> Nombre de passagers = <?php echo $_SESSION['nb_pax'] ?></p>
 
-
-
-<?php
-var_dump($_POST);
-?><p><?php echo "Nombre de voyageur : " . $_SESSION['nb_pax'] ?></p><?php
-$paxpax = Passenger::viewPax($_SESSION['nb_pax']);
-for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
-    $pax = $paxpax[$i];
-?>
-    <h5>Passager <?php echo $i+1; ?></h5>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Informations du passager</h5>
-            <!-- <p class="card-text">Sexe: <?php echo $pax['sexe']; ?></p>   -->
-            <p class="card-text">Nom: <?php echo $pax['name']; ?></p>
-            <p class="card-text">Email: <?php echo $pax['email']; ?></p>
-            <p class="card-text">Téléphone: <?php echo $pax['phone']; ?></p>
-            <p class="card-text">Date de naissance: <?php echo $pax['birthdate']; ?></p>
-            <p class="card-text">Numéro de passeport: <?php echo $pax['passport_number']; ?></p>
-
         </div>
     </div>
-
-    </br>
-    <div class="div-recap">
-        <div class="div-recap-dedans">
-            <div class="div-info-vol">
-                <h5>Options </h5>
-            </div>
-
-            <?php
-            $totalOptions = 0;
-
-            foreach ($_POST as $k => $v) {
-
-
-
 

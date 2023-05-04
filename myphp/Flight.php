@@ -25,28 +25,28 @@ class Flight
         return $flights;
     }
     
-    public static function updateSeatsAvailable(){
-        $db = DataBase::getPdo();
-        $statement = $db->query('SELECT * FROM bookings');
-        $statement->execute();
-        $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
+    // public static function updateSeatsAvailable(){
+    //     $db = DataBase::getPdo();
+    //     $statement = $db->query('SELECT * FROM bookings');
+    //     $statement->execute();
+    //     $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        var_dump($bookings);
-        for($i=0; $i<count($bookings); $i++){
-            if($bookings[$i]['status'] === 'booked'){
-                $bookings[$i][' '] - 
-            }
-
-
-
-        }
-
-
-        return $bookings;
+    //     var_dump($bookings);
+    //     for($i=0; $i<count($bookings); $i++){
+    //         if($bookings[$i]['status'] === 'booked'){
+    //             $bookings[$i][' '] - 
+    //         }
 
 
 
-    }
+    //     }
+
+
+    //     return $bookings;
+
+
+
+    // }
     
 
 
