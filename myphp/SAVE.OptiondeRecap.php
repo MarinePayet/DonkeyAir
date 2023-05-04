@@ -9,19 +9,21 @@
         
         <?php 
         $totalOptions = 0;
-        
+
         foreach($_POST as $k => $v) { 
-            
-            $totalOptions += $v; ?>
-
-            <p><?php $k . "<br>";?></p>
-            <?php 
-            $newk = str_replace('_', ' ', $k);
-            echo $newk ; 
+            if (is_numeric($v)) {
+                $totalOptions += $v;
+                ?>
+                <p><?php echo $k . "<br>";?></p>
+                <?php 
+                $newk = str_replace('_', ' ', $k);
+                echo $newk ; 
             }
-
-        echo "<br><br> Prix total des options : " . $totalOptions . "€"; ?>
-
+        }
+        
+        echo "<br><br> Prix total des options : " . $totalOptions . "€";
+        
+        ?>
     </div>
 </div>
 <div class="div-recap">
