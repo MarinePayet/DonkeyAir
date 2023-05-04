@@ -7,7 +7,7 @@ require_once 'Option.php';
 
 <div class="optionbox">
         <p class="text-uppercase fw-bold fs-4">Mes Options de voyage</p>
-        <form method="POST" action="recapitulatif.php">
+        <form method="POST" action="optionSave.php">
 
                 <?php $options = Option::listOptions();
 
