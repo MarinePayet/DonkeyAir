@@ -50,7 +50,7 @@ require_once 'Flight.php';
 					<td><?php echo $flight['departure_time']; ?></td>
 					<td><?php echo $flight['arrival_time']; ?></td>
 					<td><?php echo $flight['flight_number']; ?></td>
-					<td><?php echo $flight['capacity'] - $flight['available_seats']; ?></td>
+					<td><?php echo $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
 					<td><button type="button" class="btn btn-primary" onclick="fetchData('go_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 

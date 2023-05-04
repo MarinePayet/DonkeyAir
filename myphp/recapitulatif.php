@@ -4,7 +4,6 @@ require_once 'footer.php';
 require_once 'Database.php';
 require_once 'Passenger.php';
 
-
 ?>
 
 <div class="div-recap">
@@ -99,90 +98,40 @@ require_once 'Passenger.php';
 
                 endforeach;
             }
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nb_pax = $_SESSION['nb_pax'];
+    $passengers = [];
+    
+    for ($i = 0; $i < $nb_pax; $i++) {
+        $name = $_POST['name'][$i];
+        $email = $_POST['email'][$i];
+        $phone = $_POST['phone'][$i];
+        $birthdate = $_POST['birthdate'][$i];
+        $passport_number = $_POST['passport_number'][$i];
+
+        $passenger = Passenger::createPassenger($name, $email, $phone, $birthdate, $passport_number);
+            $passengers[] = $passenger;
+    }
+    
+        $_SESSION['passengers'] = $passengers;
+
+}
+
 ?>
-<form action="bookings.php" method="POST">
-</br>
-<div class="div-recap">
-    <div class="div-recap-dedans">
-        <div class="div-info-vol">
-            <h5>Options </h5>
-        </div>
 
-        <?php 
-        $totalOptions = 0;
-        
-        foreach($_POST as $k => $v) { 
-            
-            $totalOptions += $v; ?>
 
-            <p><?php $k . "<br>";?></p>
-            <?php 
-            $newk = str_replace('_', ' ', $k);
-            echo $newk ; 
-            }
-
-        echo "<br><br> Prix total des options : " . $totalOptions . "€"; ?>
-
-    </div>
-</div>
-<div class="div-recap">
-    <div class="div-recap-dedans">
-        <?php echo "Total de votre voyage : " . $_SESSION['total_price']*$_SESSION['nb_pax'] + $totalOptions . ' €' ?>
-    </div>
-</div>
-
-<button type="submit" class="btn btn-primary" ">Choisir</button></td>
-</form>
 </br>
 <?php var_dump($_SESSION['nb_pax']) ?>
 
 <div class="div-recap">
     <div class="div-recap-dedans">
         <div class="div-info-vol">
-            <?php
-
-            $paxpax = Passenger::viewPax($_SESSION['nb_pax']);
-
-
-            for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
-                foreach ($paxpax as $pax) : ?>
-
-                    <h5>Passager <?php echo $i + 1; ?></h5>
-                    <div class="card">
-
-
-
-
-
-
-
-                        <h5>Passagers </h5>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Informations du passager</h5>
-                                <p class="card-text">Sexe: <?php echo implode(', ', $_POST['sexe']); ?></p>
-                                <p class="card-text">Nom: <?php echo implode(', ', $_POST['name']); ?></p>
-                                <p class="card-text">Email: <?php echo implode(', ', $_POST['email']); ?></p>
-                                <p class="card-text">Téléphone: <?php echo implode(', ', $_POST['phone']); ?></p>
-                                <p class="card-text">Date de naissance: <?php echo implode(', ', $_POST['birthdate']); ?></p>
-                                <p class="card-text">Numéro de passeport: <?php echo implode(', ', $_POST['passport_number']); ?></p>
-                            </div>
-                        </div>
-                <?php
-
-                endforeach;
-            }
-                ?>
+            
                     </div>
 
-
-                    <p> Nombre de passagers = <?php echo $_SESSION['nb_pax'] ?></p>
-
-
-
-<?php
-var_dump($_POST);
-?><p><?php echo "Nombre de voyageur : " . $_SESSION['nb_pax'] ?></p><?php
+<p><?php echo "Nombre de voyageur : " . $_SESSION['nb_pax'] ?></p><?php
 $paxpax = Passenger::viewPax($_SESSION['nb_pax']);
 for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
     $pax = $paxpax[$i];
@@ -191,7 +140,6 @@ for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Informations du passager</h5>
-            <!-- <p class="card-text">Sexe: <?php echo $pax['sexe']; ?></p>   -->
             <p class="card-text">Nom: <?php echo $pax['name']; ?></p>
             <p class="card-text">Email: <?php echo $pax['email']; ?></p>
             <p class="card-text">Téléphone: <?php echo $pax['phone']; ?></p>
