@@ -47,7 +47,7 @@ require_once 'Flight.php';
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<td><button type="button" class="btn btn-primary" onclick="fetchData('go_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
+					<td><button  type="button" class="btn btn-secondary" onclick="fetchData('go_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 
 					<?php if (isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td><h5>✓</h5></td>";
@@ -86,14 +86,14 @@ require_once 'Flight.php';
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<td><button type="button" class="btn btn-primary" onclick="fetchData('return_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
+					<td><button type="button" class="btn btn-secondary" onclick="fetchData('return_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 
 					<?php if (isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
 						echo "<td><h5>✓</h5></td>";
 					} ?>
 			</tr>
 		<?php
-		}
+					}
 				}
 		?>
 		</table>

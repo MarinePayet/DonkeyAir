@@ -38,8 +38,8 @@
         <div class="align-self-center">
             <div class="p-2">
                 <?php echo "Coucou " . $_SESSION['name'];?>
-                <a class="btn btn-primary btn-lg" href="historic.php" role="button">Historique</a>
-                <a class="btn btn-primary btn-lg" href="logout.php" role="button">Log out</a>
+                <a class="btn btn-secondary btn-lg" href="historic.php" role="button">Historique</a>
+                <a class="btn btn-secondary btn-lg" href="logout.php" role="button">Log out</a>
             </div>
         </div>
     <?php } ?>
