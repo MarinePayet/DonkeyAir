@@ -43,19 +43,17 @@ class Flight
     //     }
     public static function updateAvailableSeatsGo($lastBooking){
 
-    $db = DataBase::getPdo();
-    $statement = $db->query('SELECT users.user_id, go_flight_id.flight_id as go_flight_id, go_available_seats.available_seats as go_available_seats, go_capacity.capacity as go_capacity,
-    bookings.booking_id, bookings.nb_pax, bookings.status
-    FROM bookings
-    LEFT JOIN users ON users.user_id = bookings.user_id
-    LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go_id
-    LEFT JOIN flights as go_available_seats ON go_available_seats.flight_id = bookings.flight_go_id
-    LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_id
-    WHERE booking_id = '. $lastBooking . ';');
-    $statement->execute();
-    $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
+        $db = DataBase::getPdo();
+        $statement = $db->query('SELECT users.user_id, go_flight_id.flight_id as go_flight_id, go_available_seats.available_seats as go_available_seats, go_capacity.capacity as go_capacity,
+        bookings.booking_id, bookings.nb_pax, bookings.status
+        FROM bookings
+        LEFT JOIN users ON users.user_id = bookings.user_id
+        LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go_id
+        LEFT JOIN flights as go_available_seats ON go_available_seats.flight_id = bookings.flight_go_id
+        LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_id
+        WHERE booking_id = '. $lastBooking . ';');
+        $statement->execute();
+        $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         if($bookings[0]['status'] === 'booked'){
             $go_available_seats = $bookings[0]['go_available_seats'];
@@ -87,22 +85,17 @@ class Flight
         $statement->execute();
         $bookingsRet = $statement->fetchAll(PDO::FETCH_ASSOC);
     
-
-    
-            if($bookingsRet[0]['status'] === 'booked'){
-                $return_available_seats = $bookingsRet[0]['return_available_seats'];
-                $nb_pax = $bookingsRet[0]['nb_pax'];
-                $return_flight_id = $bookingsRet[0]['return_flight_id'];
-                
-                $stmt = $db->query('UPDATE flights SET available_seats = '. $return_available_seats - $nb_pax . ' WHERE flight_id = ' . $return_flight_id . ";");
-                var_dump($stmt);
-                $newFlightRet = $stmt->execute();
-                
-
-            }
+        if($bookingsRet[0]['status'] === 'booked'){
+            $return_available_seats = $bookingsRet[0]['return_available_seats'];
+            $nb_pax = $bookingsRet[0]['nb_pax'];
+            $return_flight_id = $bookingsRet[0]['return_flight_id'];
             
-    
-    
+            $stmt = $db->query('UPDATE flights SET available_seats = '. $return_available_seats - $nb_pax . ' WHERE flight_id = ' . $return_flight_id . ";");
+            var_dump($stmt);
+            $newFlightRet = $stmt->execute();
+            
+        }
+
     
         }
     

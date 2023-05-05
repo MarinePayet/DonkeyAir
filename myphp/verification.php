@@ -26,8 +26,8 @@ try {
         $reponse = $statement->execute();
         $count = $statement->fetchColumn();
         
-        var_dump($reponse);
-        var_dump($count);
+
+
 
         if($count){
         
