@@ -19,7 +19,7 @@ require_once 'Flight.php';
 		
 	?>
 
-		<table class=" table table-striped table-hover ">
+		<table class="container-md table table-striped table-hover contour-flight ">
 			<?php 
 			$flights = Flight::findByDestination($_POST['destination']) ?>
 
@@ -60,7 +60,7 @@ require_once 'Flight.php';
 
 	<br>
 	
-		<table class="table table-striped table-hover">
+		<table class="container-md table table-striped table-hover contour-flight">
 		<?php $_SESSION['return_date'] = $_POST['date_retour']?>
 			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo date('d-m-Y', strtotime($_POST['date_retour'])); ?> -> PARIS</p>
 			<tr class="table">

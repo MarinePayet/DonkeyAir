@@ -55,7 +55,7 @@ class Flight
     $statement->execute();
     $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    var_dump($bookings);
+
 
         if($bookings[0]['status'] === 'booked'){
             $go_available_seats = $bookings[0]['go_available_seats'];
@@ -63,10 +63,10 @@ class Flight
             $go_flight_id = $bookings[0]['go_flight_id'];
             
             $stmt = $db->query('UPDATE flights SET available_seats = '. $go_available_seats - $nb_pax . ' WHERE flight_id = ' . $go_flight_id . ";");
-            var_dump($stmt);
+
             $newFlight = $stmt->execute();
             
-            var_dump($newFlight);
+
         }
         
 
@@ -87,7 +87,7 @@ class Flight
         $statement->execute();
         $bookingsRet = $statement->fetchAll(PDO::FETCH_ASSOC);
     
-        var_dump($bookingsRet);
+
     
             if($bookingsRet[0]['status'] === 'booked'){
                 $return_available_seats = $bookingsRet[0]['return_available_seats'];
@@ -98,7 +98,7 @@ class Flight
                 var_dump($stmt);
                 $newFlightRet = $stmt->execute();
                 
-                var_dump($newFlightRet);
+
             }
             
     
