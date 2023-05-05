@@ -28,7 +28,7 @@
     session_start();
     if(empty($_SESSION['name'])){
         ?><div class="align-self-center">
-                <div class="p-2"><a class="btn btn-danger btn-lg" href="login.php" role="button">Login</a></div>
+                <div class="p-2"><a class="btn btn-secondary btn-lg" href="login.php" role="button">Login</a></div>
             </div> <?php
             // print_r($_SESSION['name']);
     } else {

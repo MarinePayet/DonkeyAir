@@ -22,7 +22,7 @@ require_once 'footer.php';
 
         <div>
 
-            <button class="btn btn-lg btn-custom" id="submit" value ="LOGIN" type="submit">Connexion</button>
+            <button class="btn btn-lg btn-secondary btn-custom" id="submit" value ="LOGIN" type="submit">Connexion</button>
         </div>
     </form>
 </main>

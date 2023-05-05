@@ -34,26 +34,26 @@ if (empty($_POST['email']['0'])) {
                     foreach ($flights as $flight) : ?>
                         <p><?php echo $flight['departure_time'] ?> </p>
                         <p><?php echo $flight['go_airport'] ?> </p>
-            </div>
-            <div>
-                <h1>✈️</h1>
-            </div>
-            <div>
-                <p><?php echo $flight['arrival_time'] ?> </p>
-                <p><?php echo $flight['arrival_airport'] ?> </p>
+                            </div>
+                            <div>
+                                <h1>✈️</h1>
+                            </div>
+                            <div>
+                                <p><?php echo $flight['arrival_time'] ?> </p>
+                                <p><?php echo $flight['arrival_airport'] ?> </p>
 
-            </div>
-        </div>
-        <div class="div-info-vol">
-            <p>Numero de vol : <?php echo $flight['flight_number'] ?></p>
-        </div>
-        <div class="div-recap">
-            <div>
-                <p>Tarifs : <?php echo $flight['price'] ?> €</p>
-            </div>
-        </div </div>
-    </div>
-<?php
+                            </div>
+                        </div>
+                        <div class="div-info-vol">
+                            <p>Numero de vol : <?php echo $flight['flight_number'] ?></p>
+                        </div>
+                        <div class="div-recap">
+                            <div>
+                                <p>Tarifs : <?php echo $flight['price'] ?> €</p>
+                            </div>
+                        </div </div>
+                    </div>
+                <?php
                     endforeach;
                 }
 ?>
@@ -69,40 +69,39 @@ if (empty($_POST['email']['0'])) {
             if (isset($_SESSION['return_id'])) {
                 $db = DataBase::getPdo();
                 $statement = $db->query('SELECT return_airport.city as return_airport, arrival_airport.city as arrival_airport, departure_time, arrival_time, flight_number, price
-                            FROM flights
-                            LEFT JOIN airports as return_airport ON return_airport.airport_id = flights.departure_airport_id
-                            LEFT JOIN airports as arrival_airport ON arrival_airport.airport_id = flights.arrival_airport_id
-                            WHERE flight_id = ' . $_SESSION['return_id']);
+                        FROM flights
+                        LEFT JOIN airports as return_airport ON return_airport.airport_id = flights.departure_airport_id
+                        LEFT JOIN airports as arrival_airport ON arrival_airport.airport_id = flights.arrival_airport_id
+                        WHERE flight_id = ' . $_SESSION['return_id']);
                 $statement->execute();
                 $flights = $statement->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($flights as $flight) : ?>
                     <p><?php echo $flight['departure_time'] ?> </p>
                     <p><?php echo $flight['return_airport'] ?> </p>
-        </div>
-        <div>
-            <h1>✈️</h1>
-        </div>
-        <div>
-            <p><?php echo $flight['arrival_time'] ?> </p>
-            <p><?php echo $flight['arrival_airport'] ?> </p>
-        </div>
-    </div>
-    <div class="div-info-vol">
-        <p>Numero de vol : <?php echo $flight['flight_number'] ?></p>
-    </div>
-    <div class="div-recap">
-        <div>
-            <p>Tarifs : <?php echo $flight['price'] ?> €</p>
-        </div>
+                            </div>
+                            <div>
+                                <h1>✈️</h1>
+                            </div>
+                            <div>
+                                <p><?php echo $flight['arrival_time'] ?> </p>
+                                <p><?php echo $flight['arrival_airport'] ?> </p>
+                            </div>
+                        </div>
+                        <div class="div-info-vol">
+                            <p>Numero de vol : <?php echo $flight['flight_number'] ?></p>
+                        </div>
+                        <div class="div-recap">
+                            <div>
+                                <p>Tarifs : <?php echo $flight['price'] ?> €</p>
+                            </div>
 
-    </div>
-</div>
-</div>
-<?php
+                        </div>
+                    </div>
+                    </div>
+                    <?php
                 endforeach;
             }
-
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $nb_pax = $_SESSION['nb_pax'];
@@ -121,20 +120,17 @@ if (empty($_POST['email']['0'])) {
 
                 $_SESSION['passengers'] = $passengers;
             }
-
 ?>
 
 </br>
 
 <div class="container-xl">
 
-
     <p><?php echo "Nombre de voyageur : " . $_SESSION['nb_pax'] ?></p><?php
-                                                                        $paxpax = Passenger::viewPax($_SESSION['nb_pax']);
-                                                                        for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
-                                                                            $pax = $paxpax[$i];
-                                                                        ?>
-
+        $paxpax = Passenger::viewPax($_SESSION['nb_pax']);
+        for ($i = 0; $i < $_SESSION['nb_pax']; $i++) {
+            $pax = $paxpax[$i];
+        ?>
 
         <div class="card border-dark mb-3" style="max-width: 18rem;">
             <div class="card-header">Passager <?php echo $i + 1; ?></div>
@@ -147,17 +143,10 @@ if (empty($_POST['email']['0'])) {
                 <p class="card-text">Date de naissance: <?php echo $pax['birthdate']; ?></p>
                 <p class="card-text">Numéro de passeport: <?php echo $pax['passport_number']; ?></p>
 
-
-
-
-
-
             </div>
         </div>
     <?php
-
-
-                                                                        }
+        }
 
     ?>
 </div>
