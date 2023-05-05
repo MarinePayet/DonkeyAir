@@ -285,6 +285,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 card-text {
@@ -305,8 +306,10 @@ card-text {
   align-items: center;
   width: 100%;
   height: 100%;
-  
 
+} 
 
-  
+.contour-flight{
+  border-style: solid;
+  border-color: #b22d7d;
 }
