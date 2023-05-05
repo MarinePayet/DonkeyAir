@@ -238,4 +238,8 @@ form {
   justify-content: center;
   align-items: center;
 } 
-    
+
+.contour-flight{
+  border-style: solid;
+  border-color: #b22d7d;
+}
