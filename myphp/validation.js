@@ -61,14 +61,9 @@ function Pay(){
     const pay = document.getElementById("pay");
 
     if (pay) {
-        if (pay.value == "") { 
-                    
-
-        }alert("Votre paiement a été effectué");
+        alert("Votre paiement a bien été effectué");
     }
 }
-
-
 
 
 
