@@ -56,4 +56,19 @@ function fetchData(type, flightId){
 })
 }
 
+function Pay(){
+
+    const pay = document.getElementById("pay");
+
+    if (pay) {
+        if (pay.value == "") { 
+                    
+
+        }alert("Votre paiement a été effectué");
+    }
+}
+
+
+
+
 
