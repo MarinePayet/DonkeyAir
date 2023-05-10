@@ -10,7 +10,6 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
     $usermail = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-
 try {
     if($usermail !== "" && $password !== ""){ 
 
@@ -25,9 +24,6 @@ try {
 
         $reponse = $statement->execute();
         $count = $statement->fetchColumn();
-        
-
-
 
         if($count){
         
@@ -36,7 +32,6 @@ try {
             $statement = $db->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC);
                 var_dump($result = $statement->fetch());
                 
-            
             var_dump($_SESSION['name'] = $result['name']);
             var_dump($_SESSION['user_id'] = $result['user_id']);
             ?>

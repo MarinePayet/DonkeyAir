@@ -8,8 +8,7 @@ require_once 'Airport.php';
 
 ?>
 
-
-<body style="background-image: url('pexels-nicole-avagliano-2236703.jpg');background-repeat: no-repeat;background-size: cover;">
+<body style="background-image: url('../myphp/img/pexels-nicole-avagliano-2236713.jpg');background-repeat: no-repeat;background-size: cover;">
 
     <div class="container text-center">
         <div class="row align-items-start">
@@ -20,6 +19,13 @@ require_once 'Airport.php';
         </div>
     </div>
     <br>
+
+    <?php
+    if(!isset($_SESSION['user_id'])){
+
+        ?><a href="login.php"> Connectez-vous</a>
+
+   <?php }?>
 
     <div class="container-lg">
         <form action="flightlist.php" method="POST">
@@ -38,14 +44,23 @@ require_once 'Airport.php';
 
             <label for="date-retour">Date de retour :</label>
             <input type="date" id="date-retour"  name="date_retour" onchange="validateDates()"min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+6 months')); ?>" <?php if (isset($_POST['date_depart']) && strtotime(date('Y-m-d')) > strtotime($_POST['date_depart'])) { echo 'class="date-grisee"'; } ?> required>
-            <label for="passagers">Passagers:</label>
+            <label for="passagers">Passagers Adultes:</label>
             <select class="form-select" aria-label="Default select example" id="passagers" name="pax">
-                <option value="1" name="1">1 adulte, 0 enfant</option>
-                <option value="2" name="2">1 adulte, 1 enfant</option>
-                <option value="3" name="3">1 adulte, 2 enfants</option>
-                <option value="2" name="2">2 adultes, 0 enfant</option>
-                <option value="4" name="4">2 adultes, 2 enfant</option>
-                <option value="5" name="5">2 adultes, 3 enfants</option>
+                <option value="1" name="1">1</option>
+                <option value="2" name="2">2</option>
+                <option value="3" name="3">3</option>
+                <option value="4" name="4">4</option>
+                <option value="5" name="5">5</option>
+                <option value="6" name="6">6</option>
+            </select>
+            <label for="passagers">Passagers Enfants:</label>
+            <select class="form-select" aria-label="Default select example" id="passagers" name="pax-kids">
+            <option value="1" name="1">1</option>
+                <option value="2" name="2">2</option>
+                <option value="3" name="3">3</option>
+                <option value="4" name="4">4</option>
+                <option value="5" name="5">5</option>
+                <option value="6" name="6">6</option>
             </select>
 
             <input type="submit" value="Envoyer">

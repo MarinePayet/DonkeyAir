@@ -5,6 +5,10 @@ require_once 'footer.php';
 require_once 'Database.php';
 require_once 'Flight.php';
 
+
+
+
+
 ?>
 <title>Liste de vols</title>
 <br>
@@ -19,7 +23,7 @@ require_once 'Flight.php';
 		
 	?>
 
-		<table class="container-md table table-striped table-hover contour-flight ">
+		<table class=" table table-striped table-hover ">
 			<?php 
 			$flights = Flight::findByDestination($_POST['destination']) ?>
 
@@ -47,7 +51,7 @@ require_once 'Flight.php';
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<td><button  type="button" class="btn btn-secondary" onclick="fetchData('go_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
+					<td><button type="button" class="btn btn-primary" onclick="fetchData('go_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 
 					<?php if (isset($_SESSION['go_id']) && $flight['flight_id'] === $_SESSION['go_id']) {
 						echo "<td><h5>✓</h5></td>";
@@ -60,7 +64,7 @@ require_once 'Flight.php';
 
 	<br>
 	
-		<table class="container-md table table-striped table-hover contour-flight">
+		<table class="table table-striped table-hover">
 		<?php $_SESSION['return_date'] = $_POST['date_retour']?>
 			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo date('d-m-Y', strtotime($_POST['date_retour'])); ?> -> PARIS</p>
 			<tr class="table">
@@ -86,14 +90,14 @@ require_once 'Flight.php';
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<td><button type="button" class="btn btn-secondary" onclick="fetchData('return_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
+					<td><button type="button" class="btn btn-primary" onclick="fetchData('return_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
 
 					<?php if (isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
 						echo "<td><h5>✓</h5></td>";
 					} ?>
 			</tr>
 		<?php
-					}
+		}
 				}
 		?>
 		</table>
