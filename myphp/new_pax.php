@@ -55,8 +55,12 @@ require_once 'Passenger.php';
                     </div>
 
                     <div class="form-pax">
-                         <label for="name">Nom Prénom :</label>
-                         <input type="text" id="name" name="name[<?php echo $i; ?>]">
+                         <label for="name">Nom :</label>
+                         <input type="text" id="name" name="lastname[<?php echo $i; ?>]">
+                    </div>
+                    <div class="form-pax">
+                         <label for="name">Prénom :</label>
+                         <input type="text" id="name" name="firstname[<?php echo $i; ?>]">
                     </div>
 
                     <div class="form-pax">

@@ -18,4 +18,4 @@ var_dump(Flight::updateAvailableSeatsReturn($lastBooking));
 
 // Flight::updateSeatsAvailable();
 
-header('Location: historic.php');
+header('Location: history.php');

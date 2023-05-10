@@ -25,35 +25,22 @@ class Flight
         return $flights;
     }
     
-    // public static function lastBooking(){
-    //     $db = DataBase::getPdo();
-    //     $statement = $db->query('SELECT users.user_id, go_flight_id.flight_id as go_flight_id, go_available_seats.available_seats as go_available_seats,
-    //     go_capacity.capacity as go_capacity, bookings.booking_id, bookings.nb_pax, bookings.status
-    //     FROM bookings
-    //     LEFT JOIN users ON users.user_id = bookings.user_id
-    //     LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go_id
-    //     LEFT JOIN flights as go_available_seats ON go_available_seats.flight_id = bookings.flight_go_id
-    //     LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_id;');
-    //     $statement->execute();
-    //     $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-    //     return $lastBooking = $db->lastInsertId();
-        
-    //     }
+    
     public static function updateAvailableSeatsGo($lastBooking){
 
-        $db = DataBase::getPdo();
-        $statement = $db->query('SELECT users.user_id, go_flight_id.flight_id as go_flight_id, go_available_seats.available_seats as go_available_seats, go_capacity.capacity as go_capacity,
-        bookings.booking_id, bookings.nb_pax, bookings.status
-        FROM bookings
-        LEFT JOIN users ON users.user_id = bookings.user_id
-        LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go_id
-        LEFT JOIN flights as go_available_seats ON go_available_seats.flight_id = bookings.flight_go_id
-        LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_id
-        WHERE booking_id = '. $lastBooking . ';');
-        $statement->execute();
-        $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $db = DataBase::getPdo();
+    $statement = $db->query('SELECT users.user_id, go_flight_id.flight_id as go_flight_id, go_available_seats.available_seats as go_available_seats, go_capacity.capacity as go_capacity,
+    bookings.booking_id, bookings.nb_pax, bookings.status
+    FROM bookings
+    LEFT JOIN users ON users.user_id = bookings.user_id
+    LEFT JOIN flights as go_flight_id ON go_flight_id.flight_id = bookings.flight_go_id
+    LEFT JOIN flights as go_available_seats ON go_available_seats.flight_id = bookings.flight_go_id
+    LEFT JOIN flights as go_capacity ON go_capacity.flight_id = bookings.flight_go_id
+    WHERE booking_id = '. $lastBooking . ';');
+    $statement->execute();
+    $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
 
         if($bookings[0]['status'] === 'booked'){
             $go_available_seats = $bookings[0]['go_available_seats'];
@@ -95,10 +82,35 @@ class Flight
             $newFlightRet = $stmt->execute();
             
         }
+            
+    
+    }
+    
+    public static function queryRecapGo($goId){
+        $db = DataBase::getPdo();
+        $statement = $db->query('SELECT go_airport.city as go_airport, arrival_airport.city as arrival_airport, departure_time, arrival_time, flight_number, price
+            FROM flights
+            LEFT JOIN airports as go_airport ON go_airport.airport_id = flights.departure_airport_id
+            LEFT JOIN airports as arrival_airport ON arrival_airport.airport_id = flights.arrival_airport_id
+            WHERE flight_id = ' . $goId);
+        $statement->execute();
+        return $flights = $statement->fetchAll(PDO::FETCH_ASSOC);
+        
+    }
 
-    
-        }
-    
+
+    public static function queryRecapReturn($returnId){
+
+        $db = DataBase::getPdo();
+        $statement = $db->query('SELECT return_airport.city as return_airport, arrival_airport.city as arrival_airport, departure_time, arrival_time, flight_number, price
+            FROM flights
+            LEFT JOIN airports as return_airport ON return_airport.airport_id = flights.departure_airport_id
+            LEFT JOIN airports as arrival_airport ON arrival_airport.airport_id = flights.arrival_airport_id
+            WHERE flight_id = ' . $returnId);
+        $statement->execute();
+        return $flights = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 
 
 }

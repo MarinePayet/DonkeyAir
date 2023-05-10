@@ -6,12 +6,13 @@ require_once 'Database.php';
 class Passenger {
     
 
-    public static function createPassenger($name, $email, $phone, $birthdate, $passport_number) {
+    public static function createPassenger($lastname, $firstname, $email, $phone, $birthdate, $passport_number) {
 
         $db = Database::getPdo();
-        $query = 'INSERT INTO passengers (name, email, phone, birthdate, passport_number) VALUES (:name, :email, :phone, :birthdate, :passport_number)';
+        $query = 'INSERT INTO passengers (lastname, firstname, email, phone, birthdate, passport_number) VALUES (:lastname, :firstname, :email, :phone, :birthdate, :passport_number)';
         $stmt = $db->prepare($query);
-        $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+        $stmt->bindValue(':lastname', $lastname, \PDO::PARAM_STR);
+        $stmt->bindValue(':firstname', $firstname, \PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
         $stmt->bindValue(':phone', $phone, \PDO::PARAM_STR);
         $stmt->bindValue(':birthdate', $birthdate, \PDO::PARAM_STR);
@@ -20,9 +21,7 @@ class Passenger {
 
         return self::getPassenger($db->lastInsertId());
         
-    }
-
-    
+    }    
 
     public static function getPassenger($passenger_id) {
         $db = Database::getPdo();
@@ -35,6 +34,8 @@ class Passenger {
 
 }
 
+    //affiche les derniers passagers enregistrer, selon le nombre de passagers sélectionner dans la homepage
+
     public static function viewPax($nb_pax) {
         $db = Database::getPdo();
         $query = 'SELECT * FROM passengers
@@ -45,11 +46,10 @@ class Passenger {
         $view_pax= $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
         return $view_pax;
-        
-
-
 
     }
+
+    //affiche autant de formulaire que de passagers
 
     public static function ftcForm($nbPax){
 
@@ -69,8 +69,12 @@ class Passenger {
                 </div>
 
                 <div class="form-pax">
-                    <label for="name">Nom Prénom :</label>
-                    <input type="text" id="name" name="name">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="lastname">
+                </div>
+                <div class="form-pax">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="firsttname">
                 </div>
 
                 <div class="form-pax">
@@ -100,11 +104,6 @@ class Passenger {
     </div>
 
         <?php }
-
-
-
-
-
 
         
     }

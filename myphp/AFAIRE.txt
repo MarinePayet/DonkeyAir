@@ -1,0 +1,10 @@
+_Optimiser le code
+_Faire un MVC
+_amélio css
+_Gérer la Connexion sur chaque page (si pas connecter peut pas faire)
+_gerer l'age des passagers (faire en sorte qu'on ne puisse pas meme une certaine date de naissance)
+_Sur page login : gérer les messages d'erreur de connexion(cf video cédric) et bonder les values
+_Mettre à jour l'historique
+_Gérer le homme/femme
+_Pour la capacité, faire attention de recheker avant la validation.
+_alert message pour le paiement

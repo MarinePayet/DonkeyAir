@@ -94,8 +94,10 @@ class Booking
                                 <div>
                                     <p>Tarifs :</p>
                                     <p><?php echo (($resas[$i]['go_price'] + $resas[$i]['return_price'])*$resas[$i]['nb_pax'])+$resas[$i]['total_option_price']?> €</p>
-            
                                 </div>
+                                <div>
+                                <a href="/delete.php?id=<?php echo $resas[$i]['booking_id']; ?>" onclick="return confirm('Etes vous sur ?');">Supprimer</a>
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -115,7 +117,6 @@ class Booking
         $nb_pax = $_SESSION['nb_pax'];
         $flight_return_id = $_SESSION['return_id'];
         $total_option_price = $_SESSION['total_option_price'];
-
         
         $query = 'INSERT INTO bookings (user_id, flight_go_id, status, nb_pax, flight_return_id, total_option_price) VALUES (:user_id, :flight_go_id, :status, :nb_pax, :flight_return_id, :total_option_price)';
         $stmt = $db->prepare($query);
@@ -139,7 +140,6 @@ class Booking
             header('Location: homepage.php');
         }
         
-
     }
 
 
