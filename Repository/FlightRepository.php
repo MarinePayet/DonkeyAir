@@ -2,7 +2,6 @@
 
 class FlightRepository extends ParentRepository
 {
-    protected $pdo;
 
     private AirportRepository $airportRepository;
 
@@ -29,7 +28,6 @@ class FlightRepository extends ParentRepository
 
             $flight->setAirport($airport);
         }
-        
         
         return $flights;
     }
