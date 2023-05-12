@@ -14,7 +14,7 @@ class FlightController
     {
         $flight = 'Liste des vols';
 
-        $flights = $this->flightRepository->getFlights();
+        $flights = $this->flightRepository->getFlightsToGo();
 
 
         include BASE_PATH . '/View/header.html.php';
