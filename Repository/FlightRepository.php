@@ -13,7 +13,7 @@ class FlightRepository extends ParentRepository
         $this->airportRepository = new AirportRepository($pdo);
     }
 
-    public function getFlights(array $filters=[])
+    public function getFlightsToGo(array $filters=[])
     {
         $flightSql = "SELECT * FROM " . DB_TABLE_FLIGHTS . ' f ';
         $flightStmt = $this->pdo->prepare($flightSql);
@@ -24,15 +24,15 @@ class FlightRepository extends ParentRepository
         $flights = $flightStmt->fetchAll();
         
         foreach($flights as $flight){
-            $airport = $this->airportRepository->getAirportById($flight->getDepartureAirportId());
+            $airportGo = $this->airportRepository->getAirportById($flight->getDepartureAirportId());
+            $airportArrival = $this->airportRepository->getAirportById($flight->getArrivalAirportId());
 
-            $flight->setAirport($airport);
+            $flight->setAirportGo($airportGo);
+            $flight->setAirportArrival($airportArrival);
         }
         
         return $flights;
     }
-
-
 
 
 }

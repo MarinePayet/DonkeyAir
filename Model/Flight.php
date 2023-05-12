@@ -12,7 +12,9 @@ class Flight
     private int $available_seats;
     private int $capacity;
     private string $date;
-    private Airport $airport;
+    private Airport $airportGo;
+    private Airport $airportArrival;
+
     
 
 
@@ -83,18 +85,19 @@ class Flight
         $this->date = $date;
     }
     
-    public function getAirport(){
-        return $this->airport;
+    public function getAirportGo(){
+        return $this->airportGo;
     }
-    public function setAirport(Airport $airport){
-        $this->airport = $airport;
+    public function setAirportGO(Airport $airportGo){
+        $this->airportGo = $airportGo;
     }
-    // public function getAirportId(){
-    //     return $this->airport_id;
-    // }
-    // public function setAirportId(Airport $airport){
-    //     $this->airport_id = $airport_id;
-    // }
+    
+    public function getAirportArrival(){
+        return $this->airportArrival;
+    }
+    public function setAirportArrival(Airport $airportArrival){
+        $this->airportArrival = $airportArrival;
+    }
     
 
 }
