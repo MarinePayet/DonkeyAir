@@ -2,14 +2,14 @@
 
 class Airport 
 {
-    private int $airport_id;
+    private int $id;
     private string $name;
     private string $city;
     private string $country;
 
 
     public function getAirportId(){
-        return $this->airport_id;
+        return $this->id;
     }
     
     public function getName(){

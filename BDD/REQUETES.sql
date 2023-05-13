@@ -195,3 +195,14 @@ SELECT users.user_id, return_flight_id.flight_id as return_flight_id, return_ava
         LEFT JOIN flights as return_available_seats ON return_available_seats.flight_id = bookings.flight_return_id
         LEFT JOIN flights as return_capacity ON return_capacity.flight_id = bookings.flight_return_id
         WHERE booking_id = 140;
+
+
+ALTER TABLE flights
+CHANGE flight_id id INT
+
+ALTER TABLE flights
+  RENAME COLUMN flight_id TO id
+  ALGORITHM=INPLACE;
+
+ALTER TABLE users
+  CHANGE COLUMN user_id id INT(11) NOT NULL AUTO_INCREMENT;

@@ -2,7 +2,7 @@
 
 class Flight 
 {
-    private int $flight_id;
+    private int $id;
     private int $flight_number;
     private int $departure_airport_id;
     private string $departure_time;
@@ -19,7 +19,7 @@ class Flight
 
 
     public function getId(){
-        return $this->flight_id;
+        return $this->id;
     }
 
     public function getFlightNumber(){
