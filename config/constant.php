@@ -6,5 +6,7 @@ define('DB_PASS','');
 
 define('DB_TABLE_FLIGHTS', 'flights');
 define('DB_TABLE_AIRPORT', 'airports');
+define('DB_TABLE_USER', 'users');
+
 
 define('BASE_PATH', '/Users/marinepayet/Documents/1.1_DonkeySchool/DonkeyAir');
