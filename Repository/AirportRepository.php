@@ -8,14 +8,14 @@ class AirportRepository extends ParentRepository
         parent::__construct($pdo, DB_TABLE_AIRPORT, Airport::class);
     }
     
-    public function getAirportById(int $id)
-    {
-        $itemSql = "SELECT * FROM " . $this->table . " WHERE airport_id = " . $id ;
-        $itemStmt = $this->pdo->query($itemSql);
+    // public function getAirportById(int $id)
+    // {
+    //     $itemSql = "SELECT * FROM " . $this->table . " WHERE id = " . $id ;
+    //     $itemStmt = $this->pdo->query($itemSql);
 
-        $itemStmt->setFetchMode(PDO::FETCH_CLASS, $this->tableClass);
+    //     $itemStmt->setFetchMode(PDO::FETCH_CLASS, $this->tableClass);
 
-        return $itemStmt->fetch();
-    }
+    //     return $itemStmt->fetch();
+    // }
         
 }

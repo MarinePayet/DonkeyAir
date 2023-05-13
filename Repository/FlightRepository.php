@@ -24,8 +24,8 @@ class FlightRepository extends ParentRepository
         $flights = $flightStmt->fetchAll();
         
         foreach($flights as $flight){
-            $airportGo = $this->airportRepository->getAirportById($flight->getDepartureAirportId());
-            $airportArrival = $this->airportRepository->getAirportById($flight->getArrivalAirportId());
+            $airportGo = $this->airportRepository->getItemById($flight->getDepartureAirportId());
+            $airportArrival = $this->airportRepository->getItemById($flight->getArrivalAirportId());
 
             $flight->setAirportGo($airportGo);
             $flight->setAirportArrival($airportArrival);
