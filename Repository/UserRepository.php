@@ -14,6 +14,9 @@ class UserRepository extends ParentRepository
 
 
     public function verificationUser(){
+        if(!session_id()){
+            session_start();
+        }
 
         if(isset($_POST['email']) && isset($_POST['password'])) {
             $usermail = trim($_POST['email']);
@@ -34,13 +37,14 @@ class UserRepository extends ParentRepository
                 if($count){
                 
                     header('Location: ../flight/list');
-                    echo "Vous existez!";
         
                     $statement = $this->pdo->query('SELECT * FROM users WHERE email= "' . $usermail . '"', PDO::FETCH_ASSOC);
                     $result = $statement->fetch();
                         
                     $_SESSION['name'] = $result['name'];
                     $_SESSION['user_id'] = $result['id'];
+                    var_dump($_SESSION['name']);
+                    var_dump($_SESSION['user_id']);
                     ?>
                     <a class="btn btn-primary btn-lg" href="homepage.php">Commencer la recherche</a></div>
                     <?php 

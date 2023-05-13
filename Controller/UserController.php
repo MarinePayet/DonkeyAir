@@ -21,10 +21,6 @@ class UserController
             $this->userRepository->verificationUser($_POST);
         };
 
-
-
-
-
         $flight = "Bienvenue Chez DonkeyAir";
         
         include BASE_PATH . '/View/header.html.php';
