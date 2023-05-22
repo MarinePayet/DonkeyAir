@@ -33,7 +33,7 @@ try {
                 var_dump($result = $statement->fetch());
                 
             var_dump($_SESSION['name'] = $result['name']);
-            var_dump($_SESSION['user_id'] = $result['user_id']);
+            var_dump($_SESSION['user_id'] = $result['id']);
             ?>
             <a class="btn btn-primary btn-lg" href="homepage.php">Commencer la recherche</a></div>
             <?php 

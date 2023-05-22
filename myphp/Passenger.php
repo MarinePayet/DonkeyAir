@@ -25,7 +25,7 @@ class Passenger {
 
     public static function getPassenger($passenger_id) {
         $db = Database::getPdo();
-        $query = 'SELECT * FROM passengers WHERE passenger_id = :passenger_id';
+        $query = 'SELECT * FROM passengers WHERE passengers.id = :passenger_id';
         $stmt = $db->prepare($query);
         $stmt->bindValue(':passenger_id', $passenger_id);
         $stmt->execute();
@@ -39,7 +39,7 @@ class Passenger {
     public static function viewPax($nb_pax) {
         $db = Database::getPdo();
         $query = 'SELECT * FROM passengers
-        ORDER BY passenger_id DESC
+        ORDER BY passengers.id DESC
         LIMIT ' . $nb_pax;
         $stmt = $db->prepare($query);
         $stmt->execute();

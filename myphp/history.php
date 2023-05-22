@@ -8,6 +8,7 @@ require_once 'Flight.php';
 
 if(isset($_SESSION['user_id'])){
 
+    
     ?>
     <div class="div-recap">
         <p>VOL A VENIR</p>
