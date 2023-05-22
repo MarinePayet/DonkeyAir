@@ -23,7 +23,7 @@ require_once 'Flight.php';
 		
 	?>
 
-		<table class=" table table-striped table-hover ">
+		<table class=" table table-striped table-hover container-sm ">
 			<?php 
 			$flights = Flight::findByDestination($_POST['destination']) ?>
 
@@ -46,6 +46,8 @@ require_once 'Flight.php';
 					
 					?>
 				<tr>
+					<td><?php echo $flight['flight_id']; ?></td>
+					<td><?php echo $_POST['destination']; ?></td>
 					<td><?php echo $flight['departure_time']; ?></td>
 					<td><?php echo $flight['arrival_time']; ?></td>
 					<td><?php echo $flight['flight_number']; ?></td>
@@ -64,7 +66,7 @@ require_once 'Flight.php';
 
 	<br>
 	
-		<table class="table table-striped table-hover">
+		<table class="table table-striped table-hover container-sm">
 		<?php $_SESSION['return_date'] = $_POST['date_retour']?>
 			<p class="text-uppercase fw-bold fs-4">Vol retour le <?php echo date('d-m-Y', strtotime($_POST['date_retour'])); ?> -> PARIS</p>
 			<tr class="table">
@@ -90,9 +92,9 @@ require_once 'Flight.php';
 					<td><?php echo $flight['flight_number']; ?></td>
 					<td><?php echo $flight['available_seats']; ?></td>
 					<td><?php echo $flight['price']; ?></td>
-					<td><button type="button" class="btn btn-primary" onclick="fetchData('return_id', <?php echo $flight['flight_id']; ?>)">Choisir</button></td>
+					<td><button type="button" class="btn btn-primary" onclick="fetchData('return_id', <?php echo $flight['id']; ?>)">Choisir</button></td>
 
-					<?php if (isset($_SESSION['return_id']) && $flight['flight_id'] === $_SESSION['return_id']) {
+					<?php if (isset($_SESSION['return_id']) && $flight['id'] === $_SESSION['return_id']) {
 						echo "<td><h5>✓</h5></td>";
 					} ?>
 			</tr>

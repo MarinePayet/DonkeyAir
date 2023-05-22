@@ -206,3 +206,26 @@ ALTER TABLE flights
 
 ALTER TABLE users
   CHANGE COLUMN user_id id INT(11) NOT NULL AUTO_INCREMENT;
+
+USE donkeyair;
+
+SELECT *, city FROM flights LEFT JOIN airports ON airports.id = flights.arrival_airport_id
+WHERE arrival_airport_id = 1;
+
+SELECT * FROM flights;
+
+SELECT users.id, go_flight_id.id as go_flight_id, go_available_seats.available_seats as go_available_seats, go_capacity.capacity as go_capacity,
+    bookings.id, bookings.nb_pax, bookings.status
+    FROM bookings
+    LEFT JOIN users ON users.id = bookings.user_id
+    LEFT JOIN flights as go_flight_id ON go_flight_id.id = bookings.flight_go_id
+    LEFT JOIN flights as go_available_seats ON go_available_seats.id = bookings.flight_go_id
+    LEFT JOIN flights as go_capacity ON go_capacity.id = bookings.flight_go_id
+    WHERE bookings.id = 1;
+
+
+
+
+SELECT flights.id as flight_id, flight_number, departure_airport_id, departure_time, arrival_airport_id, arrival_time, price, available_seats,capacity, city FROM flights 
+LEFT JOIN airports ON airports.id = flights.arrival_airport_id
+WHERE arrival_airport_id = 3;

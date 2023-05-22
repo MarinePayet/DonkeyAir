@@ -7,13 +7,13 @@ class Booking
     {
 
         $db = Database::getPdo();
-        $statement = $db->query('SELECT users.user_id, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time,go_dpt_time.date as go_date, return_dpt_time.departure_time as return_dpt_time, return_dpt_time.date as return_date, go_dpt_time.price as go_price, return_dpt_time.price as return_price, booking_id, nb_pax, status, total_option_price
+        $statement = $db->query('SELECT users.id, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time,go_dpt_time.date as go_date, return_dpt_time.departure_time as return_dpt_time, return_dpt_time.date as return_date, go_dpt_time.price as go_price, return_dpt_time.price as return_price, bookings.id, nb_pax, status, total_option_price
         FROM bookings 
-        LEFT JOIN users ON users.user_id = bookings.user_id 
-        LEFT JOIN flights as go_dpt_time ON go_dpt_time.flight_id = bookings.flight_go_id
-        LEFT JOIN flights as return_dpt_time ON return_dpt_time.flight_id = bookings.flight_return_id
-        LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id
-        WHERE users.user_id = ' . $_SESSION['user_id'] . ' ORDER BY go_date ASC');
+        LEFT JOIN users ON users.id = bookings.user_id 
+        LEFT JOIN flights as go_dpt_time ON go_dpt_time.id = bookings.flight_go_id
+        LEFT JOIN flights as return_dpt_time ON return_dpt_time.id = bookings.flight_return_id
+        LEFT JOIN airports ON airports.id = go_dpt_time.arrival_airport_id
+        WHERE users.id = ' . $_SESSION['user_id'] . ' ORDER BY go_date ASC');
         $resas = $statement->fetchall(); ?>
 
         <?php for($i=0; $i<count($resas); $i++){
@@ -57,13 +57,13 @@ class Booking
     {
 
         $db = Database::getPdo();
-        $statement = $db->query('SELECT users.user_id, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time,go_dpt_time.date as go_date, return_dpt_time.departure_time as return_dpt_time, return_dpt_time.date as return_date, go_dpt_time.price as go_price, return_dpt_time.price as return_price, booking_id, nb_pax, status, total_option_price
+        $statement = $db->query('SELECT users.id, airports.city as airport_arrival, go_dpt_time.departure_time as go_dpt_time,go_dpt_time.date as go_date, return_dpt_time.departure_time as return_dpt_time, return_dpt_time.date as return_date, go_dpt_time.price as go_price, return_dpt_time.price as return_price, bookings.id, nb_pax, status, total_option_price
         FROM bookings 
-        LEFT JOIN users ON users.user_id = bookings.user_id 
-        LEFT JOIN flights as go_dpt_time ON go_dpt_time.flight_id = bookings.flight_go_id
-        LEFT JOIN flights as return_dpt_time ON return_dpt_time.flight_id = bookings.flight_return_id
-        LEFT JOIN airports ON airports.airport_id = go_dpt_time.arrival_airport_id
-        WHERE users.user_id = ' . $_SESSION['user_id'] . ' ORDER BY go_date DESC');
+        LEFT JOIN users ON users.id = bookings.user_id 
+        LEFT JOIN flights as go_dpt_time ON go_dpt_time.id = bookings.flight_go_id
+        LEFT JOIN flights as return_dpt_time ON return_dpt_time.id = bookings.flight_return_id
+        LEFT JOIN airports ON airports.id = go_dpt_time.arrival_airport_id
+        WHERE users.id = ' . $_SESSION['user_id'] . ' ORDER BY go_date DESC');
 
         $resas = $statement->fetchall(); 
             for($i=0; $i<count($resas); $i++){
@@ -96,7 +96,7 @@ class Booking
                                     <p><?php echo (($resas[$i]['go_price'] + $resas[$i]['return_price'])*$resas[$i]['nb_pax'])+$resas[$i]['total_option_price']?> €</p>
                                 </div>
                                 <div>
-                                <a href="/delete.php?id=<?php echo $resas[$i]['booking_id']; ?>" onclick="return confirm('Etes vous sur ?');">Supprimer</a>
+                                <a href="/delete.php?id=<?php echo $resas[$i]['id']; ?>" onclick="return confirm('Etes vous sur ?');">Supprimer</a>
                                 </div> 
                             </div>
                         </div>

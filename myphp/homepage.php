@@ -23,9 +23,10 @@ require_once 'Airport.php';
     <?php
     if(!isset($_SESSION['user_id'])){
 
+        
         ?><a href="login.php"> Connectez-vous</a>
 
-   <?php }?>
+<?php }?>
 
     <div class="container-lg">
         <form action="flightlist.php" method="POST">
