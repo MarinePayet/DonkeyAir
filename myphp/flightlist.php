@@ -8,7 +8,6 @@ require_once 'Flight.php';
 
 
 
-
 ?>
 <title>Liste de vols</title>
 <br>
